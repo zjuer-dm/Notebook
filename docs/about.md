@@ -43,7 +43,7 @@
 >身在无间，心在桃源
 
 <div class="header">
-  <img src="picture/about1.png" alt="Image" class="header-image">
+  <img src="/about1.png" alt="Image" class="header-image">
   <div class="header-text">
    <p style="color:blue-grey;margin-left:20px;"> 大二下的课程学习与考试我搞的一团糟，没有办法，现在只好寄希望于大三的学习。接下来面向成绩的学习，来挽回曾经的失误。</p>
    <p style="color:blue-grey;margin-left:60px;"> ————记录于2024.7.3</p>
