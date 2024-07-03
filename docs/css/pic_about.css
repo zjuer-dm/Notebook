@@ -1,0 +1,35 @@
+body {
+  background-color: #f0f0f0; /* 更改背景颜色 */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header img {
+  width: 300px; /* 根据需要调整图片大小 */
+  margin-right: 30px;
+}
+
+.header .links {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.header .header-text {
+  margin-left: 30px; /* 在图片和文本之间添加一些空间 */
+}
+
+.card {
+  width: 27em;
+  border-color: transparent;
+  opacity: 0;
+  font-size: 75%;
+  transition: opacity 0.5s ease-in-out; /* 增加动画效果 */
+}
+
+#statistics {
+  padding-left: 1em;
+}
