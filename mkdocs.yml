@@ -95,8 +95,12 @@ nav:
   - Home: 'index.md'
   - 计算机: 
       - 目录: 'computer/computer.md'
+      - 正则表达式: 'computer/Regular_Expression.md'
+      - javascript: 'computer/javascript.md'
+      - git : 'computer/git.md'
       - Python: 'computer/python.md'
       - OOP: 'computer/oop.md'
+      
   - 关于: 'about.md'
 
 
