@@ -1,4 +1,4 @@
-# Javascript
+## Javascript
 1. HTML 定义了网页的内容
 2. CSS 描述了网页的布局
 3. JavaScript 控制了网页的行为
@@ -30,7 +30,7 @@ function myFunction(){
 </html>
 ```
 
-# HTML
+## HTML
 ```html
 <!DOCTYPE html> 声明为 HTML5 文档  
 <html> 元素是 HTML 页面的根元素  
@@ -41,7 +41,7 @@ function myFunction(){
 <p> 元素定义一个段落  
 ```
 
-# CSS
+## CSS
 
 - CSS 指层叠样式表 (Cascading Style Sheets)
 - 样式定义如何显示 HTML 元素

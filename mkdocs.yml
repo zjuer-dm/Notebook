@@ -17,9 +17,18 @@ extra:
     provider: google
     property: G-XXXXXXXXXX
 
-# extra_css:
-#   - css/pic_about.css
+extra_javascript:
+  - js/katex.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js
+  - assets/js/katex-render.js
 
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
 
 copyright: Copyright &copy; ZJU_RCS
 
@@ -90,7 +99,6 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-
 nav:
   - Home: 'index.md'
   - 计算机: 
@@ -100,7 +108,13 @@ nav:
       - git : 'computer/git.md'
       - Python: 'computer/python.md'
       - OOP: 'computer/oop.md'
-      
+  - 控制主修:
+      -现代控制理论: 'control/control_system.md'
+  - 数学物理方法: 
+      - 复变函数的微积分: 'math_and_physics/复变函数的微积分.md'
+  - 数学知识:
+      - 信息论: 'math/information_theory.md'
   - 关于: 'about.md'
+
 
 

@@ -20,7 +20,7 @@ hide:
 
 
 
-<p>在大二下，偶然发现了计算机的同学们做的笔记，不禁让人耳目一新，从此慢慢开始使用基于 MkDocs 的笔记本。</p>
+<p>在大二下，偶然发现了同学们用mkdocs做的笔记，不禁让人耳目一新，从此慢慢开始使用基于 MkDocs 的笔记本。</p>
 <a style="font-family:arial;color:grey;font-size:20px;text-align:center;" href="https://isshikihugh.github.io/zju-cs-asio/">ZJU CS - All Sum in One!</a>
 <p>在暑假，我开始在Gitpages上部署，这个笔记从2024.07.02 09:10:00开始使用,来记录一些有用的东西。</p>
 
