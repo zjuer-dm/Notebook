@@ -2,12 +2,7 @@
 个人主页使用 material for mkdocs 搭建，关于该主题更多的可以查看[官方文档](https://squidfunk.github.io/mkdocs-material/)
 
 
----
-comments: true
-nostatistics: true
-hide:
-  - navigation
-  - toc
+
 ---
 
 <h1 style="font-family:arial;text-align:center;">Hi,这是繁星若尘(RCS_dm)的笔记本^_^</h1>
