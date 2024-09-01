@@ -112,8 +112,14 @@ nav:
       -现代控制理论: 'control/control_system.md'
   - 数学物理方法: 
       - 复变函数的微积分: 'math_and_physics/复变函数的微积分.md'
+      - 数学物理方程 : 'math_and_physics/数学物理方程.md'
   - 数学知识:
       - 信息论: 'math/information_theory.md'
+      - 概率论和数理统计 : 'math/概率论和数理统计.md'
+  - 阅读:
+      - 小米创业思考: 'reading/小米创业思考.md'
+      - 银河帝国: 'reading/银河帝国.md'
+      - 中华帝国的衰落 : 'reading/中华帝国的衰落.md'
   - 关于: 'about.md'
 
 

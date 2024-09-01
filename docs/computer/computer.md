@@ -2,4 +2,4 @@
 
 这里，记录一下自己学习计算机相关课程的笔记，以及自己学到有关计算机一些奇奇怪怪的小点。
 
-笔记提交时，用gh-deploy命令一键部署到 Github Pages。
+笔记提交时，用mkdocs gh-deploy命令一键部署到 Github Pages。
