@@ -17,4 +17,4 @@
 
 <p>笔记地址：</p>
 
-<a style="font-family:arial;color:grey;font-size:20px;text-align:center;" href="https://isshikihugh.github.io/zju-cs-asio/">ZJU CS - All Sum in One!</a>
+<a style="font-family:arial;color:grey;font-size:20px;text-align:center;" href=" https://rcsdm.github.io/Notebook/">My Notebook</a>
