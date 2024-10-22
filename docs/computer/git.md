@@ -23,7 +23,7 @@ git clone username@host:/path/to/repository
 你可以提出更改（把它们添加到暂存区），使用如下命令：  
 git add <filename>
 
-git add *
+git add .
 
 这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：
 

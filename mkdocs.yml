@@ -87,9 +87,8 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+  
+     
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.tasklist:
@@ -107,12 +106,14 @@ nav:
       - javascript: 'computer/javascript.md'
       - git : 'computer/git.md'
       - Python: 'computer/python.md'
-      - OOP: 'computer/oop.md'
+      - 九月练习: 'computer/sep_practice.md'
+      - 十月练习: 'computer/oct_practice.md'
+      - Go: 'computer/go.md'
   - 控制主修:
-      -现代控制理论: 'control/control_system.md'
+      - 现代控制理论: 'control/control_system.md'
   - 数学物理方法: 
+      - 数学复习: 'math_and_physics/math_review.md'
       - 复变函数的微积分: 'math_and_physics/复变函数的微积分.md'
-      - 数学物理方程 : 'math_and_physics/数学物理方程.md'
   - 数学知识:
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'

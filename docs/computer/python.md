@@ -1,3 +1,58 @@
+## 做题中的小点
+
+1. 直接赋值：其实就是对象的引用（别名）。
+2. 浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象。
+3. 深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。
+
+```py
+import copy
+dict1 = {'user': 'A',
+         'num': [1, 2, 3]}
+
+dict2 = dict1         # 浅拷贝: 引用对象
+dict3 = dict1.copy()  # 浅拷贝：深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+dict4 = copy.deepcopy(dict1)
+
+dict1['user'] = 'BBB'
+dict1['num'].remove(1)
+
+# 输出结果
+print("dict1: ", dict1)
+print("dict2: ", dict2)
+print("dict3: ", dict3)
+print("dict4: ", dict4)
+
+# dict1:  {'user': 'BBB', 'num': [2, 3]}
+# dict2:  {'user': 'BBB', 'num': [2, 3]}
+# dict3:  {'user': 'A', 'num': [2, 3]}
+# dict4:  {'user': 'A', 'num': [1, 2, 3]}
+
+```
+
+python中[0 ]* n与[0 for _ in range(n)]的区别与联系：
+
+[ 0 ] * n 是浅拷贝， 也就是把一个列表重复了 n 次，是 = 号复制（注意不是浅拷贝，= 与浅拷贝的list id是不同的）；[[0]*n]*m 这种方式是直接将 [0]*n 复制了m遍
+
+[0 for _ in range(n)] 才是创建，深拷贝
+
+```py
+m,n = 3,4
+dp1 = [[0] * n ] * m
+dp2 = [[0 for _ in range(n) ] for _ in range(m)]
+dp3 = [[0] * n for _ in range(m)]
+dp1[0][2] = 3
+dp2[0][2] = 3
+dp3[0][2] = 3
+print('dp1:',dp1)
+print('dp2:',dp2)
+print('dp2:',dp3)
+
+# dp1: [[0, 0, 3, 0], [0, 0, 3, 0], [0, 0, 3, 0]]
+# dp2: [[0, 0, 3, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+# dp2: [[0, 0, 3, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+```
+
 ## Python3 面向对象
 * 类有一个名为 `__init__()` 的特殊方法（构造方法），该方法在类实例化时会自动调用
 * 类定义了 __ init__() 方法，类的实例化操作会自动调用 __ init__() 方法
