@@ -4,14 +4,18 @@ $$ y''  + py' +qy = f(x) $$
 $$ 由\lambda ^2 + p \lambda  +q = 0 来解出\lambda _1 ,\lambda _2 $$
 
 $$ y = C_1e^{\lambda _1 x} + C_2e^{\lambda _2 x} $$
+
 $$ y = (C_1 +C_2 x ) e^{\lambda x} $$
+
 $$ y = e^{\alpha x} (C_1cos\beta x + C_2sin\beta x) $$
 
 * 一阶微分方程
+
 $ y '  + g(x) y  = h(x) $
 
-$$y=e^{-\int g(x) d x}\left[C+\int h(x) e^{\int g(x) d x} d x\right]
+$$ y=e^{-\int g(x) d x}\left[C+\int h(x) e^{\int g(x) d x} d x\right]
 $$
+
 # 常用
 $$ f(x) = \sum _{k = 0}^{n} \frac{f^{(k)}(0)}{k!}x^k + O(x^n) $$
 
@@ -36,27 +40,35 @@ e^{x}&=\sum_{n=0}^{\infty} \frac{1}{n !} x^{n}=1+x+\frac{1}{2 !} x^{2}+\cdots \i
 \end{aligned}$$
 
 * 偶尔会用：
-$$
-\begin{aligned}
+$$\begin{aligned}
 f(x, y)= & f(0,0)+\left.\left(x f_{x}+y f_{y}\right)\right|_{(a, b)} \\
 & +\left.\frac{1}{2!}\left(x^{2} f_{x x}+2 x y f_{x y}+y^{2} f_{y y}\right)\right|_{(a, b)} \\
 & +\frac{1}{3!} x^{3} f_{x x x}+3 x^{2} y f_{x x y}+3 x y^{2} f_{x y y}+\left.y^{3} f_{y y y}\right|_{(a, b)} \\
 & +\ldots+\left.\frac{1}{n!}\left(x \frac{\partial}{\partial x}+y \frac{\partial}{\partial y}\right)^{n} f\right|_{(a, b)} \\
 & +\left.\frac{1}{(n+1)!}\left(x \frac{\partial}{\partial x}+y \frac{\partial}{\partial y}\right)^{n+1} f\right|_{(c x, c y)}
-\end{aligned}
-$$
+\end{aligned}$$
 
 * Stolz定理 
 
 $ \frac{*}{\infty}  型 $
 
 
-定理1 设 $ \left\{a_{n}\right\} $ 和 $ \left\{b_{n}\right\} $ 是两个实数列, 其中 $  \left\{b_{n}\right\} $ 是严格单调的且趋向于无穷 $ (+\infty  或  -\infty) $ 。若极限 $ \lim _{n \rightarrow \infty} \frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=l $ 存在, 则 $ \lim _{n \rightarrow \infty} \frac{a_{n}}{b_{n}}=l $ 。
+定理1 
+
+设  
+$\left\{a_{n}\right\}$ 和 $\left\{b_{n}\right\}$
+是两个实数列, 其中 $\left\{b_{n}\right\}$ 是严格单调的且趋向于无穷 $ (+\infty  或  -\infty) $ 。若极限 
+
+$$ \lim _{n \rightarrow \infty} \frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=l $$ 
+
+存在, 则 $ \lim_{n \rightarrow \infty}\frac{a_{n}}{b_{n}}=l $ 。
 
 
 ## 大题
 1. 放缩
+
 * 不等式
+
 * 导数，类似 $ sinx \ge \frac{2}{\pi}x $ 当 $ 0\le x \le  \frac{\pi}{2}$
 
 2. 向题目已知条件构造

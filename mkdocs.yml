@@ -111,6 +111,7 @@ nav:
       - Go: 'computer/go.md'
   - 控制主修:
       - 现代控制理论: 'control/control_system.md'
+      - 信号与系统: 'control/信号与系统.md'
   - 数学物理方法: 
       - 数学复习: 'math_and_physics/math_review.md'
       - 复变函数的微积分: 'math_and_physics/复变函数的微积分.md'
@@ -120,7 +121,8 @@ nav:
   - 阅读:
       - 小米创业思考: 'reading/小米创业思考.md'
       - 银河帝国: 'reading/银河帝国.md'
-      - 中华帝国的衰落 : 'reading/中华帝国的衰落.md'
+      - movie : 'reading/movie.md'
+      - 合集: 'reading/合集.md'
   - 关于: 'about.md'
 
 
