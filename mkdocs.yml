@@ -108,6 +108,7 @@ nav:
       - Python: 'computer/python.md'
       - 九月练习: 'computer/sep_practice.md'
       - 十月练习: 'computer/oct_practice.md'
+      - 十一月练习: 'computer/Fri_practice.md'
       - Go: 'computer/go.md'
   - 控制主修:
       - 现代控制理论: 'control/control_system.md'

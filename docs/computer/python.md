@@ -1,3 +1,5 @@
+# Python
+
 ## 做题中的小点
 
 1. 直接赋值：其实就是对象的引用（别名）。
@@ -202,3 +204,65 @@ if __name__ == '__main__':
 else:
    print('我来自另一模块')
 ```
+
+## 缓存装饰器
+使用缓存是优化Python程序速度的重要方法之一。如果使用得当，可以大幅减少计算资源的负载，有效加快代码运行速度
+
+Python 的内置库 functools 模块附带了@lru_cache，@cache, @cached_property 装饰器
+
+@lru_cache 是最常见的缓存装饰器。lru_cache 是： Last recently used cache 的简写，可以将该函数最近调用的输入参数以及结果进行缓存。如果有新的调用，先检查缓存是否有相同的输入参数，如果存在，则直接返回对应结果。如果是无参函数，第1次调用后，以后每次调用，直接返回缓存结果。
+
+lru_cache默认不清除缓存内容，因此缓存会无限增长，如果程序是长期运行的服务，可能存在耗尽内存的风险。 因此，必须添加1个maxsize参数
+
+```py
+import functools
+import gc
+
+# 主要功能： 
+# 验证  @lru_cache 装饰器，.chche_info() 和 .cache_clear() 方法的使用
+#       garbage collection 的使用
+
+@functools.lru_cache(maxsize = 300) # Max number of Last recently used cache
+def fib(n):
+	if n < 2:
+		return n
+	return fib(n-1) + fib(n-2)
+
+
+fib(30)
+fib.cache_clear()
+
+# Before Clearing
+print(fib.cache_info())
+
+# After Clearing
+print(fib.cache_info())
+
+@functools.lru_cache(maxsize = None)
+def gfg1():
+    # insert function logic here
+    pass
+
+# 再次运行函数 
+gfg1()
+fib(30)
+# garbage collection
+gc.collect()
+
+# All objects collected
+objects = [i for i in gc.get_objects() 
+           if isinstance(i, functools._lru_cache_wrapper)]
+
+print(gfg1.cache_info())
+
+# All objects cleared
+for object in objects:
+    object.cache_clear()
+    
+print(gfg1.cache_info())
+
+```
+
+@cache 装饰器更轻量化，速度更快，且是线程安全，不同线程可以调用同1个函数，缓存值可以共享。
+
+@cached_property是一个装饰器，它将类的方法转换为属性，其值仅计算一次，然后缓存为普通属性。因此，只要实例持久存在，缓存的结果就可用，我们可以将该方法用作类的属性那样来使用

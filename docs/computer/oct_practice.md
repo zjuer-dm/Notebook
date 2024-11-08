@@ -1035,3 +1035,147 @@ private:
 };
 ```
 buildReverseEdges:这个函数用于构建 parent 数组，它从根节点 0 开始，遍历所有邻居 nei，如果该邻居还没有被设置父节点（parent[nei] == -1），则将其父节点设置为当前节点 src，并递归调用 buildReverseEdges 继续处理该邻居的邻居。
+
+## DP
+### 网格图 DP
+```
+给你一个 n x n 的 方形 整数数组 matrix ，请你找出并返回通过 matrix 的下降路径 的 最小和 。
+
+下降路径 可以从第一行中的任何元素开始，并从每一行中选择一个元素。在下一行选择的元素和当前行所选元素最多相隔一列（即位于正下方或者沿对角线向左或者向右的第一个元素）。具体来说，位置 (row, col) 的下一个元素应当是 (row + 1, col - 1)、(row + 1, col) 或者 (row + 1, col + 1) 。
+```
+
+```c++
+class Solution {
+public:
+    int minFallingPathSum(vector<vector<int>>& matrix) {
+        int n = matrix.size(), f[n + 2] ;
+        f[0] = f[n+1] = INT_MAX;
+        for(int i = 0 ; i < n ; i++)
+        {
+            f[i+1] = matrix[0][i];
+        }
+        for(int r = 1 ; r < n ;r++)
+        {
+            int pre = f[0];
+            for(int c = 0 ; c < n ; c++)
+            {
+                int temp = pre ;
+                pre = f[c+1];
+                f[c+1] = min(temp , min(f[c+1] , f[c+2])) + matrix[r][c];
+            }
+        }
+        return *min_element(f+1 , f+1+n);
+    }
+};
+```
+
+```
+给你一个下标从 0 开始的整数矩阵 grid ，矩阵大小为 m x n ，由从 0 到 m * n - 1 的不同整数组成。你可以在此矩阵中，从一个单元格移动到 下一行 的任何其他单元格。如果你位于单元格 (x, y) ，且满足 x < m - 1 ，你可以移动到 (x + 1, 0), (x + 1, 1), ..., (x + 1, n - 1) 中的任何一个单元格。注意： 在最后一行中的单元格不能触发移动。
+
+每次可能的移动都需要付出对应的代价，代价用一个下标从 0 开始的二维数组 moveCost 表示，该数组大小为 (m * n) x n ，其中 moveCost[i][j] 是从值为 i 的单元格移动到下一行第 j 列单元格的代价。从 grid 最后一行的单元格移动的代价可以忽略。
+
+grid 一条路径的代价是：所有路径经过的单元格的 值之和 加上 所有移动的 代价之和 。从 第一行 任意单元格出发，返回到达 最后一行 任意单元格的最小路径代价。
+```
+
+递归 + 记录返回值 = 记忆化搜索
+
+```c++
+class Solution {
+public:
+    int minPathCost(vector<vector<int>> &grid, vector<vector<int>> &moveCost) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int>> memo(m, vector<int>(n));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i == m - 1) { // 递归边界
+                return grid[i][j];
+            }
+            auto &res = memo[i][j]; // 注意这里是引用
+            if (res) { // 之前计算过
+                return res;
+            }
+            res = INT_MAX;
+            for (int k = 0; k < n; k++) { // 移动到下一行的第 k 列
+                res = min(res, dfs(i + 1, k) + moveCost[grid[i][j]][k]);
+            }
+            res += grid[i][j];
+            return res;
+        };
+        int ans = INT_MAX;
+        for (int j = 0; j < n; j++) { // 枚举起点
+            ans = min(ans, dfs(0, j));
+        }
+        return ans;
+    }
+};
+
+```
+
+```c++
+class Solution {
+public:
+    int minPathCost(vector<vector<int>> &grid, vector<vector<int>> &moveCost) {
+        int m = grid.size(), n = grid[0].size();
+        for (int i = m - 2; i >= 0; i--) {
+            for (int j = 0; j < n; j++) {
+                int res = INT_MAX;
+                for (int k = 0; k < n; k++) {
+                    res = min(res, grid[i + 1][k] + moveCost[grid[i][j]][k]);
+                }
+                grid[i][j] += res;
+            }
+        }
+        return *min_element(grid[0].begin(), grid[0].end());
+    }
+};
+
+```
+
+### 二分图
+
+```
+存在一个 无向图 ，图中有 n 个节点。其中每个节点都有一个介于 0 到 n - 1 之间的唯一编号。给你一个二维数组 graph ，其中 graph[u] 是一个节点数组，由节点 u 的邻接节点组成。形式上，对于 graph[u] 中的每个 v ，都存在一条位于节点 u 和节点 v 之间的无向边。该无向图同时具有以下属性：
+不存在自环（graph[u] 不包含 u）。
+不存在平行边（graph[u] 不包含重复值）。
+如果 v 在 graph[u] 内，那么 u 也应该在 graph[v] 内（该图是无向图）
+这个图可能不是连通图，也就是说两个节点 u 和 v 之间可能不存在一条连通彼此的路径。
+二分图 定义：如果能将一个图的节点集合分割成两个独立的子集 A 和 B ，并使图中的每一条边的两个节点一个来自 A 集合，一个来自 B 集合，就将这个图称为 二分图 。
+
+如果图是二分图，返回 true ；否则，返回 false 。
+
+```
+
+```c++
+class Solution {
+public:
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n = graph.size();
+        vector<int> color(n, 0); // 0: 未染色, 1: 颜色1, 2: 颜色2
+
+        for(int i = 0; i < n; i++) {
+            if(color[i]) {
+                continue; // 已经染色，跳过
+            }
+            color[i] = 1; // 给当前节点染色
+            queue<int> q;
+            q.push(i);
+            
+            while(!q.empty()) {
+                int cur = q.front();
+                q.pop();
+                
+                for(int neighbor : graph[cur]) {
+                    if(color[neighbor] == color[cur]) {
+                        return false; // 邻居颜色相同，返回false
+                    }
+                    if(color[neighbor] == 0) { // 如果未染色
+                        color[neighbor] = (color[cur] == 1) ? 2 : 1; // 设置相反颜色
+                        q.push(neighbor);
+                    }
+                }
+            }
+        }
+        return true; // 所有节点都检查完且符合条件
+    }
+};
+
+```

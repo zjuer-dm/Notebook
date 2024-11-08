@@ -19,12 +19,19 @@ $$
 # 常用
 $$ f(x) = \sum _{k = 0}^{n} \frac{f^{(k)}(0)}{k!}x^k + O(x^n) $$
 
+* 由特殊到一般
+* 洛必达
 * 取对数
+* 取倒数
 * $ （1+x +x^2）(1-x) = 1 - x^3 $
 * 向已知公式靠拢
 * 画图，更直观
 * 周期性质
 * 构造函数
+* 求幂级数的和函数（构造求导与积分）
+* 拆分，构造
+* 立体几何知识
+* 参数代换
 
 $$\begin{aligned}
 e^{x}&=\sum_{n=0}^{\infty} \frac{1}{n !} x^{n}=1+x+\frac{1}{2 !} x^{2}+\cdots \in(-\infty,+\infty) \\
@@ -63,6 +70,13 @@ $$ \lim _{n \rightarrow \infty} \frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=l $$
 
 存在, 则 $ \lim_{n \rightarrow \infty}\frac{a_{n}}{b_{n}}=l $ 。
 
+* 立体几何小点：
+点到直线的距离: 设 $ P_{0}\left(x_{0}, y_{0}, z_{0}\right) $ 是空间一定点, 过点 $ P_{1}\left(x_{1}, y_{1}, z_{1}\right) $ 且方向向量为 $ s $ 的直线用 $ l\left(P_{1}, s\right) $ 表示; 点PO到的距离用 $ d\left(P_{0}, l\right) $ 表示。
+
+设 $ \theta $ 为向量 $ s $ 与向量 $ P_1, P_O $ 的夹角, 则从图中可以得到有 $ d\left(P_{0}, l\right)=\left|P_{1} P_{0}\right| \sin \theta $
+ 又因为从外积公式得到  $ |s \times P 1 P 0|=|s||P 1 P 0| \sin \theta $ .
+所以 
+$$ d\left(P_{0}, l\right)=\frac{\left|s \times P_{1} P_{0}\right|}{|s|} $$ 
 
 ## 大题
 1. 放缩
@@ -73,3 +87,11 @@ $$ \lim _{n \rightarrow \infty} \frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=l $$
 
 2. 向题目已知条件构造
 3. 构造函数
+4. 数列，裂项拆分，重组
+5. 夹逼
+
+(莱布尼茨定理) 如果交错级数 $ \sum_{n=1}(-1)^{n-1} u_{n} $ 满足条件:
+(1) $ u_{n} \geqslant u_{n+1}(n=1,2,3, \cdots) $ ;
+(2) $ \lim _{n \rightarrow \infty} u_{n}=0 $
+ 
+则级数收敛, 且其和 $ s \leqslant u_{1} $ , 其余项 $ r_{n} $ 的绝对值 $ \left|r_{n}\right| \leqslant u_{n+1} $ .
