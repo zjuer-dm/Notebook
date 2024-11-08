@@ -38,6 +38,11 @@
 </style>
 
 ## 大三
+
+<div class="header">
+  <img src="/picture/2024_10_7.jpg" alt="追寻" class="header-image">
+</div>
+
 不再畏惧，努力向前。
 
 ![追寻](/picture/2024_10_7.jpg)
