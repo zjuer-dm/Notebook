@@ -40,7 +40,7 @@
 ## 大三
 
 <div class="header">
-  <img src="docs/picture/2024_10_7.jpg" alt="追寻" class="header-image">
+  <img src="picture/2024_10_7.jpg" alt="追寻" class="header-image">
 </div>
 
 不再畏惧，努力向前。
@@ -58,7 +58,7 @@
 >身在无间，心在桃源
 
 <div class="header">
-  <img src="docs/picture/about1.png" alt="《天官赐福》：身在无间，心在桃源" class="header-image">
+  <img src="picture/about1.png" alt="《天官赐福》：身在无间，心在桃源" class="header-image">
   <div class="header-text">
    <p style="color:blue-grey;margin-left:20px;"> 大二下的课程学习与考试我搞的一团糟，没有办法，现在只好寄希望于大三的学习。接下来面向成绩的学习，来挽回曾经的失误。</p>
    <p style="color:blue-grey;margin-left:20px;">因为知道自己考的不好，在这几天等成绩时的确是提心吊胆，远远没有之前的从容，或许是大一不担心成绩，大二上课程少吧。</p>
