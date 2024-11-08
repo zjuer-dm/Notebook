@@ -480,6 +480,8 @@
       
         
       
+        
+      
     
     
       
@@ -653,6 +655,27 @@
   
   <span class="md-ellipsis">
     十月练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/Fri_practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十一月练习
   </span>
   
 
@@ -1208,12 +1231,19 @@
 <h1 id="_2">常用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="arithmatex">\[ f(x) = \sum _{k = 0}^{n} \frac{f^{(k)}(0)}{k!}x^k + O(x^n) \]</div>
 <ul>
+<li>由特殊到一般</li>
+<li>洛必达</li>
 <li>取对数</li>
+<li>取倒数</li>
 <li>$ （1+x +x^2）(1-x) = 1 - x^3 $</li>
 <li>向已知公式靠拢</li>
 <li>画图，更直观</li>
 <li>周期性质</li>
 <li>构造函数</li>
+<li>求幂级数的和函数（构造求导与积分）</li>
+<li>拆分，构造</li>
+<li>立体几何知识</li>
+<li>参数代换</li>
 </ul>
 <div class="arithmatex">\[\begin{aligned}
 e^{x}&amp;=\sum_{n=0}^{\infty} \frac{1}{n !} x^{n}=1+x+\frac{1}{2 !} x^{2}+\cdots \in(-\infty,+\infty) \\
@@ -1249,6 +1279,14 @@ f(x, y)= &amp; f(0,0)+\left.\left(x f_{x}+y f_{y}\right)\right|_{(a, b)} \\
 是两个实数列, 其中 <span class="arithmatex">\(\left\{b_{n}\right\}\)</span> 是严格单调的且趋向于无穷 $ (+\infty  或  -\infty) $ 。若极限 </p>
 <div class="arithmatex">\[ \lim _{n \rightarrow \infty} \frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=l \]</div>
 <p>存在, 则 $ \lim_{n \rightarrow \infty}\frac{a_{n}}{b_{n}}=l $ 。</p>
+<ul>
+<li>立体几何小点：
+点到直线的距离: 设 $ P_{0}\left(x_{0}, y_{0}, z_{0}\right) $ 是空间一定点, 过点 $ P_{1}\left(x_{1}, y_{1}, z_{1}\right) $ 且方向向量为 $ s $ 的直线用 $ l\left(P_{1}, s\right) $ 表示; 点PO到的距离用 $ d\left(P_{0}, l\right) $ 表示。</li>
+</ul>
+<p>设 $ \theta $ 为向量 $ s $ 与向量 $ P_1, P_O $ 的夹角, 则从图中可以得到有 $ d\left(P_{0}, l\right)=\left|P_{1} P_{0}\right| \sin \theta $
+ 又因为从外积公式得到  $ |s \times P 1 P 0|=|s||P 1 P 0| \sin \theta $ .
+所以 
+$$ d\left(P_{0}, l\right)=\frac{\left|s \times P_{1} P_{0}\right|}{|s|} $$ </p>
 <h2 id="_3">大题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li>放缩</li>
@@ -1264,7 +1302,13 @@ f(x, y)= &amp; f(0,0)+\left.\left(x f_{x}+y f_{y}\right)\right|_{(a, b)} \\
 <ol start="2">
 <li>向题目已知条件构造</li>
 <li>构造函数</li>
+<li>数列，裂项拆分，重组</li>
+<li>夹逼</li>
 </ol>
+<p>(莱布尼茨定理) 如果交错级数 $ \sum_{n=1}(-1)^{n-1} u_{n} $ 满足条件:
+(1) $ u_{n} \geqslant u_{n+1}(n=1,2,3, \cdots) $ ;
+(2) $ \lim <em n="n">{n \rightarrow \infty} u</em>=0 $</p>
+<p>则级数收敛, 且其和 $ s \leqslant u_{1} $ , 其余项 $ r_{n} $ 的绝对值 $ \left|r_{n}\right| \leqslant u_{n+1} $ .</p>
 
 
 
