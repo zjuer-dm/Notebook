@@ -111,6 +111,7 @@ nav:
       - 十一月练习: 'computer/Fri_practice.md'
       - Go: 'computer/go.md'
   - 控制主修:
+      - 机器视觉 : 'control/machine_vision.md'
       - 现代控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
   - 数学物理方法: 
