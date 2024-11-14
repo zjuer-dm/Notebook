@@ -12,7 +12,7 @@
         <link rel="prev" href="../../computer/Fri_practice/">
       
       
-        <link rel="next" href="../../control/machine_vision/">
+        <link rel="next" href="../others/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -726,6 +726,8 @@
       
         
       
+        
+      
     
     
       
@@ -850,10 +852,49 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      subscriber：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      launch文件
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其他知识
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1354,6 +1395,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      subscriber：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      launch文件
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1542,6 +1601,222 @@
 </code></pre></div>
 代码编译规则：
 <img alt="alt text" src="../pic/Screenshot%202024-11-14%20at%2016.50.48.png" /></p>
+<h2 id="subscriber">subscriber：<a class="headerlink" href="#subscriber" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ros/ros.h&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;turtlesim/Pose.h&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// 接收到订阅的消息后，会进入消息回调函数</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">poseCallback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">turtlesim</span><span class="o">::</span><span class="n">Pose</span><span class="o">::</span><span class="n">ConstPtr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="c1">// 将接收到的消息打印出来</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Turtle pose: x:%0.6f, y:%0.6f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="c1">// 初始化ROS节点</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pose_subscriber&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1">// 创建节点句柄</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="c1">// 创建一个Subscriber，订阅名为/turtle1/pose的topic，注册回调函数poseCallback</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">Subscriber</span><span class="w"> </span><span class="n">pose_sub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">&quot;/turtle1/pose&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">poseCallback</span><span class="p">);</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="c1">// 循环等待回调函数</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">rospy</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">turtlesim.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">def</span> <span class="nf">poseCallback</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Turtle pose: x:</span><span class="si">%0.6f</span><span class="s2">, y:</span><span class="si">%0.6f</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">def</span> <span class="nf">pose_subscriber</span><span class="p">():</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="c1"># ROS节点初始化</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;pose_subscriber&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="c1"># 创建一个Subscriber，订阅名为/turtle1/pose的topic，注册回调函数poseCallback</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;/turtle1/pose&quot;</span><span class="p">,</span> <span class="n">Pose</span><span class="p">,</span> <span class="n">poseCallback</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="c1"># 循环等待回调函数</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="n">pose_subscriber</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="alt text" src="../pic/Screenshot%202024-11-14%20at%2020.17.03.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/**</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cm"> * 该例程设置/读取海龟例程中的参数</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cm"> */</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ros/ros.h&gt;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;std_srvs/Empty.h&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="c1">// ROS节点初始化</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;parameter_config&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="c1">// 创建节点句柄</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="c1">// 读取背景颜色参数</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/background_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">);</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/background_g&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">);</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/background_b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">);</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Get Backgroud Color[%d, %d, %d]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">);</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="c1">// 设置背景颜色参数</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;/background_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;/background_g&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;/background_b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">    </span><span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Set Backgroud Color[255, 255, 255]&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">    </span><span class="c1">// 读取背景颜色参数</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/background_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">);</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/background_g&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">);</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">param</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/background_b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">);</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="w">    </span><span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Re-get Backgroud Color[%d, %d, %d]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">);</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="w">    </span><span class="c1">// 调用服务，刷新背景颜色</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">service</span><span class="o">::</span><span class="n">waitForService</span><span class="p">(</span><span class="s">&quot;/clear&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="w">    </span><span class="n">ros</span><span class="o">::</span><span class="n">ServiceClient</span><span class="w"> </span><span class="n">clear_background</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">serviceClient</span><span class="o">&lt;</span><span class="n">std_srvs</span><span class="o">::</span><span class="n">Empty</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;/clear&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="w">    </span><span class="n">std_srvs</span><span class="o">::</span><span class="n">Empty</span><span class="w"> </span><span class="n">srv</span><span class="p">;</span>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="w">    </span><span class="n">clear_background</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="n">srv</span><span class="p">);</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>
+<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/usr/bin/env python</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># -*- coding: utf-8 -*-</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kn">import</span> <span class="nn">rospy</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kn">from</span> <span class="nn">std_srvs.srv</span> <span class="kn">import</span> <span class="n">Empty</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">def</span> <span class="nf">parameter_config</span><span class="p">():</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="c1"># ROS节点初始化</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;parameter_config&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="c1"># 读取背景颜色参数</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">red</span>   <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/background_r&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">green</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/background_g&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">blue</span>  <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/background_b&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Get Backgroud Color[</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">]&quot;</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="c1"># 设置背景颜色参数</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">set_param</span><span class="p">(</span><span class="s2">&quot;/background_r&quot;</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">set_param</span><span class="p">(</span><span class="s2">&quot;/background_g&quot;</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">set_param</span><span class="p">(</span><span class="s2">&quot;/background_b&quot;</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Set Backgroud Color[255, 255, 255]&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>    <span class="c1"># 读取背景颜色参数</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="n">red</span>   <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/background_r&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="n">green</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/background_g&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>    <span class="n">blue</span>  <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/background_b&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Get Backgroud Color[</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">]&quot;</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>    <span class="c1"># 发现/spawn服务后，创建一个服务客户端，连接名为/spawn的service</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/clear&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>        <span class="n">clear_background</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/clear&#39;</span><span class="p">,</span> <span class="n">Empty</span><span class="p">)</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>        <span class="c1"># 请求服务调用，输入请求数据</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">clear_background</span><span class="p">()</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>        <span class="k">return</span> <span class="n">response</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>        <span class="nb">print</span> <span class="s2">&quot;Service call failed: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>    <span class="n">parameter_config</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="launch">launch文件<a class="headerlink" href="#launch" title="Permanent link">&para;</a></h2>
+<p>通过launch文件以及roslaunch命令可以一次性启动多个节点，并且可以设置丰富的参数。</p>
+<p>node标签会指定一个准备运行的ROS节点，node标签是 launch 文件中最重要的标签，因为它实现了launch文件的基本功能，即同时启动多个ROS节点。</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;package_name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;executable_node&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;node_name&quot;</span><span class="w"> </span><span class="na">args=</span><span class="s">&quot;$()&quot;</span><span class="w"> </span><span class="na">respawn=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">output=</span><span class="s">&quot;sceen&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+1. pkg：节点所在功能包的名称package_name；
+2. type：节点类型是可执行文件(节点)的名称executable_node；
+3. name：节点运行时的名称node_name；
+4. args：传递命令行设置的参数；
+5. respawn：是否自动重启，true表示如果节点未启动或异常关闭，则自动重启；false则表示不自动重启，默认值为false；
+6. output：是否将节点信息输出到屏幕，如果不设置该属性，则节点信息会被写入到日志文件，并不会显示到屏幕上。</p>
+<p>param:</p>
+<p>param标签则可以实现传递参数的功能，它可以定义一个将要被设置到参数
+服务器的参数，它的参数值可以通过文本文件、二进制文件或命令等属性来设置。</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;param_name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;param_type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;param_value&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cm">&lt;!-- param 标签可以嵌入到 node 标签中，以此来作为该 node 的私有参数 --&gt;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nt">&lt;node&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;param_name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;param_type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;param_value&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nt">&lt;/node&gt;</span>
+</code></pre></div>
+1. name：参数名称param_name
+2. type：参数类型double，str，int，bool，yaml
+3. value：需要设置的参数值param_value</p>
+<p>rosparam标签可以实现节点从参数服务器上加载(load)、导出(dump)和删除(delete)YAML文件</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">&lt;!-- 加载package_name功能包下的example.yaml文件 --&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">&lt;rosparam</span><span class="w"> </span><span class="na">command=</span><span class="s">&quot;load&quot;</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;$(find package_name)/example.yaml&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="cm">&lt;!-- 导出example_out.yaml文件到package_name功能包下 --&gt;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nt">&lt;rosparam</span><span class="w"> </span><span class="na">command=</span><span class="s">&quot;dump&quot;</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;$(find package_name)/example_out.yaml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="cm">&lt;!-- 删除参数 --&gt;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nt">&lt;rosparam</span><span class="w"> </span><span class="na">command=</span><span class="s">&quot;delete&quot;</span><span class="w"> </span><span class="na">param=</span><span class="s">&quot;xxx/param&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<p>include标签功能和编程语言中的include预处理类似，它可以导入其他launch文件到当前include标签所在的位置，实现launch文件复用。</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;$(find package_name)/launch_file_name&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+remap标签可以实现节点名称的重映射，每个remap标签包含一个原始名称和一个新名称，在系统运行后原始名称会被替换为新名称。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arg_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;arg_default&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arg_name&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;arg_value&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="cm">&lt;!-- 命令行传递的 arg 参数可以覆盖 default，但不能覆盖 value。 --&gt;</span>
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arg_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;arg_default&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arg_name&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;arg_value&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="cm">&lt;!-- 命令行传递的 arg 参数可以覆盖 default，但不能覆盖 value。 --&gt;</span>
+</code></pre></div>
+* arg   启动时的参数，只在launch文件中有意义
+* param 运行时的参数，参数会存储在参数服务器中</p>
+<p>group标签可以实现将一组配置应用到组内的所有节点，它也具有命名空间ns特点，可以将不同的节点放入不同的 namespace。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">&lt;!-- 用法1 --&gt;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nt">&lt;group</span><span class="w"> </span><span class="na">ns=</span><span class="s">&quot;namespace_1&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;pkg_name1&quot;</span><span class="w"> </span><span class="err">...</span><span class="nt">/&gt;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;pkg_name2&quot;</span><span class="w"> </span><span class="err">...</span><span class="nt">/&gt;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span>...
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nt">&lt;/group&gt;</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nt">&lt;group</span><span class="w"> </span><span class="na">ns=</span><span class="s">&quot;namespace_2&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;pkg_name3&quot;</span><span class="w"> </span><span class="err">...</span><span class="nt">/&gt;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;pkg_name4&quot;</span><span class="w"> </span><span class="err">...</span><span class="nt">/&gt;</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span>...
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nt">&lt;/group&gt;</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="cm">&lt;!-- 用法2 --&gt;</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="cm">&lt;!-- if = value：value 为 true 则包含内部信息 --&gt;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">&quot;$(arg foo1)&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;pkg_name1&quot;</span><span class="w"> </span><span class="err">...</span><span class="nt">/&gt;</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="nt">&lt;/group&gt;</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="cm">&lt;!-- unless = value：value 为 false 则包含内部信息 --&gt;</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="nt">&lt;group</span><span class="w"> </span><span class="na">unless=</span><span class="s">&quot;$(arg foo2)&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;pkg_name2&quot;</span><span class="w"> </span><span class="err">...</span><span class="nt">/&gt;</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="nt">&lt;/group&gt;</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="cm">&lt;!--</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="cm">    当 foo1 == true 时包含其标签内部</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="cm">    当 foo2 == false 时包含其标签内部</span>
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="cm">--&gt;</span>
+</code></pre></div></p>
+<h1 id="ros2">ros2<a class="headerlink" href="#ros2" title="Permanent link">&para;</a></h1>
 
 
 
