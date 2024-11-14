@@ -55,6 +55,64 @@ print('dp2:',dp3)
 
 ```
 
+**sorted**
+
+    students = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
+    >>> sorted(students, key=lambda s: s[2])            # 按年龄排序
+    [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+    
+    >>> sorted(students, key=lambda s: s[2], reverse=True)       # 按降序
+    [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
+
+**匿名函数：**
+
+```py
+sum = lambda arg1, arg2: arg1 + arg2
+
+# 调用sum函数
+print "相加后的值为 : ", sum( 10, 20 )
+print "相加后的值为 : ", sum( 20, 20 )
+```
+
+**使用Python的Counter进行计数**
+
+在Python中，collections模块的Counter类是一个用于计数可哈希对象的字典子类。它可以帮助你以一种高效和Python风格的方式来计数，而不需要使用传统的涉及循环和嵌套数据结构的技术。
+
+Counter的基本用法
+
+Counter的基本用法是将一个序列或可迭代对象作为参数传递给它的构造函数。Counter会迭代输入的序列，计算每个对象出现的次数，并将对象作为键，出现次数作为值存储在字典中。
+
+from collections import Counter
+
+**使用字符串初始化Counter**
+counter = Counter("mississippi")
+print(counter) # 输出: Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
+
+**使用列表初始化Counter**
+counter = Counter(list("mississippi"))
+print(counter) # 输出: Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
+更新Counter
+
+你可以使用update()方法来更新现有的Counter。与dict的update()方法不同，Counter的update()方法会将现有计数相加，而不是替换它们。
+
+counter = Counter({'a': 3, 'b': 2})
+counter.update({'a': 1, 'c': 2})
+print(counter) # 输出: Counter({'a': 4, 'b': 2, 'c': 2})
+访问Counter的内容
+
+Counter几乎具有与dict相同的接口，你可以使用类似字典的键访问（[key]）来访问它们的值。你还可以使用常见的方法和技术来迭代键、值和项。
+
+counter = Counter("mississippi")
+print(counter['s']) # 输出: 4
+for letter in counter:
+print(letter, counter[letter])
+查找最常见的对象
+
+如果你需要根据对象的出现频率列出一组对象，你可以使用most_common()方法。这个方法返回一个按对象当前计数排序的(对象, 计数)列表。如果计数相等，则按它们首次出现的顺序排列。
+
+counter = Counter('mississippi')
+print(counter.most_common(3)) # 输出: [('i', 4), ('s', 4), ('p', 2)]
+
 ## Python3 面向对象
 * 类有一个名为 `__init__()` 的特殊方法（构造方法），该方法在类实例化时会自动调用
 * 类定义了 __ init__() 方法，类的实例化操作会自动调用 __ init__() 方法
