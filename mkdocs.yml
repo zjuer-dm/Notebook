@@ -112,6 +112,7 @@ nav:
       - 十一月练习: 'computer/Fri_practice.md'
   - 机器人相关:
       - ros: 'robot/ros.md'
+      - 其他知识: 'robot/others.md'
   - 控制主修:
       - 机器视觉 : 'control/machine_vision.md'
       - 现代控制理论: 'control/control_system.md'
