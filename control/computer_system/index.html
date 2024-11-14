@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../robot/ros/">
-      
-      
-        <link rel="next" href="../control_system/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>机器视觉 - 繁星若尘的Notebook</title>
+        <title>计算机组成 - 繁星若尘的Notebook</title>
       
     
     
@@ -126,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              机器视觉
+              计算机组成
             
           </span>
         </div>
@@ -314,13 +310,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../machine_vision/" class="md-tabs__link">
           
   
     
@@ -791,10 +785,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -807,22 +799,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -833,7 +824,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             控制主修
@@ -844,30 +835,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    机器视觉
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../machine_vision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,35 +847,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      卷积神经网络
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1292,11 +1234,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#cpu" class="md-nav__link">
     <span class="md-ellipsis">
-      卷积神经网络
+      CPU
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="CPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据通路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据通路与总线结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1318,77 +1284,18 @@
   
 
 
-<h1 id="_1">深度学习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>人工神经网络训练的本质：数据拟合</p>
-<p>是指选择适当的曲线类型来拟合观测数据，并用拟合的曲线方程分析变量间的关系。是一种把现有数据透过数学方法来描述的表示方式。</p>
-<ol>
-<li>正向计算</li>
-<li>误差计算</li>
-<li>反向权值修正</li>
-</ol>
-<p><img alt="alt text" src="../src/Screenshot%202024-11-11%20at%2015.28.29.png" /></p>
-<p>激活函数:</p>
-<p>非线性：使神经网络具有更好的非线性映射和函数逼近能力</p>
-<p>f(x)≈x：保持与原信息的相似度。</p>
-<p>如果没有非线性激活函数，神经网络只是一个线性回归模型.</p>
-<p><strong>Softmax（数据归一化的作用）</strong></p>
-<ol>
-<li>
-<p>归一化就是把数据经过处理后使之限定在一定的范围内。比如通常限制在区间[0, 1]或者[-1, 1]。</p>
-</li>
-<li>
-<p>归一化解决奇异样本数据问题，奇异样本数据数据指的是相对于其他输入样本特别大或特别小的样本矢量。（例如过曝图像）</p>
-</li>
-</ol>
-<p>防止过拟合的一种方法:</p>
-<p>每次训练都随机让一定神经元停止参与运算，简单的操作让我们由一个模型演变成多个模型。</p>
-<ol>
-<li>
-<p>取平均的作用：整个dropout过程就相当于对很多个不同的神经网络取平均。而不同的网络产生不同的过拟合，一些互为“反向”的过拟合相互抵消就可以达到整体上减少过拟合。</p>
-</li>
-<li>
-<p>减少神经元之间复杂的共适应关系：因为dropout操作导致两个神经元不一定每次都在一个dropout网络中出现。这样权值的更新不再依赖于有固定关系的隐含节点的共同作用，阻止了某些特征仅仅在其它特定特征下才有效果的情况 ，迫使网络去学习更加鲁棒的特征。（假如：我们的神经网络是在做出某种预测，它不应该对一些特定的线索片段太过敏感，即使丢失特定的线索，它也应该可以从众多其它线索中学习一些共同的特征。）</p>
-</li>
-<li>
-<p>Dropout类似于性别在生物进化中的角色：物种为了生存往往会倾向于适应这种环境，环境突变则会导致物种难以做出及时反应，性别的出现可以繁衍出适应新环境的变种，有效的阻止过拟合，即避免环境改变时物种可能面临的灭绝。</p>
-</li>
-</ol>
-<h2 id="_2">卷积神经网络<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>卷积神经网络有两个特殊的层：卷积层和池化层。</p>
-<ol>
-<li>
-<p>池化层输出时不需要经过激活函数，是一个滑动窗口的最大值，一个常数，那么它的偏导是1。池化层相当于对上层图片做了一个压缩，这个反向求误差敏感项时与传统的反向传播方式不同。</p>
-</li>
-<li>
-<p>卷积后的feature map反向传播到前一层时，由于前向传播时是通过卷积核做卷积运算得到feature map，所以反向传播与传统的也不一样，需要更新卷积核的参数。</p>
-</li>
-</ol>
-<blockquote></blockquote>
-<div class="highlight"><pre><span></span><code>Epoch:使用训练集的全部数据对模型进行一次完整训练，被称之为“一代训练”
-
-Batch:使用训练集中的一小部分样本对模型权重进行一次反向传播的参数更新，这一小部分样本被称为“一批数据”
-
-Iteration:使用一个Batch数据对模型进行一次参数更新的过程，被称之为“一次训练”
-</code></pre></div>
-<p><strong>经典分类网络：AlexNet（2012）</strong></p>
-<p><img alt="alt text" src="../src/image.png" /></p>
-<ol>
-<li>
-<p>采用非线性激活函数ReLU，比饱和函数训练更快，而且保留非线性表达能力，可以训练更深层的网络。</p>
-</li>
-<li>
-<p>采用LRN （Local Response Normalization） 局部响应归一化，LRN模拟神经生物学上一个叫做侧抑制（lateral inhibition）的功能，侧抑制指的是被激活的神经元会抑制相邻的神经元。</p>
-</li>
-<li>
-<p>采用了Overlapping（重叠池化），重叠池化就是池化操作在部分像素上有重合。池化核大小是n×n，步长是k，如果k=n，则是正常池化，如果 k&lt;n,则是重叠池化</p>
-</li>
-<li>
-<p>采用数据增强和Dropout防止过拟合，数据增强采用图像平移和翻转来生成更多的训练图像，Dropout降低了神经元之间互适应关系，被迫学习更为鲁棒的特征。</p>
-</li>
-<li>
-<p>采用GPU实现，采用并行化的GPU进行训练，在每个GPU中放置一半核，GPU间的通讯只在某些层进行，采用交叉验证，精确地调整通信量，直到它的计算量可接受。</p>
-</li>
-</ol>
+<h1 id="_1">计算机组成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="cpu">CPU<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../src/Screenshot%202024-11-13%20at%2016.34.40.png" /></p>
+<h3 id="_2">数据通路<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><strong>执行部件间传输信息的路径。</strong></p>
+<p>建立由控制信号控制，受时钟驱动。</p>
+<p>数据通路描述了信息从什么地方开始，中间经过哪个寄存器或多路开关，最后传送到哪个寄存器。</p>
+<p>数据通路中专门进行数据运算的部件称为执行部件或功能部件；数据通路由控制部件控制。</p>
+<p>数据通路的功能是实现 CPU 内部的运算器与寄存器及寄存器之间的数据交换。</p>
+<p><img alt="alt text" src="../src/image%20copy.png" /></p>
+<h3 id="_3">数据通路与总线结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="../src/Screenshot%202024-11-13%20at%2017.07.10.png" /></p>
 
 
 
