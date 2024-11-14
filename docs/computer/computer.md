@@ -4,6 +4,10 @@
 
 笔记提交时，用mkdocs gh-deploy命令一键部署到 Github Pages。
 
+安装换源：
+```bash
+pip install mkdocs-material -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 ## 常见名词：
 
