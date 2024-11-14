@@ -86,3 +86,20 @@ rm -rf venv
 
 容器是一种通用技术，docker只是其中的一种实现。
 
+## Shebang
+
+1. 如果脚本文件中没有#!这一行，那么执行时会默认采用当前Shell去解释这个脚本(即：$SHELL环境变量）。
+2. 如果#!之后的解释程序是一个可执行文件，那么执行这个脚本时，它就会把文件名及其参数一起作为参数传给那个解释程序去执行。
+3. 如果#!指定的解释程序没有可执行权限，则会报错“bad interpreter: Permission
+denied”。如果#!指定的解释程序不是一个可执行文件，那么指定的解释程序会被忽略，转而交给当前的SHELL去执行这个脚本。
+4. 如果#!指定的解释程序不存在，那么会报错“bad interpreter: No such file or directory”。注意：#!之后的解释程序，需要写其绝对路径（如：#!/bin/bash），它是不会自动到$PATH中寻找解释器的。
+5. 当然，如果你使用类似于”bash test.sh”这样的命令来执行脚本，那么#!这一行将会被忽略掉，解释器当然是用命令行中显式指定的bash。
+6. 脚本文件必须拥有可执行权限。
+
+```
+#!/bin/sh：使用 sh，即 Bourne shell 或其它兼容 shell 执行脚本
+#!/bin/csh：使用 csh，即 C shell 执行
+#!/usr/bin/perl -w：使用带警告的 Perl 执行
+#!/usr/bin/python -O：使用具有代码优化的 Python 执行
+#!/usr/bin/php：使用 PHP 的命令行解释器执行
+```
