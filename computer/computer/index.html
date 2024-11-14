@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1405,6 +1405,9 @@
 <h1 id="_1">计算机相关<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>这里，记录一下自己学习计算机相关课程的笔记，以及自己学到有关计算机一些奇奇怪怪的小点。</p>
 <p>笔记提交时，用mkdocs gh-deploy命令一键部署到 Github Pages。</p>
+<p>安装换源：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div></p>
 <h2 id="_2">常见名词：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>IDE：集成开发环境（简称：IDE;英文名：Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。集成了代码编写功能、分析功能、编译功能、调试功能等一体化的开发软件服务套。具备这一特性的软件或者软件套（组）都可以叫集成开发环境。</p>
 <p>SSH：Secure Shell(SSH) 是由 IETF(The Internet Engineering Task Force) 制定的建立在应用层基础上的安全网络协议。它是专为远程登录会话(甚至可以用Windows远程登录Linux服务器进行文件互传)和其他网络服务提供安全性的协议，可有效弥补网络中的漏洞。通过SSH，可以把所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。目前已经成为Linux系统的标准配置。</p>
@@ -1438,21 +1441,21 @@
 <p>以下是在 macOS 和 Linux 系统上使用 Python 的内置 <code>venv</code> 模块创建和管理虚拟环境的步骤。在 Windows 系统上的步骤类似。</p>
 <h5 id="1">1. 创建虚拟环境<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
 <p>在终端中，导航到你的项目目录，然后运行以下命令创建虚拟环境：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 </code></pre></div>
 <h5 id="2">2. 激活虚拟环境<a class="headerlink" href="#2" title="Permanent link">&para;</a></h5>
 <p>在创建虚拟环境后，你需要激活它：</p>
 <p>在 macOS 和 Linux：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate
 </code></pre></div>
 <h5 id="3">3. 退出虚拟环境<a class="headerlink" href="#3" title="Permanent link">&para;</a></h5>
 <p>完成工作后，你可以通过运行以下命令退出虚拟环境：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>deactivate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>deactivate
 </code></pre></div>
 <p>这会将你带回到系统的全局 Python 环境。</p>
 <h5 id="4">4. 删除虚拟环境（可选）<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
 <p>如果不再需要该虚拟环境，可以直接删除包含虚拟环境的文件夹，例如：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rm -rf venv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rm -rf venv
 </code></pre></div>
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
 <p>与虚拟机通过操作系统实现隔离不同，容器技术只隔离应用程序的运行时环境但容器之间可以共享同一个操作系统，这里的运行时环境指的是程序运行依赖的各种库以及配置。</p>
@@ -1535,7 +1538,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.indexes", "content.tabs.link", "palette.toggle", "header.autohide", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
