@@ -15,7 +15,7 @@ extra:
       lang: zh
   analytics:
     provider: google
-    property: G-XXXXXXXXXX
+    property: G-2M5EHKC0BH
 
 extra_javascript:
   - js/katex.js
