@@ -346,6 +346,31 @@ class Solution:
         return ans
 
 ```
+### 区间
+给你一个正整数 days，表示员工可工作的总天数（从第 1 天开始）。另给你一个二维数组 meetings，长度为 n，其中 meetings[i] = [start_i, end_i] 表示第 i 次会议的开始和结束天数（包含首尾）。
+
+返回员工可工作且没有安排会议的天数。
+
+注意：会议时间可能会有重叠。
+
+```py
+class Solution:
+    def countDays(self, days: int, meetings: List[List[int]]) -> int:
+        meetings.sort(key = lambda a : a[0])
+        left = 0
+        right = -1
+        count = 0
+        for i , j in meetings:
+            if i > right:
+                
+                
+                count += right - left +1
+                left = i
+            right = max(right , j)
+        count += right - left +1
+        return days - count
+```
+
 
 ## 堆
 
@@ -470,4 +495,151 @@ class Solution:
                 return prices[i - 1]  # i 从 1 开始
             return min(dfs(j) for j in range(i + 1, i * 2 + 2)) + prices[i - 1]
         return dfs(1)
+```
+
+每日一题：
+
+给你一个 m x n 的二进制矩阵 grid 。
+
+如果矩阵中一行或者一列从前往后与从后往前读是一样的，那么我们称这一行或者这一列是 回文 的。
+
+你可以将 grid 中任意格子的值 翻转 ，也就是将格子里的值从 0 变成 1 ，或者从 1 变成 0 。
+
+请你返回 最少 翻转次数，使得矩阵中 所有 行和列都是 回文的 ，且矩阵中 1 的数目可以被 4 整除 。
+
+
+```py
+class Solution:
+    def minFlips(self, a: List[List[int]]) -> int:
+        m, n = len(a), len(a[0])
+        ans = 0
+        for i in range(m // 2):
+            row, row2 = a[i], a[-1 - i]
+            for j in range(n // 2):
+                cnt1 = row[j] + row[-1 - j] + row2[j] + row2[-1 - j]
+                ans += min(cnt1, 4 - cnt1)  # 全为 1 或全为 0
+
+        if m % 2 and n % 2:
+            # 正中间的数必须是 0
+            ans += a[m // 2][n // 2]
+
+        diff = cnt1 = 0
+        if m % 2:
+            # 统计正中间这一排
+            row = a[m // 2]
+            for j in range(n // 2):
+                if row[j] != row[-1 - j]:
+                    diff += 1
+                else:
+                    cnt1 += row[j] * 2
+        if n % 2:
+            # 统计正中间这一列
+            for i in range(m // 2):
+                if a[i][n // 2] != a[-1 - i][n // 2]:
+                    diff += 1
+                else:
+                    cnt1 += a[i][n // 2] * 2
+
+        return ans + (diff if diff else cnt1 % 4)
+```
+
+## 滑动窗口
+在社交媒体网站上有 n 个用户。给你一个整数数组 ages ，其中 ages[i] 是第 i 个用户的年龄。
+
+如果下述任意一个条件为真，那么用户 x 将不会向用户 y（x != y）发送好友请求：
+
+ages[y] <= 0.5 * ages[x] + 7
+ages[y] > ages[x]
+ages[y] > 100 && ages[x] < 100
+否则，x 将会向 y 发送一条好友请求。
+
+注意，如果 x 向 y 发送一条好友请求，y 不必也向 x 发送一条好友请求。另外，用户不会向自己发送好友请求。
+
+返回在该社交媒体网站上产生的好友请求总数。
+
+```py
+class Solution:
+    def numFriendRequests(self, ages: List[int]) -> int:
+        cnt = [0] * 121
+        for age in ages:
+            cnt[age] += 1
+
+        ans = cnt_window = age_y = 0
+        for age_x, c in enumerate(cnt):
+            cnt_window += c
+            if age_y * 2 <= age_x + 14:  # 不能发送好友请求
+                cnt_window -= cnt[age_y]
+                age_y += 1
+            if cnt_window:  # 存在可以发送好友请求的用户
+                ans += c * cnt_window - c
+        return ans
+```
+给你一个整数数组 nums 和一个整数 k ，请你返回子数组内所有元素的乘积严格小于 k 的连续子数组的数目。
+
+```py
+class Solution:
+    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+        if k <= 1:
+            return 0
+        count = 0
+        left = 0
+        pro = 1
+        
+        for right , num in enumerate(nums):
+            pro *= num
+            while pro >= k:
+                pro //= nums[left]
+                left+=1
+            count += right - left + 1
+
+        return count
+```
+
+## 数学：
+给你一个整数 n 。如果两个整数 x 和 y 满足下述条件，则认为二者形成一个质数对：
+
+1 <= x <= y <= n
+x + y == n
+x 和 y 都是质数
+请你以二维有序列表的形式返回符合题目要求的所有 [xi, yi] ，列表需要按 xi 的 非递减顺序 排序。如果不存在符合要求的质数对，则返回一个空数组。
+
+注意：质数是大于 1 的自然数，并且只有两个因子，即它本身和 1 。
+
+```py
+MX = 10 ** 6 + 1
+primes = []
+is_prime = [True] * MX
+for i in range(2, MX):
+    if is_prime[i]:
+        primes.append(i)
+        for j in range(i * i, MX, i):
+            is_prime[j] = False
+primes.extend((MX, MX))  
+
+class Solution:
+    def findPrimePairs(self, n: int) -> List[List[int]]:
+        if n % 2:
+            return [[2,n-2]] if is_prime[n-2] and n > 4 else []
+        
+        ans = []
+        for x in primes:
+            if is_prime[n-x] and n-x >= x:
+                ans.append([x,n-x])
+        return ans 
+```
+
+或者：线性筛
+
+```py
+MX = 10 ** 6 + 1
+primes = []
+is_prime = [True] * MX
+for i in range(2, MX):
+    if is_prime[i]:
+        primes.append(i)
+    for p in primes:
+        if i * p >= MX: break
+        is_prime[i * p] = False
+        if i % p == 0: break
+primes.extend((MX, MX))  # 保证下面下标不会越界
 ```
