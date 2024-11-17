@@ -432,3 +432,459 @@ group标签可以实现将一组配置应用到组内的所有节点，它也具
 ```
 
 # ros2
+
+其中主要知识在：
+<a href="https://book.guyuehome.com/">ros2使用</a>
+
+## 功能包与节点：
+
+在ROS2中创建一个功能包
+
+```bash
+ros2 pkg create --build-type <build-type> <package_name>
+```
+ros2命令中：
+
+1. pkg：表示功能包相关的功能；
+2. create：表示创建功能包；
+3. build-type：表示新创建的功能包是C++还是Python的，如果使用C++或者C，那这里就跟
+ament_cmake，如果使用Python，就跟ament_python；
+4. package_name：新建功能包的名字。
+
+```bash
+cd ~/dev_ws/src
+ros2 pkg create --build-type ament_cmake learning_pkg_c               # C++
+ros2 pkg create --build-type ament_python learning_pkg_python # Python
+```
+
+* 节点在机器人系统中的职责就是执行某些具体的任务，从计算机操作系统的角度来看，也叫做进程；
+
+* 这些节点是功能各不相同的细胞，根据系统设计的不同，可能位于计算机A，也可能位于计算机B，还有可能运行在云端，这叫做分布式，也就是可以分布在不同的硬件载体上；
+
+* 每一个节点都需要有唯一的命名，当我们想要去找到某一个节点的时候，或者想要查询某一个节点的状态时，可以通过节点的名称来做查询。
+
+```py
+#!/usr/bin/env python3 
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2节点示例-发布“Hello World”日志信息, 使用面向过程的实现方式
+"""
+
+import rclpy                                   # ROS2 Python接口库
+from rclpy.node import Node                    # ROS2 节点类
+import time
+
+def main(args=None):                           # ROS2节点主入口main函数
+    rclpy.init(args=args)                      # ROS2 Python接口初始化
+    node = Node("node_helloworld")             # 创建ROS2节点对象并进行初始化
+
+    while rclpy.ok():                          # ROS2系统是否正常运行
+        node.get_logger().info("Hello World")  # ROS2日志输出
+        time.sleep(0.5)                        # 休眠控制循环时间
+
+    node.destroy_node()                        # 销毁节点对象    
+    rclpy.shutdown()                           # 关闭ROS2 Python接口
+```
+
+完成代码的编写后需要设置功能包的编译选项，让系统知道Python程序的入口，打开功能包的setup.py文件，加入如下入口点的配置：
+
+```py
+    entry_points={
+        'console_scripts': [
+         'node_helloworld       = learning_node.node_helloworld:main',
+        ],
+    }
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+
+@说明: ROS2节点示例-发布“Hello World”日志信息, 使用面向对象的实现方式
+"""
+
+import rclpy                                     # ROS2 Python接口库
+from rclpy.node import Node                      # ROS2 节点类
+import time
+
+"""
+创建一个HelloWorld节点, 初始化时输出“hello world”日志
+"""
+class HelloWorldNode(Node):
+    def __init__(self, name):
+        super().__init__(name)                     # ROS2节点父类初始化
+        while rclpy.ok():                          # ROS2系统是否正常运行
+            self.get_logger().info("Hello World")  # ROS2日志输出
+            time.sleep(0.5)                        # 休眠控制循环时间
+
+def main(args=None):                               # ROS2节点主入口main函数
+    rclpy.init(args=args)                          # ROS2 Python接口初始化
+    node = HelloWorldNode("node_helloworld_class") # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                               # 循环等待ROS2退出
+    node.destroy_node()                            # 销毁节点对象
+    rclpy.shutdown()                               # 关闭ROS2 Python接口
+```
+
+```bash
+ros2 run learning_node node_object
+```
+
+```py
+#!/usr/bin/env python3 
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2节点示例-通过颜色识别检测图片中出现的苹果
+"""
+
+import rclpy                            # ROS2 Python接口库
+from rclpy.node import Node             # ROS2 节点类
+
+import cv2                              # OpenCV图像处理库
+import numpy as np                      # Python数值计算库
+
+lower_red = np.array([0, 90, 128])     # 红色的HSV阈值下限
+upper_red = np.array([180, 255, 255])  # 红色的HSV阈值上限
+
+def object_detect(image):
+    hsv_img = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)      # 图像从BGR颜色模型转换为HSV模型
+    mask_red = cv2.inRange(hsv_img, lower_red, upper_red) # 图像二值化
+
+    contours, hierarchy = cv2.findContours(mask_red, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE) # 图像中轮廓检测
+
+    for cnt in contours:                                  # 去除一些轮廓面积太小的噪声
+        if cnt.shape[0] < 150:
+            continue
+
+        (x, y, w, h) = cv2.boundingRect(cnt)              # 得到苹果所在轮廓的左上角xy像素坐标及轮廓范围的宽和高
+        cv2.drawContours(image, [cnt], -1, (0, 255, 0), 2)# 将苹果的轮廓勾勒出来
+        cv2.circle(image, (int(x+w/2), int(y+h/2)), 5, (0, 255, 0), -1)# 将苹果的图像中心点画出来
+
+    cv2.imshow("object", image)                           # 使用OpenCV显示处理后的图像效果
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+def main(args=None):                                      # ROS2节点主入口main函数
+    rclpy.init(args=args)                                 # ROS2 Python接口初始化
+    node = Node("node_object")                            # 创建ROS2节点对象并进行初始化
+    node.get_logger().info("ROS2节点示例：检测图片中的苹果")
+
+    image = cv2.imread('/home/hcx/dev_ws/src/ros2_21_tutorials/learning_node/learning_node/apple.jpg')  # 读取图像
+    object_detect(image)                                   # 苹果检测
+    rclpy.spin(node)                                       # 循环等待ROS2退出
+    node.destroy_node()                                    # 销毁节点对象
+    rclpy.shutdown()                                       # 关闭ROS2 Python接口
+```
+
+```bash
+ros2 node list               # 查看节点列表
+ros2 node info <node_name>   # 查看节点信息
+```
+
+## 话题：
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2话题示例-发布“Hello World”话题
+"""
+
+import rclpy                                     # ROS2 Python接口库
+from rclpy.node import Node                      # ROS2 节点类
+from std_msgs.msg import String                  # 字符串消息类型
+
+"""
+创建一个发布者节点
+"""
+class PublisherNode(Node):
+
+    def __init__(self, name):
+        super().__init__(name)                                    # ROS2节点父类初始化
+        self.pub = self.create_publisher(String, "chatter", 10)   # 创建发布者对象（消息类型、话题名、队列长度）
+        self.timer = self.create_timer(0.5, self.timer_callback)  # 创建一个定时器（单位为秒的周期，定时执行的回调函数）
+
+    def timer_callback(self):                                     # 创建定时器周期执行的回调函数
+        msg = String()                                            # 创建一个String类型的消息对象
+        msg.data = 'Hello World'                                  # 填充消息对象中的消息数据
+        self.pub.publish(msg)                                     # 发布话题消息
+        self.get_logger().info('Publishing: "%s"' % msg.data)     # 输出日志信息，提示已经完成话题发布
+
+def main(args=None):                                 # ROS2节点主入口main函数
+    rclpy.init(args=args)                            # ROS2 Python接口初始化
+    node = PublisherNode("topic_helloworld_pub")     # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                                 # 循环等待ROS2退出
+    node.destroy_node()                              # 销毁节点对象
+    rclpy.shutdown()                                 # 关闭ROS2 Python接口
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2话题示例-订阅“Hello World”话题消息
+"""
+
+import rclpy                      # ROS2 Python接口库
+from rclpy.node   import Node     # ROS2 节点类
+from std_msgs.msg import String   # ROS2标准定义的String消息
+
+"""
+创建一个订阅者节点
+"""
+class SubscriberNode(Node):
+
+    def __init__(self, name):
+        super().__init__(name)                             # ROS2节点父类初始化
+        self.sub = self.create_subscription(\
+            String, "chatter", self.listener_callback, 10) # 创建订阅者对象（消息类型、话题名、订阅者回调函数、队列长度）
+
+    def listener_callback(self, msg):                      # 创建回调函数，执行收到话题消息后对数据的处理
+        self.get_logger().info('I heard: "%s"' % msg.data) # 输出日志信息，提示订阅收到的话题消息
+
+def main(args=None):                               # ROS2节点主入口main函数
+    rclpy.init(args=args)                          # ROS2 Python接口初始化
+    node = SubscriberNode("topic_helloworld_sub")  # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                               # 循环等待ROS2退出
+    node.destroy_node()                            # 销毁节点对象
+    rclpy.shutdown()                               # 关闭ROS2 Python接口
+```
+
+## 服务：
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@作者: 古月居(www.guyuehome.com)
+@说明: ROS2服务示例-发送两个加数，请求加法器计算
+"""
+
+import sys
+
+import rclpy                                  # ROS2 Python接口库
+from rclpy.node   import Node                 # ROS2 节点类
+from learning_interface.srv import AddTwoInts # 自定义的服务接口
+
+class adderClient(Node):
+    def __init__(self, name):
+        super().__init__(name)                                       # ROS2节点父类初始化
+        self.client = self.create_client(AddTwoInts, 'add_two_ints') # 创建服务客户端对象（服务接口类型，服务名）
+        while not self.client.wait_for_service(timeout_sec=1.0):     # 循环等待服务器端成功启动
+            self.get_logger().info('service not available, waiting again...') 
+        self.request = AddTwoInts.Request()                          # 创建服务请求的数据对象
+
+    def send_request(self):                                          # 创建一个发送服务请求的函数
+        self.request.a = int(sys.argv[1])
+        self.request.b = int(sys.argv[2])
+        self.future = self.client.call_async(self.request)           # 异步方式发送服务请求
+
+def main(args=None):
+    rclpy.init(args=args)                        # ROS2 Python接口初始化
+    node = adderClient("service_adder_client")   # 创建ROS2节点对象并进行初始化
+    node.send_request()                          # 发送服务请求
+
+    while rclpy.ok():                            # ROS2系统正常运行
+        rclpy.spin_once(node)                    # 循环执行一次节点
+
+        if node.future.done():                   # 数据是否处理完成
+            try:
+                response = node.future.result()  # 接收服务器端的反馈数据
+            except Exception as e:
+                node.get_logger().info(
+                    'Service call failed %r' % (e,))
+            else:
+                node.get_logger().info(          # 将收到的反馈信息打印输出
+                    'Result of add_two_ints: for %d + %d = %d' % 
+                    (node.request.a, node.request.b, response.sum))
+            break
+
+    node.destroy_node()                          # 销毁节点对象
+    rclpy.shutdown()                             # 关闭ROS2 Python接口
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@作者: 古月居(www.guyuehome.com)
+@说明: ROS2服务示例-提供加法器的服务器处理功能
+"""
+
+import rclpy                                     # ROS2 Python接口库
+from rclpy.node   import Node                    # ROS2 节点类
+from learning_interface.srv import AddTwoInts    # 自定义的服务接口
+
+class adderServer(Node):
+    def __init__(self, name):
+        super().__init__(name)                                                           # ROS2节点父类初始化
+        self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.adder_callback)  # 创建服务器对象（接口类型、服务名、服务器回调函数）
+
+    def adder_callback(self, request, response):   # 创建回调函数，执行收到请求后对数据的处理
+        response.sum = request.a + request.b       # 完成加法求和计算，将结果放到反馈的数据中
+        self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))   # 输出日志信息，提示已经完成加法求和计算
+        return response                          # 反馈应答信息
+
+def main(args=None):                             # ROS2节点主入口main函数
+    rclpy.init(args=args)                        # ROS2 Python接口初始化
+    node = adderServer("service_adder_server")   # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                             # 循环等待ROS2退出
+    node.destroy_node()                          # 销毁节点对象
+    rclpy.shutdown()                             # 关闭ROS2 Python接口
+```
+
+## 接口：
+* 话题通信接口的定义使用的是.msg文件，由于是单向传输，只需要描述传输的每一帧数据是什么就行，比如在这个定义里，会传输两个32位的整型数，x、y，我们可以用来传输二维坐标的数值。
+
+* 服务通信接口的定义使用的是.srv文件，包含请求和应答两部分定义，通过中间的“---”区分，比如之前我们学习的加法求和功能，请求数据是两个64位整型数a和b，应答是求和的结果sum。
+
+* 动作是另外一种通信机制，用来描述机器人的一个运动过程，使用.action文件定义，比如我们让小海龟转90度，一边转一边周期反馈当前的状态，此时接口的定义分成了三个部分，分别是动作的目标，比如是开始运动，运动的结果，最终旋转的90度是否完成，还有一个周期反馈，比如每隔1s反馈一下当前转到第10度、20度还是30度了，让我们知道运动的进度。
+
+## 动作：
+![alt text](pic/image.png)
+
+客户端发送一个运动的目标，想让机器人动起来，服务器端收到之后，就开始控制机器人运动，一边运动，一边反馈当前的状态，如果是一个导航动作，这个反馈可能是当前所处的坐标，如果是机械臂抓取，这个反馈可能又是机械臂的实时姿态。当运动执行结束后，服务器再反馈一个动作结束的信息。整个通信过程就此结束。
+
+接口定义
+
+例程使用的动作并不是ROS中的标准定义，我们通过MoveCircle.action进行自定义：
+
+
+
+```
+bool enable     # 定义动作的目标，表示动作开始的指令
+---
+bool finish     # 定义动作的结果，表示是否成功执行
+---
+int32 state     # 定义动作的反馈，表示当前执行到的位置
+```
+包含三个部分：
+
+第一块是动作的目标，enable为true时，表示开始运动；
+
+第二块是动作的执行结果，finish为true，表示动作执行完成；
+
+第三块是动作的周期反馈，表示当前机器人旋转到的角度。
+
+完成定义后，还需要在功能包的CMakeLists.txt中配置编译选项，让编译器在编译过程中，根据接口定义，自动生成不同语言的代码：
+
+
+```c++
+
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "action/MoveCircle.action"
+)
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2动作示例-负责执行圆周运动动作的服务端
+"""
+
+import time
+
+import rclpy                                      # ROS2 Python接口库
+from rclpy.node   import Node                     # ROS2 节点类
+from rclpy.action import ActionServer             # ROS2 动作服务器类
+from learning_interface.action import MoveCircle  # 自定义的圆周运动接口
+
+class MoveCircleActionServer(Node):
+    def __init__(self, name):
+        super().__init__(name)                   # ROS2节点父类初始化
+        self._action_server = ActionServer(      # 创建动作服务器（接口类型、动作名、回调函数）
+            self,
+            MoveCircle,
+            'move_circle',
+            self.execute_callback)
+
+    def execute_callback(self, goal_handle):            # 执行收到动作目标之后的处理函数
+        self.get_logger().info('Moving circle...')
+        feedback_msg = MoveCircle.Feedback()            # 创建一个动作反馈信息的消息
+
+        for i in range(0, 360, 30):                     # 从0到360度，执行圆周运动，并周期反馈信息
+            feedback_msg.state = i                      # 创建反馈信息，表示当前执行到的角度
+            self.get_logger().info('Publishing feedback: %d' % feedback_msg.state)
+            goal_handle.publish_feedback(feedback_msg)  # 发布反馈信息
+            time.sleep(0.5)
+
+        goal_handle.succeed()                           # 动作执行成功
+        result = MoveCircle.Result()                    # 创建结果消息
+        result.finish = True                            
+        return result                                   # 反馈最终动作执行的结果
+
+def main(args=None):                                    # ROS2节点主入口main函数
+    rclpy.init(args=args)                               # ROS2 Python接口初始化
+    node = MoveCircleActionServer("action_move_server") # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                                    # 循环等待ROS2退出
+    node.destroy_node()                                 # 销毁节点对象
+    rclpy.shutdown()                                    # 关闭ROS2 Python接口
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2动作示例-请求执行圆周运动动作的客户端
+"""
+
+import rclpy                                      # ROS2 Python接口库
+from rclpy.node   import Node                     # ROS2 节点类
+from rclpy.action import ActionClient             # ROS2 动作客户端类
+
+from learning_interface.action import MoveCircle  # 自定义的圆周运动接口
+
+class MoveCircleActionClient(Node):
+    def __init__(self, name):
+        super().__init__(name)                   # ROS2节点父类初始化
+        self._action_client = ActionClient(      # 创建动作客户端（接口类型、动作名）
+            self, MoveCircle, 'move_circle') 
+
+    def send_goal(self, enable):                 # 创建一个发送动作目标的函数
+        goal_msg = MoveCircle.Goal()             # 创建一个动作目标的消息
+        goal_msg.enable = enable                 # 设置动作目标为使能，希望机器人开始运动
+
+        self._action_client.wait_for_server()    # 等待动作的服务器端启动
+        self._send_goal_future = self._action_client.send_goal_async(   # 异步方式发送动作的目标
+            goal_msg,                                                   # 动作目标
+            feedback_callback=self.feedback_callback)                   # 处理周期反馈消息的回调函数
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback) # 设置一个服务器收到目标之后反馈时的回调函数
+
+    def goal_response_callback(self, future):           # 创建一个服务器收到目标之后反馈时的回调函数
+        goal_handle = future.result()                   # 接收动作的结果
+        if not goal_handle.accepted:                    # 如果动作被拒绝执行
+            self.get_logger().info('Goal rejected :(')
+            return
+
+        self.get_logger().info('Goal accepted :)')                            # 动作被顺利执行
+
+        self._get_result_future = goal_handle.get_result_async()              # 异步获取动作最终执行的结果反馈
+        self._get_result_future.add_done_callback(self.get_result_callback)   # 设置一个收到最终结果的回调函数 
+
+    def get_result_callback(self, future):                                    # 创建一个收到最终结果的回调函数
+        result = future.result().result                                       # 读取动作执行的结果
+        self.get_logger().info('Result: {%d}' % result.finish)                # 日志输出执行结果
+
+    def feedback_callback(self, feedback_msg):                                # 创建处理周期反馈消息的回调函数
+        feedback = feedback_msg.feedback                                      # 读取反馈的数据
+        self.get_logger().info('Received feedback: {%d}' % feedback.state) 
+
+def main(args=None):                                       # ROS2节点主入口main函数
+    rclpy.init(args=args)                                  # ROS2 Python接口初始化
+    node = MoveCircleActionClient("action_move_client")    # 创建ROS2节点对象并进行初始化
+    node.send_goal(True)                                   # 发送动作目标
+    rclpy.spin(node)                                       # 循环等待ROS2退出
+    node.destroy_node()                                    # 销毁节点对象
+    rclpy.shutdown()                                       # 关闭ROS2 Python接口
+```
