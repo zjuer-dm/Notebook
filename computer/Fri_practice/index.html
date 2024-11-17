@@ -756,10 +756,25 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="贪心：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      区间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       堆
     </span>
@@ -768,7 +783,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       队列
     </span>
@@ -780,6 +795,24 @@
   <a href="#dp" class="md-nav__link">
     <span class="md-ellipsis">
       dp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      数学：
     </span>
   </a>
   
@@ -1389,10 +1422,25 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="贪心：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      区间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       堆
     </span>
@@ -1401,7 +1449,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       队列
     </span>
@@ -1413,6 +1461,24 @@
   <a href="#dp" class="md-nav__link">
     <span class="md-ellipsis">
       dp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      数学：
     </span>
   </a>
   
@@ -1743,7 +1809,27 @@
 <a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>            <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pre</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div>
-<h2 id="_3">堆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_3">区间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>给你一个正整数 days，表示员工可工作的总天数（从第 1 天开始）。另给你一个二维数组 meetings，长度为 n，其中 meetings[i] = [start_i, end_i] 表示第 i 次会议的开始和结束天数（包含首尾）。</p>
+<p>返回员工可工作且没有安排会议的天数。</p>
+<p>注意：会议时间可能会有重叠。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="k">def</span> <span class="nf">countDays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">days</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">meetings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        <span class="n">meetings</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span> <span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>        <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        <span class="n">right</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>        <span class="k">for</span> <span class="n">i</span> <span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">meetings</span><span class="p">:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>                <span class="n">count</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>                <span class="n">left</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>            <span class="n">right</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">right</span> <span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>        <span class="k">return</span> <span class="n">days</span> <span class="o">-</span> <span class="n">count</span>
+</code></pre></div>
+<h2 id="_4">堆<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>最小堆可以看作是一种优先级队列的实现，有些应用场景需要从队列中获取最小的或者最大的元素，而且不要求数据全部有序，使用最小堆或者最大堆能很好的解决这类问题。
 最小堆的元素是按完全二叉树的顺序存储方式存放在一维数组中。</p>
@@ -1755,14 +1841,14 @@
 山的高度降低 1，需要 workerTimes[i] 秒。
 山的高度降低 2，需要 workerTimes[i] + workerTimes[i] * 2 秒，依此类推。
 返回一个整数，表示工人们使山的高度降低到 0 所需的 最少 秒数。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="k">def</span> <span class="nf">minNumberOfSeconds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mountainHeight</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">workerTimes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        <span class="n">h</span> <span class="o">=</span> <span class="p">[(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">workerTimes</span><span class="p">]</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>        <span class="n">heapify</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mountainHeight</span><span class="p">):</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>            <span class="n">nxt</span> <span class="p">,</span> <span class="n">delta</span> <span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>            <span class="n">heapreplace</span><span class="p">(</span><span class="n">h</span> <span class="p">,</span> <span class="p">(</span><span class="n">nxt</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">+</span> <span class="n">base</span> <span class="p">,</span> <span class="n">base</span> <span class="o">+</span> <span class="n">delta</span> <span class="p">,</span> <span class="n">base</span><span class="p">))</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="k">return</span> <span class="n">nxt</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">def</span> <span class="nf">minNumberOfSeconds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mountainHeight</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">workerTimes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="n">h</span> <span class="o">=</span> <span class="p">[(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">workerTimes</span><span class="p">]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>        <span class="n">heapify</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mountainHeight</span><span class="p">):</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>            <span class="n">nxt</span> <span class="p">,</span> <span class="n">delta</span> <span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>            <span class="n">heapreplace</span><span class="p">(</span><span class="n">h</span> <span class="p">,</span> <span class="p">(</span><span class="n">nxt</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">+</span> <span class="n">base</span> <span class="p">,</span> <span class="n">base</span> <span class="o">+</span> <span class="n">delta</span> <span class="p">,</span> <span class="n">base</span><span class="p">))</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="k">return</span> <span class="n">nxt</span>
 </code></pre></div>
 <p>python中global和nonlocal:</p>
 <p>第一，两者的功能不同。global关键字修饰变量后标识该变量是全局变量，对该变量进行修改就是修改全局变量，而nonlocal关键字修饰变量后标识该变量是上一级函数中的局部变量，如果上一级函数中不存在该局部变量，nonlocal位置会发生错误（最上层的函数使用nonlocal修饰变量必定会报错）。</p>
@@ -1775,51 +1861,51 @@
 
 子树指的是一个节点以及它所有后代节点构成的一棵树。
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">def</span> <span class="nf">countGoodNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> 
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>        <span class="n">g</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">]</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="k">for</span> <span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>            <span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>            <span class="n">g</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">,</span> <span class="n">fa</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="p">:</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>            <span class="n">sz0</span> <span class="o">=</span> <span class="mi">0</span> 
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>            <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>            <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">]:</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>                <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="n">fa</span><span class="p">:</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>                    <span class="k">continue</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>                <span class="n">sz</span> <span class="o">=</span> <span class="n">DFS</span><span class="p">(</span><span class="n">y</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>                <span class="k">if</span> <span class="n">sz0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>                    <span class="n">sz0</span> <span class="o">=</span> <span class="n">sz</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>                <span class="k">elif</span> <span class="n">sz0</span> <span class="o">!=</span> <span class="n">sz</span><span class="p">:</span>
-<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>                    <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>                <span class="n">size</span> <span class="o">+=</span> <span class="n">sz</span>
-<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>            <span class="k">nonlocal</span> <span class="n">ans</span>
-<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>            <span class="n">ans</span> <span class="o">+=</span> <span class="n">flag</span>
-<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>            <span class="k">return</span> <span class="n">size</span>
-<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>
-<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>        <span class="n">DFS</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>        <span class="k">return</span> <span class="n">ans</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="k">def</span> <span class="nf">countGoodNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> 
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>        <span class="n">g</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">]</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        <span class="k">for</span> <span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>            <span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>            <span class="n">g</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>        <span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">,</span> <span class="n">fa</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="p">:</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>            <span class="n">sz0</span> <span class="o">=</span> <span class="mi">0</span> 
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>            <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>            <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">]:</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>                <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="n">fa</span><span class="p">:</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>                    <span class="k">continue</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>                <span class="n">sz</span> <span class="o">=</span> <span class="n">DFS</span><span class="p">(</span><span class="n">y</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>                <span class="k">if</span> <span class="n">sz0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>                    <span class="n">sz0</span> <span class="o">=</span> <span class="n">sz</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>                <span class="k">elif</span> <span class="n">sz0</span> <span class="o">!=</span> <span class="n">sz</span><span class="p">:</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>                    <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>                <span class="n">size</span> <span class="o">+=</span> <span class="n">sz</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>            <span class="k">nonlocal</span> <span class="n">ans</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>            <span class="n">ans</span> <span class="o">+=</span> <span class="n">flag</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>            <span class="k">return</span> <span class="n">size</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>        <span class="n">DFS</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div>
-<h2 id="_4">队列<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">队列<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>给你一个整数数组 nums ，和一个表示限制的整数 limit，请你返回最长连续子数组的长度，该子数组中的任意两个元素之间的绝对差必须小于或者等于 limit 。</p>
 <p>如果不存在满足条件的子数组，则返回 0 。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedList</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="k">def</span> <span class="nf">longestSubarray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        <span class="n">left</span> <span class="p">,</span> <span class="n">right</span>  <span class="p">,</span><span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">SortedList</span><span class="p">()</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="k">while</span>  <span class="n">right</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>            <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">limit</span><span class="p">:</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>                <span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">])</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>                <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>            <span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ans</span> <span class="p">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>            <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>        <span class="k">return</span> <span class="n">ans</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedList</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="k">def</span> <span class="nf">longestSubarray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>        <span class="n">left</span> <span class="p">,</span> <span class="n">right</span>  <span class="p">,</span><span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">SortedList</span><span class="p">()</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>        <span class="k">while</span>  <span class="n">right</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>            <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">limit</span><span class="p">:</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>                <span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">])</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>                <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>            <span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ans</span> <span class="p">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>            <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div>
 <h2 id="dp">dp<a class="headerlink" href="#dp" title="Permanent link">&para;</a></h2>
 <p>给你一个 下标从 1 开始的 整数数组 prices ，其中 prices[i] 表示你购买第 i 个水果需要花费的金币数目。</p>
@@ -1827,22 +1913,144 @@
 <p>如果你花费 prices[i] 购买了下标为 i 的水果，那么你可以免费获得下标范围在 [i + 1, i + i] 的水果。
 注意 ，即使你 可以 免费获得水果 j ，你仍然可以花费 prices[j] 个金币去购买它以获得它的奖励。</p>
 <p>请你返回获得所有水果所需要的 最少 金币数。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="k">def</span> <span class="nf">minimumCoins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">):</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>            <span class="n">prices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        <span class="k">return</span> <span class="n">prices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="k">def</span> <span class="nf">minimumCoins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>        <span class="nd">@cache</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>                <span class="k">return</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># i 从 1 开始</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">):</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>            <span class="n">prices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>        <span class="k">return</span> <span class="n">prices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="k">def</span> <span class="nf">minimumCoins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>        <span class="nd">@cache</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>                <span class="k">return</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># i 从 1 开始</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>每日一题：</p>
+<p>给你一个 m x n 的二进制矩阵 grid 。</p>
+<p>如果矩阵中一行或者一列从前往后与从后往前读是一样的，那么我们称这一行或者这一列是 回文 的。</p>
+<p>你可以将 grid 中任意格子的值 翻转 ，也就是将格子里的值从 0 变成 1 ，或者从 1 变成 0 。</p>
+<p>请你返回 最少 翻转次数，使得矩阵中 所有 行和列都是 回文的 ，且矩阵中 1 的数目可以被 4 整除 。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="k">def</span> <span class="nf">minFlips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>            <span class="n">row</span><span class="p">,</span> <span class="n">row2</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>                <span class="n">cnt1</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">row2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">row2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">]</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>                <span class="n">ans</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">cnt1</span><span class="p">,</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">cnt1</span><span class="p">)</span>  <span class="c1"># 全为 1 或全为 0</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>        <span class="k">if</span> <span class="n">m</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>            <span class="c1"># 正中间的数必须是 0</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>            <span class="n">ans</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">m</span> <span class="o">//</span> <span class="mi">2</span><span class="p">][</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>        <span class="n">diff</span> <span class="o">=</span> <span class="n">cnt1</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>        <span class="k">if</span> <span class="n">m</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>            <span class="c1"># 统计正中间这一排</span>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>            <span class="n">row</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">m</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>                <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">]:</span>
+<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>                    <span class="n">diff</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>                <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>                    <span class="n">cnt1</span> <span class="o">+=</span> <span class="n">row</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+<a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>            <span class="c1"># 统计正中间这一列</span>
+<a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>                <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">][</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]:</span>
+<a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>                    <span class="n">diff</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>                <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>                    <span class="n">cnt1</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+<a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>
+<a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a>        <span class="k">return</span> <span class="n">ans</span> <span class="o">+</span> <span class="p">(</span><span class="n">diff</span> <span class="k">if</span> <span class="n">diff</span> <span class="k">else</span> <span class="n">cnt1</span> <span class="o">%</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_6">滑动窗口<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>在社交媒体网站上有 n 个用户。给你一个整数数组 ages ，其中 ages[i] 是第 i 个用户的年龄。</p>
+<p>如果下述任意一个条件为真，那么用户 x 将不会向用户 y（x != y）发送好友请求：</p>
+<p>ages[y] &lt;= 0.5 * ages[x] + 7
+ages[y] &gt; ages[x]
+ages[y] &gt; 100 &amp;&amp; ages[x] &lt; 100
+否则，x 将会向 y 发送一条好友请求。</p>
+<p>注意，如果 x 向 y 发送一条好友请求，y 不必也向 x 发送一条好友请求。另外，用户不会向自己发送好友请求。</p>
+<p>返回在该社交媒体网站上产生的好友请求总数。</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="k">def</span> <span class="nf">numFriendRequests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>        <span class="n">cnt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">121</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        <span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">ages</span><span class="p">:</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>            <span class="n">cnt</span><span class="p">[</span><span class="n">age</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="n">cnt_window</span> <span class="o">=</span> <span class="n">age_y</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        <span class="k">for</span> <span class="n">age_x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cnt</span><span class="p">):</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>            <span class="n">cnt_window</span> <span class="o">+=</span> <span class="n">c</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>            <span class="k">if</span> <span class="n">age_y</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">age_x</span> <span class="o">+</span> <span class="mi">14</span><span class="p">:</span>  <span class="c1"># 不能发送好友请求</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>                <span class="n">cnt_window</span> <span class="o">-=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">age_y</span><span class="p">]</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>                <span class="n">age_y</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>            <span class="k">if</span> <span class="n">cnt_window</span><span class="p">:</span>  <span class="c1"># 存在可以发送好友请求的用户</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>                <span class="n">ans</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">cnt_window</span> <span class="o">-</span> <span class="n">c</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>        <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div>
+给你一个整数数组 nums 和一个整数 k ，请你返回子数组内所有元素的乘积严格小于 k 的连续子数组的数目。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="k">def</span> <span class="nf">numSubarrayProductLessThanK</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>        <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>            <span class="k">return</span> <span class="mi">0</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>        <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>        <span class="n">pro</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>        <span class="k">for</span> <span class="n">right</span> <span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>            <span class="n">pro</span> <span class="o">*=</span> <span class="n">num</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>            <span class="k">while</span> <span class="n">pro</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">:</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>                <span class="n">pro</span> <span class="o">//=</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>                <span class="n">left</span><span class="o">+=</span><span class="mi">1</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>            <span class="n">count</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>        <span class="k">return</span> <span class="n">count</span>
+</code></pre></div>
+<h2 id="_7">数学：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>给你一个整数 n 。如果两个整数 x 和 y 满足下述条件，则认为二者形成一个质数对：</p>
+<p>1 &lt;= x &lt;= y &lt;= n
+x + y == n
+x 和 y 都是质数
+请你以二维有序列表的形式返回符合题目要求的所有 [xi, yi] ，列表需要按 xi 的 非递减顺序 排序。如果不存在符合要求的质数对，则返回一个空数组。</p>
+<p>注意：质数是大于 1 的自然数，并且只有两个因子，即它本身和 1 。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">MX</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">is_prime</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">MX</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">MX</span><span class="p">):</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="k">if</span> <span class="n">is_prime</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>        <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">MX</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>            <span class="n">is_prime</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="n">primes</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">MX</span><span class="p">,</span> <span class="n">MX</span><span class="p">))</span>  
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>    <span class="k">def</span> <span class="nf">findPrimePairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>            <span class="k">return</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">]]</span> <span class="k">if</span> <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="k">else</span> <span class="p">[]</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>            <span class="k">if</span> <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">x</span><span class="p">]</span> <span class="ow">and</span> <span class="n">n</span><span class="o">-</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">:</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>                <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>        <span class="k">return</span> <span class="n">ans</span> 
+</code></pre></div>
+<p>或者：线性筛</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">MX</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">is_prime</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">MX</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">MX</span><span class="p">):</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="k">if</span> <span class="n">is_prime</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>        <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>        <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="n">MX</span><span class="p">:</span> <span class="k">break</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>        <span class="n">is_prime</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">break</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="n">primes</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">MX</span><span class="p">,</span> <span class="n">MX</span><span class="p">))</span>  <span class="c1"># 保证下面下标不会越界</span>
 </code></pre></div>
 
 
