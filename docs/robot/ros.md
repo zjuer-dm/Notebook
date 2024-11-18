@@ -888,3 +888,56 @@ def main(args=None):                                       # ROS2节点主入口
     node.destroy_node()                                    # 销毁节点对象
     rclpy.shutdown()                                       # 关闭ROS2 Python接口
 ```
+
+## 参数与分布式系统：
+
+ROS系统中，机器人功能是由各种节点组成的，这些节点可能位于不同的计算机中，这种结构可以将原本资源消耗较多的任务，分配到不同的平台上，减轻计算压力，这就是分布式通信框架的典型应用之一。
+
+```bash
+ros2 param list
+
+ros2 param describe turtlesim background_b   # 查看某个参数的描述信息
+ros2 param get turtlesim background_b        # 查询某个参数的值
+ros2 param set turtlesim background_b 10     # 修改某个参数的值
+
+
+ros2 param dump turtlesim >> turtlesim.yaml  # 将某个节点的参数保存到参数文件中
+ros2 param load turtlesim turtlesim.yaml     # 一次性加载某一个文件中的所有参数
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2参数示例-创建、读取、修改参数
+"""
+
+import rclpy                                     # ROS2 Python接口库
+from rclpy.node   import Node                    # ROS2 节点类
+
+class ParameterNode(Node):
+    def __init__(self, name):
+        super().__init__(name)                                    # ROS2节点父类初始化
+        self.timer = self.create_timer(2, self.timer_callback)    # 创建一个定时器（单位为秒的周期，定时执行的回调函数）
+        self.declare_parameter('robot_name', 'mbot')              # 创建一个参数，并设置参数的默认值
+
+    def timer_callback(self):                                      # 创建定时器周期执行的回调函数
+        robot_name_param = self.get_parameter('robot_name').get_parameter_value().string_value   # 从ROS2系统中读取参数的值
+
+        self.get_logger().info('Hello %s!' % robot_name_param)     # 输出日志信息，打印读取到的参数值
+
+        new_name_param = rclpy.parameter.Parameter('robot_name',   # 重新将参数值设置为指定值
+                            rclpy.Parameter.Type.STRING, 'mbot')
+        all_new_parameters = [new_name_param]
+        self.set_parameters(all_new_parameters)                    # 将重新创建的参数列表发送给ROS2系统
+
+def main(args=None):                                 # ROS2节点主入口main函数
+    rclpy.init(args=args)                            # ROS2 Python接口初始化
+    node = ParameterNode("param_declare")            # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                                 # 循环等待ROS2退出
+    node.destroy_node()                              # 销毁节点对象
+    rclpy.shutdown()                                 # 关闭ROS2 Python接口
+```
+完成代码的编写后需要设置功能包的编译选项，让系统知道Python程序的入口
+
