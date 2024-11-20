@@ -660,7 +660,6 @@ def main(args=None):                               # ROS2节点主入口main函�
 # -*- coding: utf-8 -*-
 
 """
-@作者: 古月居(www.guyuehome.com)
 @说明: ROS2服务示例-发送两个加数，请求加法器计算
 """
 
@@ -712,7 +711,7 @@ def main(args=None):
 # -*- coding: utf-8 -*-
 
 """
-@作者: 古月居(www.guyuehome.com)
+
 @说明: ROS2服务示例-提供加法器的服务器处理功能
 """
 
@@ -941,3 +940,115 @@ def main(args=None):                                 # ROS2节点主入口main�
 ```
 完成代码的编写后需要设置功能包的编译选项，让系统知道Python程序的入口
 
+## 通信模型:
+第一种，点对点模型，许多客户端连接到一个服务端，每次通信时，通信双方必须建立一条连接。当通信节点增多时，连接数也会增多。而且每个客户端都需要知道服务器的具体地址和所提供的服务，一旦服务器地址发生变化，所有客户端都会受到影响。
+
+第二种，Broker模型，针对点对点模型进行了优化，由Broker集中处理所有人的请求，并进一步找到真正能响应该服务的角色。这样客户端就不用关心服务器的具体地址了。不过问题也很明显，Broker作为核心，它的处理速度会影响所有节点的效率，当系统规模增长到一定程度，Broker就会成为整个系统的性能瓶颈。更麻烦是，如果Broker发生异常，可能导致整个系统都无法正常运转。之前的ROS1系统，使用的就是类似这样的架构。
+
+第三种，广播模型，所有节点都可以在通道上广播消息，并且节点都可以收到消息。这个模型解决了服务器地址的问题，而且通信双方也不用单独建立连接，但是广播通道上的消息太多了，所有节点都必须关心每条消息，其实很多是和自己没有关系的。
+
+第四种，就是以数据为中心的DDS模型了，这种模型与广播模型有些类似，所有节点都可以在DataBus上发布和订阅消息。但它的先进之处在于，通信中包含了很多并行的通路，每个节点可以只关心自己感兴趣的消息，忽略不感兴趣的消息，有点像是一个旋转火锅，各种好吃的都在这个DataBus传送，我们只需要拿自己想吃的就行，其他的和我们没有关系。
+
+![alt text](<pic/Screenshot 2024-11-19 at 16.35.58.png>)
+
+QoS是一种网络传输策略，应用程序指定所需要的网络传输质量行为，QoS服务实现这种行为要求，尽可能地满足客户对通信质量的需求，可以理解为数据提供者和接收者之间的合约。
+
+1. DEADLINE策略，表示通信数据必须要在每次截止时间内完成一次通信；
+2. HISTORY策略，表示针对历史数据的一个缓存大小；
+3. RELIABILITY策略，表示数据通信的模式，配置成BEST_EFFORT，就是尽力传输模式，网络情况不好的时候，也要保证数据流畅，此时可能会导致数据丢失，配置成RELIABLE，就是可信赖模式，可以在通信中尽量保证图像的完整性，我们可以根据应用功能场景选择合适的通信模式；
+4. DURABILITY策略，可以配置针对晚加入的节点，也保证有一定的历史数据发送过去，可以让新节点快速适应系统。
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2 QoS示例-发布“Hello World”话题
+"""
+
+import rclpy                     # ROS2 Python接口库
+from rclpy.node import Node      # ROS2 节点类
+from std_msgs.msg import String  # 字符串消息类型
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy # ROS2 QoS类
+
+"""
+创建一个发布者节点
+"""
+class PublisherNode(Node):
+
+    def __init__(self, name):
+        super().__init__(name)        # ROS2节点父类初始化
+
+        qos_profile = QoSProfile(     # 创建一个QoS原则
+            # reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            reliability=QoSReliabilityPolicy.RELIABLE,
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=1
+        )
+        self.pub = self.create_publisher(String, "chatter", qos_profile) # 创建发布者对象（消息类型、话题名、QoS原则）
+        self.timer = self.create_timer(0.5, self.timer_callback)         # 创建一个定时器（单位为秒的周期，定时执行的回调函数）
+
+    def timer_callback(self):                                # 创建定时器周期执行的回调函数
+        msg = String()                                       # 创建一个String类型的消息对象
+        msg.data = 'Hello World'                             # 填充消息对象中的消息数据
+        self.pub.publish(msg)                                # 发布话题消息
+        self.get_logger().info('Publishing: "%s"' % msg.data)# 输出日志信息，提示已经完成话题发布
+
+def main(args=None):                           # ROS2节点主入口main函数
+    rclpy.init(args=args)                      # ROS2 Python接口初始化
+    node = PublisherNode("qos_helloworld_pub") # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                           # 循环等待ROS2退出
+    node.destroy_node()                        # 销毁节点对象
+    rclpy.shutdown()                           # 关闭ROS2 Python接口
+```
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+@说明: ROS2 QoS示例-订阅“Hello World”话题消息
+"""
+
+import rclpy                                     # ROS2 Python接口库
+from rclpy.node   import Node                    # ROS2 节点类
+from std_msgs.msg import String                  # ROS2标准定义的String消息
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy  # ROS2 QoS类
+
+"""
+创建一个订阅者节点
+"""
+class SubscriberNode(Node):
+
+    def __init__(self, name):
+        super().__init__(name)         # ROS2节点父类初始化
+
+        qos_profile = QoSProfile(      # 创建一个QoS原则
+            # reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            reliability=QoSReliabilityPolicy.RELIABLE,
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=1
+        )
+
+        self.sub = self.create_subscription(\
+            String, "chatter", self.listener_callback, qos_profile) # 创建订阅者对象（消息类型、话题名、订阅者回调函数、QoS原则）
+
+    def listener_callback(self, msg):                      # 创建回调函数，执行收到话题消息后对数据的处理
+        self.get_logger().info('I heard: "%s"' % msg.data) # 输出日志信息，提示订阅收到的话题消息
+
+def main(args=None):                               # ROS2节点主入口main函数
+    rclpy.init(args=args)                          # ROS2 Python接口初始化
+    node = SubscriberNode("qos_helloworld_sub")    # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)                               # 循环等待ROS2退出
+    node.destroy_node()                            # 销毁节点对象
+    rclpy.shutdown()                               # 关闭ROS2 Python接口
+```
+
+    ROS2提供了一个DOMAIN的机制，就类似分组一样，处于同一个DOMAIN中的计算机才能通信，我们可以在电脑和树莓派端的.bashrc中加入这样一句配置，即可将两者分配到一个小组中：
+```bash
+export ROS_DOMAIN_ID=<your_domain_id>
+```
+
+Gazebo是仿真平台，核心功能是创造数据，我们没有机器人或者传感器，它可以帮我们做一个虚拟的；
+
+Rviz是可视化平台，核心功能是显示数据，如果没有数据，它也没有什么。

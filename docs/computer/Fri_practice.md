@@ -496,6 +496,74 @@ class Solution:
             return min(dfs(j) for j in range(i + 1, i * 2 + 2)) + prices[i - 1]
         return dfs(1)
 ```
+这里有 n 个一样的骰子，每个骰子上都有 k 个面，分别标号为 1 到 k 。
+
+给定三个整数 n、k 和 target，请返回投掷骰子的所有可能得到的结果（共有 kn 种方式），使得骰子面朝上的数字总和等于 target。
+
+由于答案可能很大，你需要对 109 + 7 取模。
+
+```py
+class Solution:
+    def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+        if not ( n <= target and n*k >= target):
+            return 0
+        mod = 10**9 + 7
+        @cache
+        def DFS(i,j):
+            
+            if i ==0:
+                return j==0
+            res = 0
+            for x in range(1,k+1):
+                res += DFS(i-1 , j-x)
+            return res % mod
+        return DFS(n , target)
+```
+
+给你一棵二叉树的根节点 root ，二叉树中节点的值 互不相同 。另给你一个整数 start 。在第 0 分钟，感染 将会从值为 start 的节点开始爆发。
+
+每分钟，如果节点满足以下全部条件，就会被感染：
+
+节点此前还没有感染。
+节点与一个已感染节点相邻。
+返回感染整棵树需要的分钟数。
+```py
+class Solution:
+    def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+        if not ( n <= target and n*k >= target):
+            return 0
+        mod = 10**9 + 7
+        f = [[0]*(target - n + 1) for _ in range(n+1)]
+        f[0][0] = 1
+        for i in range(1,n+1):
+            for j in range(target - n + 1) :
+                for x in range(min(k , j+1)):
+                    f[i][j] = (f[i][j] + f[i-1][j-x]) % mod
+        return f[n][-1]
+```
+
+
+```py
+class Solution:
+    def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
+        ans = 0
+        def DFS(node:Optional[TreeNode]):
+            if node is None:
+                return 0 ,False
+            l , l_found = DFS(node.left)
+            r , r_found = DFS(node.right)
+            nonlocal ans
+            if node.val == start:
+                ans = max(l , r)
+                return 1,True
+
+            if l_found or r_found:
+                ans = max(ans , l+r)
+                return (l if l_found else r) + 1 , True
+            return max(l,r) + 1,False
+        DFS(root)
+        return ans
+```
 
 每日一题：
 
@@ -642,4 +710,176 @@ for i in range(2, MX):
         is_prime[i * p] = False
         if i % p == 0: break
 primes.extend((MX, MX))  # 保证下面下标不会越界
+```
+
+每日一题：
+
+给你一个整数 n 和一个二维整数数组 queries。
+
+有 n 个城市，编号从 0 到 n - 1。初始时，每个城市 i 都有一条单向道路通往城市 i + 1（ 0 <= i < n - 1）。
+
+queries[i] = [ui, vi] 表示新建一条从城市 ui 到城市 vi 的单向道路。每次查询后，你需要找到从城市 0 到城市 n - 1 的最短路径的长度。
+
+返回一个数组 answer，对于范围 [0, queries.length - 1] 中的每个 i，answer[i] 是处理完前 i + 1 个查询后，从城市 0 到城市 n - 1 的最短路径的长度。
+
+```py
+class Solution:
+    def shortestDistanceAfterQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        edges = [ [i+1] for i in range(n)]
+        edges[-1] = []
+        ans = []
+
+        def BFS(edges , n):
+            dist = [-1]*(n)
+            dist[0] = 0
+            q = deque([0])
+            while len(q)>0:
+                x = q.popleft()
+                for y in edges[x]:
+                    if dist[y] > 0:
+                        if y == n-1:
+                            return dist[y]
+                        continue
+                    q.append(y)
+                    dist[y] = dist[x] + 1
+            return dist[n-1]
+        
+        for u, v in queries:
+            edges[u].append(v)
+            ans.append(BFS(edges , n))
+        return ans
+```
+
+```py
+class Solution:
+    def shortestDistanceAfterQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+
+        edges = [ [i-1] for i in range(n)]
+        edges[0] = []
+        ans = []
+        dp = [i for i in range(n)]
+        dp[0] = 0
+
+        for (x , y) in queries:
+            edges[y].append(x)
+            for i in range(y , n):
+                for ele in edges[i]:
+                    dp[i] = min(dp[i] , dp[ele] + 1)
+            ans.append(dp[-1])
+
+        return ans
+```
+
+## dp综合
+
+每日一题：并查集
+
+给你一个整数 n 和一个二维整数数组 queries。
+
+有 n 个城市，编号从 0 到 n - 1。初始时，每个城市 i 都有一条单向道路通往城市 i + 1（ 0 <= i < n - 1）。
+
+queries[i] = [ui, vi] 表示新建一条从城市 ui 到城市 vi 的单向道路。每次查询后，你需要找到从城市 0 到城市 n - 1 的最短路径的长度。
+
+所有查询中不会存在两个查询都满足 queries[i][0] < queries[j][0] < queries[i][1] < queries[j][1]。
+
+返回一个数组 answer，对于范围 [0, queries.length - 1] 中的每个 i，answer[i] 是处理完前 i + 1 个查询后，从城市 0 到城市 n - 1 的最短路径的长度。
+
+
+```py
+class Solution:
+    def shortestDistanceAfterQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        fa = list(range(n-1))
+
+        def find(x: int)->int:
+            rt = x
+            while fa[rt] != rt:
+                rt = fa[rt]
+
+            while fa[x] != rt:
+                fa[x] , x = rt , fa[x]
+            
+            return rt
+
+        ans = []
+        cnt = n-1
+
+        for l , r in queries:
+            fr = find(r-1)
+            x = find(l)
+            while x < r - 1:
+                cnt -= 1
+                fa[x] = fr
+                x = find(x+1)
+            ans.append(cnt)
+
+        return ans
+```
+
+![alt text](<pic/Screenshot 2024-11-20 at 10.54.24.png>)
+
+```py
+class Solution:
+    def shortestDistanceAfterQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        nxt = list(range(1,n))
+        cnt = n-1
+        ans = []
+        for l,r in queries:
+            while nxt[l] < r:
+                nxt[l] , l = r ,nxt[l]
+                cnt -= 1
+            ans.append(cnt)
+
+        return ans
+```
+
+    给你两个单词 word1 和 word2， 请返回将 word1 转换成 word2 所使用的最少操作数  。
+
+    你可以对一个单词进行如下三种操作：
+
+    插入一个字符
+    删除一个字符
+    替换一个字符
+
+```py
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        @cache
+        def DFS(i, j):
+            if i < 0:
+                return j + 1
+            if j < 0 :
+                return i+1
+            if word1[i] == word2[j]:
+                return DFS(i-1,j-1)
+            return min(DFS(i-1,j) , DFS(i,j-1) , DFS(i-1,j-1))+1
+
+        return DFS(len(word1)-1 , len(word2)-1)
+```
+
+```py
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        n , m  = len(word1) , len(word2)
+        f = [[0] * (m+1) for _ in range(n+1) ]
+        f[0] = list(range(m+1))
+        for i , x in enumerate(word1):
+            f[i+1][0] = i+1
+            for j , y in enumerate(word2):
+                f[i+1][j+1] = f[i][j] if x == y else \
+                min(f[i][j+1] , f[i+1][j] , f[i][j])+1
+        return f[n][m]
+```
+
+```py
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        f = list(range(len(word2)+1))
+        for x in word1:
+            pre = f[0]
+            f[0] += 1
+            for j ,y in enumerate(word2):
+                tmp = f[j+1]
+                f[j+1] = pre if x == y else min(f[j+1], f[j] , pre)+1
+                pre = tmp
+        return f[-1]
 ```
