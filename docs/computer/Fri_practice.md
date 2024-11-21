@@ -883,3 +883,129 @@ class Solution:
                 pre = tmp
         return f[-1]
 ```
+
+### 新手
+你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。
+
+给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，今晚能够偷窃到的最高金额。
+
+```py
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        dp1 = [0]* (n+1)
+        dp2 = [0]* (n+1)
+        for i in range(1,n):
+            dp1[i+1] = max(dp1[i] , dp1[i-1] + nums[i-1])
+            dp2[i+1] = max(dp2[i] , dp2[i-1] + nums[i])
+
+        return max(dp1[-1] , dp2[-1])
+```
+
+```py
+class Solution:
+    # 198. 打家劫舍
+    def rob1(self, nums: List[int]) -> int:
+        f0 = f1 = 0
+        for x in nums:
+            f0, f1 = f1, max(f1, f0 + x)
+        return f1
+
+    def rob(self, nums: List[int]) -> int:
+        return max(nums[0] + self.rob1(nums[2:-1]), self.rob1(nums[1:]))
+```
+
+一个魔法师有许多不同的咒语。
+
+给你一个数组 power ，其中每个元素表示一个咒语的伤害值，可能会有多个咒语有相同的伤害值。
+
+已知魔法师使用伤害值为 power[i] 的咒语时，他们就 不能 使用伤害为 power[i] - 2 ，power[i] - 1 ，power[i] + 1 或者 power[i] + 2 的咒语。
+
+每个咒语最多只能被使用 一次 。
+
+请你返回这个魔法师可以达到的伤害值之和的 最大值 。
+
+```py
+class Solution:
+    def maximumTotalDamage(self, power: List[int]) -> int:
+        cnt = Counter(power)
+        a = sorted(cnt.keys())
+        @cache
+        def DFS(x : int)-> int:
+            if x < 0:
+                return 0
+            i = a[x]
+            j = x
+            while j and a[j-1] >= i - 2:
+                j -= 1
+
+            return max(DFS(x-1) , DFS(j-1)+ cnt[i]*i)
+        return DFS(len(a)-1)
+```
+
+```py
+class Solution:
+    def maximumTotalDamage(self, power: List[int]) -> int:
+        cnt = Counter(power)
+        a = sorted(cnt.keys())
+        dp = [0] * (len(a)+1)
+        j = 0
+        for i , x in enumerate(a):
+            while a[j] < x - 2:
+                j += 1
+            dp[i+1] = max(dp[i] , dp[j] + x*cnt[x]) 
+        return dp[-1]
+```
+假设输入数组 power = [3, 4, 2, 3, 5, 6]：
+
+cnt = Counter({3: 2, 4: 1, 2: 1, 5: 1, 6: 1}) 表示每个伤害值的出现次数。
+
+a = [2, 3, 4, 5, 6] 是排序后的伤害值列表。
+
+dp 数组最终会包含最大伤害值的累计结果，返回的 dp[-1] 即为最终的最大伤害值。
+### 背包
+给你两个 正 整数 n 和 x 。
+
+请你返回将 n 表示成一些 互不相同 正整数的 x 次幂之和的方案数。换句话说，你需要返回互不相同整数 [n1, n2, ..., nk] 的集合数目，满足 n = n1^x + n2^x + ... + nk^x 。
+
+由于答案可能非常大，请你将它对 10**9 + 7 取余后返回。
+
+比方说，n = 160 且 x = 3 ，一个表示 n 的方法是 $ n = 2^3 + 3^3 + 5^3  $。
+```py
+class Solution:
+    def numberOfWays(self, n: int, x: int) -> int:
+        num = []
+        mod = 10**9 + 7
+        for i in range(1, n+1):
+            cur = pow(i , x)
+            if cur > n:
+                break
+            num.append(cur)
+        sz = len(num)
+        @cache
+        def DFS(n , i):
+            if n == 0:
+                return 1
+            if i >= sz or n < 0:
+                return 0
+            
+            return (DFS(n - num[i] , i+1) + DFS(n , i+1))%mod
+        return DFS(n , 0)
+```
+
+这种做法超时。
+
+```py
+class Solution:
+    def numberOfWays(self, n: int, x: int) -> int:
+        f = [1] + [0] * n
+        for i in range(1 , n+1) : 
+            v = i ** x
+            if v > n:
+                break
+            for j in range(n , v-1 , -1):
+                f[j] += f[j - v]
+        return f[-1]%(10**9+7)
+```

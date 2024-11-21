@@ -24,6 +24,9 @@ hide:
 <a style="font-family:arial;color:grey;font-size:20px;text-align:center;" href="https://isshikihugh.github.io/zju-cs-asio/">ZJU CS - All Sum in One!</a>
 <p>在暑假，我开始在Gitpages上部署，这个笔记从2024.07.02 09:10:00开始使用,来记录一些有用的东西。</p>
 
+<p>2024年11月，老师们教导我们，有一些令人印象深刻的话：</p>
+<p>真正的平庸不是你还没有做成什么，而是你放弃了追求卓越的心。</p>
+
 <a href="javascript:toggle_statistics();" style="font-size: 18px;color:grey;  font-family: 'Arial', sans-serif; border-bottom: 1px solid #0066cc; text-decoration: none;">站点统计</a>
 
 <div id="statistics" markdown="1" class="card" style="width: 27em; border-color: transparent; opacity: 1; font-size: 75%">
