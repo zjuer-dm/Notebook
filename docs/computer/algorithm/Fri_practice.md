@@ -1298,3 +1298,45 @@ public:
     }
 };
 ```
+
+## 练习
+
+给定一个字符串 s ，检查是否能重新排布其中的字母，使得两相邻的字符不同。
+
+返回 s 的任意可能的重新排列。若不可行，返回空字符串 "" 。
+
+```cpp
+class Solution {
+public:
+    string reorganizeString(string s) {
+        int n = s.length();
+        unordered_map<char , int> count;
+        for(auto x : s)
+        {
+            count[x] ++;
+        }
+        vector<pair<char , int>> a(count.begin() , count.end());
+        ranges::sort(a, [](const auto& p , const auto & q){return p.second > q.second;});
+        int m = a[0].second;
+        if (m > n - m + 1)
+        {
+            return "";
+        }
+        string ans(n , 0);
+        int i = 0 ;
+        for(auto[x, y] : a)
+        {
+            while(y--)
+            {
+                ans[i] = x;
+                i+=2;
+                if(i >= n)
+                {
+                    i = 1;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```

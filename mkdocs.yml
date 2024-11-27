@@ -109,6 +109,7 @@ nav:
       - Python: 'computer/python.md'
       - Go: 'computer/go.md'
   - 算法相关:
+      - 数据结构与算法: 'computer/algorithm/alg.md'
       - 九月练习: 'computer/algorithm/sep_practice.md'
       - 十月练习: 'computer/algorithm/oct_practice.md'
       - 十一月练习: 'computer/algorithm/Fri_practice.md'
