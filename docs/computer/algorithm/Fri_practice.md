@@ -815,7 +815,7 @@ class Solution:
         return ans
 ```
 
-![alt text](<pic/Screenshot 2024-11-20 at 10.54.24.png>)
+![alt text](<../pic/Screenshot 2024-11-20 at 10.54.24.png>)
 
 ```py
 class Solution:
@@ -1008,4 +1008,293 @@ class Solution:
             for j in range(n , v-1 , -1):
                 f[j] += f[j - v]
         return f[-1]%(10**9+7)
+```
+
+在两条独立的水平线上按给定的顺序写下 nums1 和 nums2 中的整数。
+
+现在，可以绘制一些连接两个数字 nums1[i] 和 nums2[j] 的直线，这些直线需要同时满足：
+
+ nums1[i] == nums2[j]
+且绘制的直线不与任何其他连线（非水平线）相交。
+请注意，连线即使在端点也不能相交：每个数字只能属于一条连线。
+
+以这种方法绘制线条，并返回可以绘制的最大连线数。
+
+```py
+class Solution:
+    def maxUncrossedLines(self, nums1: List[int], nums2: List[int]) -> int:
+        m = len(nums2)
+        n = len(nums1)
+
+        f = [[0] * (m+1) for _ in range(n+1)]
+        for i , x  in enumerate(nums1):
+            for j , y in enumerate(nums2):
+                f[i+1][j+1] = f[i][j] + 1 if x == y else \
+                                  max(f[i][j + 1], f[i + 1][j])
+
+        return f[-1][-1]
+```
+
+### 状态机
+
+给你一个下标从 0 开始的二进制字符串 s ，它表示一条街沿途的建筑类型，其中：
+
+s[i] = '0' 表示第 i 栋建筑是一栋办公楼，
+s[i] = '1' 表示第 i 栋建筑是一间餐厅。
+作为市政厅的官员，你需要随机 选择 3 栋建筑。然而，为了确保多样性，选出来的 3 栋建筑 相邻 的两栋不能是同一类型。
+
+比方说，给你 s = "001101" ，我们不能选择第 1 ，3 和 5 栋建筑，因为得到的子序列是 "011" ，有相邻两栋建筑是同一类型，所以 不合 题意。
+请你返回可以选择 3 栋建筑的 有效方案数 。
+
+```py
+class Solution {
+public:
+    long long numberOfWays(string s) {
+        //定义状态 0 1 01 10 在前面出现的次数
+        //用0..3表示
+        int n = s.size();
+        long long ans = 0;
+        vector<vector<long long>> dp(n + 1, vector<long long>(4));
+        for (int i = 1; i <= n; i++)
+        {
+            if (s[i - 1] == '0')
+            {
+                ans += dp[i-1][2];
+                dp[i][2] = dp[i - 1][2];
+                dp[i][3] = dp[i - 1][3] + dp[i - 1][1];//前面的1可以和0组成新的10
+                dp[i][0] = dp[i - 1][0] + 1;
+                dp[i][1] = dp[i - 1][1];
+            }
+            else
+            {
+                ans += dp[i-1][3];
+                dp[i][2] = dp[i - 1][2] + dp[i - 1][0];
+                dp[i][3] = dp[i - 1][3];
+                dp[i][0] = dp[i - 1][0];
+                dp[i][1] = dp[i - 1][1] + 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+
+返回 你能获得的 最大 利润 。
+
+```py
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        dp = [[0]*2 for _ in range(n+1)]
+        
+        dp[0][1] = -inf
+        for i , price in enumerate(prices):
+            dp[i+1][0] = max(dp[i][0] , dp[i][1] + price)
+            dp[i+1][1] = max(dp[i][1] , dp[i+1][0]-price)
+        return dp[n][0]
+```
+
+给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+
+```py
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        buy1 = -prices[0]
+        buy2 = -prices[0]
+        s1 = 0 
+        s2 = 0
+        for p in prices:
+            buy1 = max(buy1 , -p)
+            s1 = max(s1 , buy1 + p)
+            buy2 = max(buy2 , s1 - p)
+            s2 = max(buy2 + p , s2)
+        return s2
+```
+
+每日一题：
+
+你有 k 个 非递减排列 的整数列表。找到一个 最小 区间，使得 k 个列表中的每个列表至少有一个数包含在其中。
+
+我们定义如果 b-a < d-c 或者在 b-a == d-c 时 a < c，则区间 [a,b] 比 [c,d] 小。
+
+
+```py
+class Solution:
+    def smallestRange(self, nums: List[List[int]]) -> List[int]:
+        h = [(arr[0] , i , 0 )for i ,arr in enumerate(nums)]
+        heapify(h)
+
+        ansl = h[0][0]
+        ansr = r = max(arr[0] for arr in nums)
+        while h[0][2] + 1 < len(nums[h[0][1]]):
+            _, i ,j = h[0]
+            x = nums[i][j+1]
+            heapreplace(h , (x,i,j+1))
+            r = max(r,x)
+            l = h[0][0]
+            if r - l < ansr - ansl:
+                ansl , ansr = l , r
+        return [ansl , ansr]
+```
+
+## 拓扑排序：
+
+你有 n 道不同菜的信息。给你一个字符串数组 recipes 和一个二维字符串数组 ingredients 。第 i 道菜的名字为 recipes[i] ，如果你有它 所有 的原材料 ingredients[i] ，那么你可以 做出 这道菜。一道菜的原材料可能是 另一道 菜，也就是说 ingredients[i] 可能包含 recipes 中另一个字符串。
+
+同时给你一个字符串数组 supplies ，它包含你初始时拥有的所有原材料，每一种原材料你都有无限多。
+
+请你返回你可以做出的所有菜。你可以以 任意顺序 返回它们。
+
+注意两道菜在它们的原材料中可能互相包含。
+```c++
+class Solution {
+public:
+    vector<string> findAllRecipes(vector<string>& recipes, vector<vector<string>>& ingredients, vector<string>& supplies) {
+        int n = recipes.size();
+        // 图
+        unordered_map<string, vector<string>> depend;
+        // 入度统计
+        unordered_map<string, int> cnt;
+        for (int i = 0; i < n; ++i) {
+            for (const string& ing: ingredients[i]) {
+                depend[ing].push_back(recipes[i]);
+            }
+            cnt[recipes[i]] = ingredients[i].size();
+        }
+        
+        vector<string> ans;
+        queue<string> q;
+        // 把初始的原材料放入队列
+        for (const string& sup: supplies) {
+            q.push(sup);
+        }
+        // 拓扑排序
+        while (!q.empty()) {
+            string cur = q.front();
+            q.pop();
+            if (depend.count(cur)) {
+                for (const string& rec: depend[cur]) {
+                    --cnt[rec];
+                    // 如果入度变为 0，说明可以做出这道菜
+                    if (cnt[rec] == 0) {
+                        ans.push_back(rec);
+                        q.push(rec);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+```py
+class Solution:
+    def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
+        n = len(recipes)
+        depend = defaultdict(list)
+        cnt = Counter()
+        for i in range(n):
+            for r in ingredients[i]:
+                depend[r].append(recipes[i])
+
+            cnt[recipes[i]] = len(ingredients[i])
+        
+        ans = list()
+        q = deque(supplies)
+        while q:
+            cur = q.popleft()
+            if cur in depend:
+                for x in depend[cur]:
+                    cnt[x] -= 1
+                    if cnt[x] == 0:
+                        q.append(x)
+                        ans.append(x)
+        return ans
+```
+
+你总共需要上 numCourses 门课，课程编号依次为 0 到 numCourses-1 。你会得到一个数组 prerequisite ，其中 prerequisites[i] = [ai, bi] 表示如果你想选 bi 课程，你 必须 先选 ai 课程。
+
+有的课会有直接的先修课程，比如如果想上课程 1 ，你必须先上课程 0 ，那么会以 [0,1] 数对的形式给出先修课程数对。
+先决条件也可以是 间接 的。如果课程 a 是课程 b 的先决条件，课程 b 是课程 c 的先决条件，那么课程 a 就是课程 c 的先决条件。
+
+你也得到一个数组 queries ，其中 queries[j] = [uj, vj]。对于第 j 个查询，您应该回答课程 uj 是否是课程 vj 的先决条件。
+
+返回一个布尔数组 answer ，其中 answer[j] 是第 j 个查询的答案。
+
+```py
+class Solution:
+    def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
+        G = defaultdict(list)
+        in_degrees = [0] * numCourses
+
+        for a, b in prerequisites:
+            G[a].append(b)
+            in_degrees[b] += 1
+
+        deps = defaultdict(set)
+        q = deque(i for i in range(numCourses) if in_degrees[i] == 0)
+
+        while q:
+            u = q.popleft()
+
+            for v in G[u]:
+                deps[v].add(u)
+                deps[v] |= deps[u]
+                in_degrees[v] -= 1
+
+                if in_degrees[v] == 0:
+                    q.append(v)
+
+
+        return [a in deps[b] for a, b in queries]
+```
+
+```c++
+class Solution {
+public:
+    vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+        vector<vector<int>> g(numCourses);
+        vector<int> indgree(numCourses, 0);
+        vector<vector<bool>> isPre(numCourses, vector<bool>(numCourses, false));
+        for (auto& p : prerequisites) {
+            ++indgree[p[1]];
+            g[p[0]].push_back(p[1]);
+        }
+        queue<int> q;
+        for (int i = 0; i < numCourses; ++i) {
+            if (indgree[i] == 0) {
+                q.push(i);
+            }
+        }
+        while (!q.empty()) {
+            auto cur = q.front();
+            q.pop();
+            for (auto& ne : g[cur]) {
+                isPre[cur][ne] = true;
+                for (int i = 0; i < numCourses; ++i) {
+                    isPre[i][ne] = isPre[i][ne] | isPre[i][cur];
+                }
+                --indgree[ne];
+                if (indgree[ne] == 0) {
+                    q.push(ne);
+                }
+            }
+        }
+        vector<bool> res;
+        for (auto& query : queries) {
+            res.push_back(isPre[query[0]][query[1]]);
+        }
+        return res;
+    }
+};
 ```

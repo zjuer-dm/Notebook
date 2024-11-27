@@ -102,25 +102,27 @@ nav:
   - Home: 'index.md'
   - 计算机: 
       - 目录: 'computer/computer.md'
+      - 计算机组成: 'control/computer_system.md'
       - 正则表达式: 'computer/Regular_Expression.md'
       - javascript: 'computer/javascript.md'
       - git : 'computer/git.md'
       - Python: 'computer/python.md'
       - Go: 'computer/go.md'
-      - 九月练习: 'computer/sep_practice.md'
-      - 十月练习: 'computer/oct_practice.md'
-      - 十一月练习: 'computer/Fri_practice.md'
+  - 算法相关:
+      - 九月练习: 'computer/algorithm/sep_practice.md'
+      - 十月练习: 'computer/algorithm/oct_practice.md'
+      - 十一月练习: 'computer/algorithm/Fri_practice.md'
   - 机器人相关:
-      - ros: 'robot/ros.md'
-      - 其他知识: 'robot/others.md'
+      - ros相关: 'robot/ros.md'
       - Yolov : 'robot/yolov.md'
+      - 其他知识: 'robot/others.md'
   - 控制主修:
       - 机器视觉 : 'control/machine_vision.md'
       - 现代控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
   - 数学知识:
-      - 数学复习: 'math_and_physics/math_review.md'
-      - 复变函数的微积分: 'math_and_physics/复变函数的微积分.md'
+      - 数学复习: 'math/math_review.md'
+      - 复变函数的微积分: 'math/复变函数的微积分.md'
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'
   - 阅读:

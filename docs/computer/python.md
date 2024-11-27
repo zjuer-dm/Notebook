@@ -74,44 +74,6 @@ print "相加后的值为 : ", sum( 10, 20 )
 print "相加后的值为 : ", sum( 20, 20 )
 ```
 
-**使用Python的Counter进行计数**
-
-在Python中，collections模块的Counter类是一个用于计数可哈希对象的字典子类。它可以帮助你以一种高效和Python风格的方式来计数，而不需要使用传统的涉及循环和嵌套数据结构的技术。
-
-Counter的基本用法
-
-Counter的基本用法是将一个序列或可迭代对象作为参数传递给它的构造函数。Counter会迭代输入的序列，计算每个对象出现的次数，并将对象作为键，出现次数作为值存储在字典中。
-
-from collections import Counter
-
-**使用字符串初始化Counter**
-counter = Counter("mississippi")
-print(counter) # 输出: Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
-
-**使用列表初始化Counter**
-counter = Counter(list("mississippi"))
-print(counter) # 输出: Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
-更新Counter
-
-你可以使用update()方法来更新现有的Counter。与dict的update()方法不同，Counter的update()方法会将现有计数相加，而不是替换它们。
-
-counter = Counter({'a': 3, 'b': 2})
-counter.update({'a': 1, 'c': 2})
-print(counter) # 输出: Counter({'a': 4, 'b': 2, 'c': 2})
-访问Counter的内容
-
-Counter几乎具有与dict相同的接口，你可以使用类似字典的键访问（[key]）来访问它们的值。你还可以使用常见的方法和技术来迭代键、值和项。
-
-counter = Counter("mississippi")
-print(counter['s']) # 输出: 4
-for letter in counter:
-print(letter, counter[letter])
-查找最常见的对象
-
-如果你需要根据对象的出现频率列出一组对象，你可以使用most_common()方法。这个方法返回一个按对象当前计数排序的(对象, 计数)列表。如果计数相等，则按它们首次出现的顺序排列。
-
-counter = Counter('mississippi')
-print(counter.most_common(3)) # 输出: [('i', 4), ('s', 4), ('p', 2)]
 
 ## Python3 面向对象
 * 类有一个名为 `__init__()` 的特殊方法（构造方法），该方法在类实例化时会自动调用
@@ -324,3 +286,85 @@ print(gfg1.cache_info())
 @cache 装饰器更轻量化，速度更快，且是线程安全，不同线程可以调用同1个函数，缓存值可以共享。
 
 @cached_property是一个装饰器，它将类的方法转换为属性，其值仅计算一次，然后缓存为普通属性。因此，只要实例持久存在，缓存的结果就可用，我们可以将该方法用作类的属性那样来使用
+
+### Python 函数
+**zip**
+```py
+>>> a = [1,2,3]
+>>> b = [4,5,6]
+>>> c = [4,5,6,7,8]
+>>> zipped = zip(a,b)     # 返回一个对象
+>>> zipped
+<zip object at 0x103abc288>
+>>> list(zipped)  # list() 转换为列表
+[(1, 4), (2, 5), (3, 6)]
+>>> list(zip(a,c))              # 元素个数与最短的列表一致
+[(1, 4), (2, 5), (3, 6)]
+
+>>> a1, a2 = zip(*zip(a,b))          # 与 zip 相反，zip(*) 可理解为解压，返回二维矩阵式
+>>> list(a1)
+[1, 2, 3]
+>>> list(a2)
+[4, 5, 6]
+>>>
+```
+
+**enumerate**
+```py
+>>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+>>> list(enumerate(seasons))
+[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+>>> list(enumerate(seasons, start=1))       # 下标从 1 开始
+[(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+```
+
+## collections模块
+
+**Counter()**
+
+主要功能：可以支持方便、快速的计数，将元素数量统计，然后计数并返回一个字典，键为元素，值为元素个数。
+```py
+from collections import Counter
+
+list1 = ["a", "a", "a", "b", "c", "c", "f", "g", "g", "g", "f"]
+dic = Counter(list1)
+print(dic)
+#结果:次数是从高到低的
+#Counter({'a': 3, 'g': 3, 'c': 2, 'f': 2, 'b': 1})
+
+print(dict(dic))
+#结果:按字母顺序排序的
+#{'a': 3, 'b': 1, 'c': 2, 'f': 2, 'g': 3}
+
+print(dic.items()) #dic.items()获取字典的key和value
+#结果:按字母顺序排序的
+#dict_items([('a', 3), ('b', 1), ('c', 2), ('f', 2), ('g', 3)])
+
+print(dic.keys())
+#结果:
+#dict_keys(['a', 'b', 'c', 'f', 'g'])
+
+print(dic.values())
+#结果：
+#dict_values([3, 1, 2, 2, 3])
+
+print(sorted(dic.items(), key=lambda s: (-s[1])))
+#结果:按统计次数降序排序
+#[('a', 3), ('g', 3), ('c', 2), ('f', 2), ('b', 1)]
+
+for i, v in dic.items():
+    if v == 1:
+        print(i)
+#结果:
+#b
+```
+
+**deque()**
+
+deque是栈和队列的一种广义实现，deque是"double-end queue"的简称；deque支持线程安全、有效内存地以近似O(1)的性能在deque的两端插入和删除元素，尽管list也支持相似的操作，但是它主要在固定长度操作上的优化，从而在pop(0)和insert(0,v)（会改变数据的位置和大小）上有O(n)的时间复杂度
+
+**defaultdict()**
+
+Python中通过Key访问字典，当Key不存在时，会引发‘KeyError’异常。为了避免这种情况的发生，
+可以使用collections类中的defaultdict()方法来为字典提供默认值
+
