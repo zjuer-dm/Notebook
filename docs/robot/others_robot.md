@@ -1,4 +1,9 @@
 ## EKF
+
+扩展卡尔曼滤波（Extended Kalman Filter，EKF）通过局部线性来解决非线性的问题。将非线性的预测方程和观测方程进行求导，以切线代替的方式来线性化。其实就是在均值处进行一阶泰勒展开。
+
+![alt text](<pic/Screenshot 2024-11-28 at 16.51.08.png>)
+
 ```MATLAB
 function [] = ekf_localization()
  
