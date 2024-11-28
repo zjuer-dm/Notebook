@@ -138,3 +138,18 @@ bool join(int x,int y)
 	return true;						//返回 true，表示合并成功
 }
 ```
+
+## 单调栈
+单调栈（Monotone Stack）：一种特殊的栈。在栈的「先进后出」规则基础上，
+要求「从 栈顶 到 栈底 的元素是单调递增（或者单调递减）」。其中满足从栈顶到栈底的元素是单调递增的栈，叫做「单调递增栈」。满足从栈顶到栈底的元素是单调递减的栈，叫做「单调递减栈」。
+
+**单调递增栈模板**
+
+```py
+def monotoneIncreasingStack(nums):
+    stack = []
+    for num in nums:
+        while stack and num >= stack[-1]:
+            stack.pop()
+        stack.append(num)
+```
