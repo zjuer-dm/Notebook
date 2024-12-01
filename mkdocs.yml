@@ -103,6 +103,8 @@ nav:
   - 计算机: 
       - 目录: 'computer/computer.md'
       - 计算机组成: 'control/computer_system.md'
+      - 计算机网络: 'computer/computer_web.md'
+      - 操作系统: 'computer/os.md'
       - 正则表达式: 'computer/Regular_Expression.md'
       - javascript: 'computer/javascript.md'
       - git : 'computer/git.md'

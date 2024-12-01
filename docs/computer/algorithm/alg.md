@@ -153,3 +153,50 @@ def monotoneIncreasingStack(nums):
             stack.pop()
         stack.append(num)
 ```
+
+
+## 回溯算法
+回溯算法是对树形或者图形结构执行一次深度优先遍历，实际上类似枚举的搜索尝试过程，在遍历的过程中寻找问题的解。
+
+深度优先遍历有个特点：当发现已不满足求解条件时，就返回，尝试别的路径。此时对象类型变量就需要重置成为和之前一样，称为「状态重置」。
+
+给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
+
+```py
+from typing import List
+
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        # 结果列表
+        ans = []
+        # 当前路径
+        path = [0] * n
+        # 是否已在路径中
+        on_path = [False] * n
+        
+        # 对 nums 排序
+        nums.sort()
+        
+        def DFS(c):
+            # 递归结束条件
+            if c == n:
+                ans.append(path.copy())
+                return
+            for x in range(n):
+                # 如果当前数字已经使用过，跳过
+                if on_path[x]:
+                    continue
+                # 如果当前数字与前一个数字相同，且前一个数字还未被使用，跳过（避免重复）
+                if x > 0 and nums[x] == nums[x - 1] and not on_path[x - 1]:
+                    continue
+                # 选择当前数字
+                on_path[x] = True
+                path[c] = nums[x]
+                DFS(c + 1)
+                # 撤销选择
+                on_path[x] = False
+        
+        DFS(0)
+        return ans
+```
