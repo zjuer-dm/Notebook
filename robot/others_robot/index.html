@@ -498,6 +498,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -566,6 +570,48 @@
   
   <span class="md-ellipsis">
     计算机组成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/computer_web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/os/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    操作系统
   </span>
   
 
@@ -1478,6 +1524,8 @@
   <h1>机器人零散知识</h1>
 
 <h2 id="ekf">EKF<a class="headerlink" href="#ekf" title="Permanent link">&para;</a></h2>
+<p>扩展卡尔曼滤波（Extended Kalman Filter，EKF）通过局部线性来解决非线性的问题。将非线性的预测方程和观测方程进行求导，以切线代替的方式来线性化。其实就是在均值处进行一阶泰勒展开。</p>
+<p><img alt="alt text" src="../pic/Screenshot%202024-11-28%20at%2016.51.08.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">function</span><span class="w"> </span>[]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ekf_localization</span><span class="p">()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span>

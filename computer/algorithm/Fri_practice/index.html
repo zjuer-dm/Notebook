@@ -498,6 +498,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -566,6 +570,48 @@
   
   <span class="md-ellipsis">
     计算机组成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer_web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    操作系统
   </span>
   
 
@@ -2902,6 +2948,21 @@ s[i] = '1' 表示第 i 栋建筑是一间餐厅。
 <a id="__codelineno-51-25" name="__codelineno-51-25" href="#__codelineno-51-25"></a>                <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">index1</span><span class="p">)</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">index2</span><span class="p">):</span>
 <a id="__codelineno-51-26" name="__codelineno-51-26" href="#__codelineno-51-26"></a>                    <span class="k">return</span> <span class="kc">False</span>
 <a id="__codelineno-51-27" name="__codelineno-51-27" href="#__codelineno-51-27"></a>        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p>给定一个长度为 n 的链表 head</p>
+<p>对于列表中的每个节点，查找下一个 更大节点 的值。也就是说，对于每个节点，找到它旁边的第一个节点的值，这个节点的值 严格大于 它的值。</p>
+<p>返回一个整数数组 answer ，其中 answer[i] 是第 i 个节点( 从1开始 )的下一个更大的节点的值。如果第 i 个节点没有下一个更大的节点，设置 answer[i] = 0 。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>    <span class="k">def</span> <span class="nf">nextLargerNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>        <span class="n">st</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>        <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>            <span class="k">while</span> <span class="n">st</span> <span class="ow">and</span> <span class="n">head</span><span class="o">.</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">st</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>                <span class="n">ans</span><span class="p">[</span><span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">()[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a>            <span class="n">st</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">head</span><span class="o">.</span><span class="n">val</span> <span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">)))</span>
+<a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a>            <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a>            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+<a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a>        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div>
 
 
