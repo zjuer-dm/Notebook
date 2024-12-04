@@ -76,6 +76,64 @@ class Solution:
                 ans = max(ans , DFS(i))
 
             return ans + informTime[m]
-
+ 
         return DFS(headID)
+```
+## BFS DFS
+你现在手里有一份大小为 n x n 的 网格 grid，上面的每个 单元格 都用 0 和 1 标记好了。其中 0 代表海洋，1 代表陆地。
+
+请你找出一个海洋单元格，这个海洋单元格到离它最近的陆地单元格的距离是最大的，并返回该距离。如果网格上只有陆地或者海洋，请返回 -1。
+
+我们这里说的距离是「曼哈顿距离」（ Manhattan Distance）：(x0, y0) 和 (x1, y1) 这两个单元格之间的距离是 |x0 - x1| + |y0 - y1| 。
+
+```c++
+class Solution {
+public:
+    int maxDistance(vector<vector<int>>& grid) {
+        int n = grid.size();
+        queue<pair<int, int>> q;
+        vector<vector<int>> visited(n, vector<int>(n, 0));
+        
+        // 将所有陆地的位置加入队列，并标记为已访问
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    q.push({i, j});
+                    visited[i][j] = 1;
+                }
+            }
+        }
+        
+        // 如果网格中没有海洋或没有陆地，返回 -1
+        if (q.empty() || q.size() == n * n) {
+            return -1;
+        }
+        
+        // 定义四个方向（上下左右）
+        int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        
+        int maxDist = -1;
+        
+        // BFS
+        while (!q.empty()) {
+            auto [x, y] = q.front();
+            q.pop();
+            
+            // 遍历四个方向
+            for (auto& dir : directions) {
+                int newX = x + dir[0], newY = y + dir[1];
+                
+                // 检查新位置是否在范围内，并且是海洋
+                if (newX >= 0 && newX < n && newY >= 0 && newY < n && !visited[newX][newY] && grid[newX][newY] == 0) {
+                    // 访问该位置并更新最大距离
+                    visited[newX][newY] = visited[x][y] + 1;
+                    maxDist = max(maxDist, visited[newX][newY]);
+                    q.push({newX, newY});
+                }
+            }
+        }
+        
+        return maxDist - 1;  // 因为我们是从陆地向海洋扩展，初始位置的距离是1，因此需要减去1
+    }
+};
 ```

@@ -4,7 +4,7 @@
 
 ![alt text](<pic/Screenshot 2024-11-28 at 16.51.08.png>)
 
-```MATLAB
+```m
 function [] = ekf_localization()
  
     close all;

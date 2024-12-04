@@ -115,12 +115,14 @@ nav:
       - 九月练习: 'computer/algorithm/sep_practice.md'
       - 十月练习: 'computer/algorithm/oct_practice.md'
       - 十一月练习: 'computer/algorithm/Fri_practice.md'
+      - 十二月练习: 'computer/algorithm/Dec_practice.md'
   - 机器人相关:
       - ros相关: 'robot/ros.md'
       - Yolov : 'robot/yolov.md'
       - 机器人零散知识: 'robot/others_robot.md'
-  - 控制主修:
+  - 控制学科:
       - 机器视觉 : 'control/machine_vision.md'
+      - 智能控制 : 'control/Intelligent_control.md'
       - 现代控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
   - 数学知识:
