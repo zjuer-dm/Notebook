@@ -137,3 +137,45 @@ public:
     }
 };
 ```
+
+## 二叉树
+
+给你一棵以 root 为根的 二叉树 ，请你返回 任意 二叉搜索子树的最大键值和。
+
+二叉搜索树的定义如下：
+
+任意节点的左子树中的键值都 小于 此节点的键值。
+
+任意节点的右子树中的键值都 大于 此节点的键值。
+
+任意节点的左子树和右子树都是二叉搜索树。
+
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxSumBST(self, root: Optional[TreeNode]) -> int:
+        ans = 0
+        def DFS(node: Optional[TreeNode] ):
+            if node is None:
+                return inf , -inf ,0
+
+            lmin , lmax ,ls = DFS(node.left)
+            rmin , rmax ,rs = DFS(node.right)
+
+            x = node.val
+            if x <= lmax or x >= rmin:
+                return -inf, inf , 0
+            
+            s = ls + rs + x
+            nonlocal ans
+            ans = max(ans , s)
+            return min(x, lmin) , max(x , rmax) , s
+
+        DFS(root)
+        return ans
+```
