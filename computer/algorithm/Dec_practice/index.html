@@ -1921,6 +1921,31 @@ verticalCut 的大小为 n - 1 ，其中 verticalCut[j] 表示沿着垂直线 j 
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div>
+<p>单词数组 words 的 有效编码 由任意助记字符串 s 和下标数组 indices 组成，且满足：</p>
+<p>words.length == indices.length
+助记字符串 s 以 '#' 字符结尾
+对于每个下标 indices[i] ，s 的一个从 indices[i] 开始、到下一个 '#' 字符结束（但不包括 '#'）的 子字符串 恰好与 words[i] 相等
+给你一个单词数组 words ，返回成功对 words 进行编码的最小助记字符串 s 的长度 。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">def</span> <span class="nf">minimumLengthEncoding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="n">trie</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="n">now</span> <span class="o">=</span> <span class="n">trie</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>                <span class="k">if</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">now</span><span class="p">:</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>                    <span class="n">now</span> <span class="o">=</span> <span class="n">now</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>                <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>                    <span class="n">now</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>                    <span class="n">now</span> <span class="o">=</span> <span class="n">now</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span> 
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        <span class="k">for</span> <span class="n">w</span> <span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">words</span> <span class="p">,</span> <span class="n">nodes</span><span class="p">):</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>                <span class="n">ans</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>        <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div>
 
 
 
