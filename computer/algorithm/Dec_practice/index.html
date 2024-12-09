@@ -380,6 +380,26 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../../accumulate/English/" class="md-tabs__link">
+          
+  
+    
+  
+  其他知识
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../../reading/%E5%B0%8F%E7%B1%B3%E5%88%9B%E4%B8%9A%E6%80%9D%E8%80%83/" class="md-tabs__link">
           
   
@@ -940,6 +960,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      贪心
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1093,6 +1131,8 @@
       
         
       
+        
+      
     
     
       
@@ -1140,6 +1180,27 @@
   
   <span class="md-ellipsis">
     机器视觉
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control/Computational_Methods_For_Optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
   </span>
   
 
@@ -1373,12 +1434,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -1400,7 +1455,7 @@
             
   
   <span class="md-ellipsis">
-    阅读
+    其他知识
   </span>
   
 
@@ -1409,6 +1464,86 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            其他知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../accumulate/English/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语作文
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    阅读
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             阅读
           </label>
@@ -1567,6 +1702,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      贪心
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1705,6 +1858,68 @@ if you come across an edge in the forward direction, you need to reverse the edg
 <a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">maxDist</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 因为我们是从陆地向海洋扩展，初始位置的距离是1，因此需要减去1</span>
 <a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="p">};</span>
+</code></pre></div>
+<h2 id="_2">二叉树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>给你一棵以 root 为根的 二叉树 ，请你返回 任意 二叉搜索子树的最大键值和。</p>
+<p>二叉搜索树的定义如下：</p>
+<p>任意节点的左子树中的键值都 小于 此节点的键值。</p>
+<p>任意节点的右子树中的键值都 大于 此节点的键值。</p>
+<p>任意节点的左子树和右子树都是二叉搜索树。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Definition for a binary tree node.</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># class TreeNode:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">#     def __init__(self, val=0, left=None, right=None):</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#         self.val = val</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">#         self.left = left</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">#         self.right = right</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">def</span> <span class="nf">maxSumBST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]</span> <span class="p">):</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>            <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                <span class="k">return</span> <span class="n">inf</span> <span class="p">,</span> <span class="o">-</span><span class="n">inf</span> <span class="p">,</span><span class="mi">0</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>            <span class="n">lmin</span> <span class="p">,</span> <span class="n">lmax</span> <span class="p">,</span><span class="n">ls</span> <span class="o">=</span> <span class="n">DFS</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>            <span class="n">rmin</span> <span class="p">,</span> <span class="n">rmax</span> <span class="p">,</span><span class="n">rs</span> <span class="o">=</span> <span class="n">DFS</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">lmax</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">rmin</span><span class="p">:</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>                <span class="k">return</span> <span class="o">-</span><span class="n">inf</span><span class="p">,</span> <span class="n">inf</span> <span class="p">,</span> <span class="mi">0</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>            <span class="n">s</span> <span class="o">=</span> <span class="n">ls</span> <span class="o">+</span> <span class="n">rs</span> <span class="o">+</span> <span class="n">x</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>            <span class="k">nonlocal</span> <span class="n">ans</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>            <span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ans</span> <span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lmin</span><span class="p">)</span> <span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">rmax</span><span class="p">)</span> <span class="p">,</span> <span class="n">s</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="n">DFS</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>        <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div>
+<h2 id="_3">贪心<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>有一个 m x n 大小的矩形蛋糕，需要切成 1 x 1 的小块。</p>
+<p>给你整数 m ，n 和两个数组：</p>
+<p>horizontalCut 的大小为 m - 1 ，其中 horizontalCut[i] 表示沿着水平线 i 切蛋糕的开销。
+verticalCut 的大小为 n - 1 ，其中 verticalCut[j] 表示沿着垂直线 j 切蛋糕的开销。
+一次操作中，你可以选择任意不是 1 x 1 大小的矩形蛋糕并执行以下操作之一：</p>
+<p>沿着水平线 i 切开蛋糕，开销为 horizontalCut[i] 。
+沿着垂直线 j 切开蛋糕，开销为 verticalCut[j] 。
+每次操作后，这块蛋糕都被切成两个独立的小蛋糕。</p>
+<p>每次操作的开销都为最开始对应切割线的开销，并且不会改变。</p>
+<p>请你返回将蛋糕全部切成 1 x 1 的蛋糕块的 最小 总开销。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">def</span> <span class="nf">minimumCost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">horizontalCut</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">verticalCut</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="n">horizontalCut</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="n">verticalCut</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="n">ans</span> <span class="o">=</span> <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="n">cnth</span> <span class="o">=</span> <span class="n">cntv</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">horizontalCut</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">verticalCut</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>                <span class="n">ans</span> <span class="o">+=</span> <span class="n">horizontalCut</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">cnth</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                <span class="n">cntv</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>                <span class="n">ans</span> <span class="o">+=</span> <span class="n">verticalCut</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">cntv</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>                <span class="n">cnth</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div>
 
 

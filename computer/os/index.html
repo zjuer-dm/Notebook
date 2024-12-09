@@ -380,6 +380,26 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../accumulate/English/" class="md-tabs__link">
+          
+  
+    
+  
+  其他知识
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../reading/%E5%B0%8F%E7%B1%B3%E5%88%9B%E4%B8%9A%E6%80%9D%E8%80%83/" class="md-tabs__link">
           
   
@@ -740,8 +760,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程互斥
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚拟存储器
+    </span>
+  </a>
   
 </li>
       
@@ -1169,6 +1207,8 @@
       
         
       
+        
+      
     
     
       
@@ -1216,6 +1256,27 @@
   
   <span class="md-ellipsis">
     机器视觉
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../control/Computational_Methods_For_Optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
   </span>
   
 
@@ -1449,12 +1510,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -1476,7 +1531,7 @@
             
   
   <span class="md-ellipsis">
-    阅读
+    其他知识
   </span>
   
 
@@ -1485,6 +1540,86 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            其他知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../accumulate/English/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英语作文
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    阅读
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             阅读
           </label>
@@ -1712,8 +1847,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程互斥
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚拟存储器
+    </span>
+  </a>
   
 </li>
       
@@ -1867,6 +2020,48 @@ $$
 <p>时间片划分：如三个队列分配时间50%、40%、10%</p>
 <p>各队列可采用不同的调度策略，如</p>
 <p>系统进程队列采用优先级调度、交互式队列采用RR、批处理队列采用FCFS</p>
+<h3 id="_10">进程互斥<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="../pic/Screenshot%202024-12-04%20at%2011.05.27.png" />
+临界资源：一次仅允许一个进程使用的资源</p>
+<p>类型：物理设备，如打印机等；可被进程共享的许多变量、数据等</p>
+<p>临界区：访问临界资源的那段代码。</p>
+<p>为了保证临界资源的正确使用，可把临界资源的访问过程分成4个部分：</p>
+<div class="highlight"><pre><span></span><code>1）进入区。为了进入临界区使用临界资源，在进入区要检查可否进入临界区，若能进入临界区，则应设置正在访问临界区的标志，以阻止其他进程同时进入临界区。
+2）临界区。进程中访问临界资源的那段代码，又称临界段。
+3）退出区。将正在访问临界区的标志清除。
+4）剩余区。代码中的其余部分。
+</code></pre></div>
+<p>​ 互斥也称间接制约关系。当一个进程进入临界区使用临界资源，另一进程必须等待当占用临界资源的进程退出临界区后，另一进程才能访问此临界资源。</p>
+<p>遵循原则：</p>
+<ul>
+<li>空闲让进。临界区空闲时，可以允许一个请求进入临界区的进程立即进入临界区；</li>
+<li>忙则等待。当已有进程进入临界区时，其他图进入临界区进必须等待</li>
+<li>有限等待。对请求访问的进程，应保证能在有限时间内进入临界区（保证不会饥饿）</li>
+<li>让权等待。当进程不能进入临界区时，应立即释放处理机，防止进程忙等待。</li>
+</ul>
+<h2 id="_11">虚拟存储器<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>虚拟存储器的定义和特征</p>
+<p>程序不需全部装入即可运行，运行时根据需要动态调入数据，若内存不够，还需换出一些数据。系统好像为用户提供了一个比实际内存容量大得多的存储器，称为虚拟存储器。</p>
+<ul>
+<li>多次性：无需在作业运行时一次性全部装入内存，而是允许被分成多次调入内存。</li>
+<li>对换性：无需在作业运行时一直常驻内存，而是允许在作业运行过程中，将作业换入、换出。</li>
+<li>虚拟性：从逻辑上扩充了内存的容量，使用户看到的内存容量，远大于实际的容量。</li>
+</ul>
+<p>虚拟内存技术的实现</p>
+<p>虚拟内存的实现需要建立在离散分配的内存管理方式的基础上。</p>
+<p>访问的信息不在内存时，由操作系统负责将所需信息从外存调入内存（请求调页功能）</p>
+<p>内存空间不够时，将内存中暂时用不到的信息换出到外存（页面置换功能）</p>
+<p>虚拟内存的实现方式：</p>
+<div class="highlight"><pre><span></span><code>请求分页存储管理
+请求分段存储管理
+请求段页式存储管理
+</code></pre></div>
+<p>所需要的硬件支持</p>
+<div class="highlight"><pre><span></span><code>一定容量的内存和外存。
+页表机制（或段表机制），作为主要的数据结构。
+中断机构，当用户程序要访问的部分尚未调入内存时，则产生中断。
+地址变换机构，逻辑地址到物理地址的变换。
+</code></pre></div>
 
 
 
