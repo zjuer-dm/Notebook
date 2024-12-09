@@ -200,3 +200,32 @@ class Solution:
         return ans
 ```
 
+## 字典树
+概念：字典树（TrieTree），是一种树形结构，典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串,如01字典树）。主要思想是利用字符串的公共前缀来节约存储空间。很好地利用了串的公共前缀，节约了存储空间。字典树主要包含两种操作，插入和查找。
+
+```py
+class trie:
+    def __init__(self):
+        self.nex = [[0 for i in range(26)] for j in range(100000)]
+        self.cnt = 0
+        self.exist = [False] * 100000  # 该结点结尾的字符串是否存在
+
+    def insert(self, s):  # 插入字符串
+        p = 0
+        for i in s:
+            c = ord(i) - ord("a")
+            if not self.nex[p][c]:
+                self.cnt += 1
+                self.nex[p][c] = self.cnt  # 如果没有，就添加结点
+            p = self.nex[p][c]
+        self.exist[p] = True
+
+    def find(self, s):  # 查找字符串
+        p = 0
+        for i in s:
+            c = ord(i) - ord("a")
+            if not self.nex[p][c]:
+                return False
+            p = self.nex[p][c]
+        return self.exist[p]
+```
