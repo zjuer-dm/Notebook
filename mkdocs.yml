@@ -122,6 +122,7 @@ nav:
       - 机器人零散知识: 'robot/others_robot.md'
   - 控制学科:
       - 机器视觉 : 'control/machine_vision.md'
+      - 最优化理论: 'control/Computational_Methods_For_Optimization.md'
       - 智能控制 : 'control/Intelligent_control.md'
       - 现代控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
@@ -130,6 +131,8 @@ nav:
       - 复变函数的微积分: 'math/复变函数的微积分.md'
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'
+  - 其他知识:
+      - 英语作文: 'accumulate/English.md'
   - 阅读:
       - 小米创业思考: 'reading/小米创业思考.md'
       - 银河帝国: 'reading/银河帝国.md'
