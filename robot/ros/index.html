@@ -12,7 +12,7 @@
         <link rel="prev" href="../../computer/algorithm/Dec_practice/">
       
       
-        <link rel="next" href="../yolov/">
+        <link rel="next" href="../../control/transformer/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -766,12 +766,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -827,6 +821,58 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第一次练习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            第一次练习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -918,6 +964,14 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
@@ -929,6 +983,8 @@
   
     
     
+      
+        
       
         
       
@@ -1183,6 +1239,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../control/transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../yolov/" class="md-nav__link">
         
   
@@ -1353,7 +1430,7 @@
         
   
   <span class="md-ellipsis">
-    现代控制理论
+    控制理论
   </span>
   
 
@@ -2643,7 +2720,7 @@ ament_cmake，如果使用Python，就跟ament_python；</li>
 </li>
 </ul>
 <h3 id="_7">动作：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p><img alt="alt text" src="pic/image.png" /></p>
+<p><img alt="alt text" src="../pic/image.png" /></p>
 <p>客户端发送一个运动的目标，想让机器人动起来，服务器端收到之后，就开始控制机器人运动，一边运动，一边反馈当前的状态，如果是一个导航动作，这个反馈可能是当前所处的坐标，如果是机械臂抓取，这个反馈可能又是机械臂的实时姿态。当运动执行结束后，服务器再反馈一个动作结束的信息。整个通信过程就此结束。</p>
 <p>接口定义</p>
 <p>例程使用的动作并不是ROS中的标准定义，我们通过MoveCircle.action进行自定义：</p>
