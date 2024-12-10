@@ -112,19 +112,21 @@ nav:
       - Go: 'computer/go.md'
   - 算法相关:
       - 数据结构与算法: 'computer/algorithm/alg.md'
-      - 九月练习: 'computer/algorithm/sep_practice.md'
-      - 十月练习: 'computer/algorithm/oct_practice.md'
-      - 十一月练习: 'computer/algorithm/Fri_practice.md'
-      - 十二月练习: 'computer/algorithm/Dec_practice.md'
+      - 第一次练习 : 
+        - 九月练习: 'computer/algorithm/sep_practice.md'
+        - 十月练习: 'computer/algorithm/oct_practice.md'
+        - 十一月练习: 'computer/algorithm/Fri_practice.md'
+        - 十二月练习: 'computer/algorithm/Dec_practice.md'
   - 机器人相关:
       - ros相关: 'robot/ros.md'
+      - Transformer : 'control/transformer.md'
       - Yolov : 'robot/yolov.md'
       - 机器人零散知识: 'robot/others_robot.md'
   - 控制学科:
       - 机器视觉 : 'control/machine_vision.md'
       - 最优化理论: 'control/Computational_Methods_For_Optimization.md'
       - 智能控制 : 'control/Intelligent_control.md'
-      - 现代控制理论: 'control/control_system.md'
+      - 控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
   - 数学知识:
       - 数学复习: 'math/math_review.md'
