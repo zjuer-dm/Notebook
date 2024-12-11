@@ -138,6 +138,70 @@ bool join(int x,int y)
 }
 ```
 
+模版：
+```c++
+class UnionFind {
+public:
+    std::vector<int> parent;  // 存储每个元素的父节点
+    std::vector<int> size;    // 存储每个集合的大小
+    int n;                    // 元素的数量
+    int component_count;      // 当前连通分量的数量
+    
+public:
+    // 构造函数，初始化并设置每个元素的父节点为自己，初始时每个集合的大小为1
+    UnionFind(int num_elements) : n(num_elements), component_count(num_elements), 
+                                  parent(num_elements), size(num_elements, 1) {
+        // 每个元素的父节点初始化为它自己
+        std::iota(parent.begin(), parent.end(), 0);
+    }
+    
+    // 查找元素x所在集合的代表元素（根节点），并进行路径压缩优化
+    int find(int x) {
+        // 如果x是集合的代表元素（根节点），直接返回
+        if (parent[x] == x) {
+            return x;
+        }
+        // 否则递归找到x的根节点，并在回溯过程中进行路径压缩
+        return parent[x] = find(parent[x]);
+    }
+    
+    // 合并两个元素x和y所在的集合
+    void unite(int x, int y) {
+        // 找到x和y的代表元素
+        int root_x = find(x);
+        int root_y = find(y);
+        
+        // 如果x和y已经在同一个集合中，不需要合并
+        if (root_x == root_y) {
+            return;
+        }
+        
+        // 合并时，确保较小的集合并入较大的集合
+        if (size[root_x] < size[root_y]) {
+            std::swap(root_x, root_y);
+        }
+        
+        // 将root_y的根节点指向root_x
+        parent[root_y] = root_x;
+        // 更新合并后集合的大小
+        size[root_x] += size[root_y];
+        
+        // 合并操作减少了一个连通分量
+        --component_count;
+    }
+    
+    // 判断x和y是否在同一个集合中
+    bool connected(int x, int y) {
+        return find(x) == find(y);
+    }
+    
+    // 获取当前的连通分量数
+    int getComponentCount() const {
+        return component_count;
+    }
+};
+```
+
 ## 单调栈
 单调栈（Monotone Stack）：一种特殊的栈。在栈的「先进后出」规则基础上，
 要求「从 栈顶 到 栈底 的元素是单调递增（或者单调递减）」。其中满足从栈顶到栈底的元素是单调递增的栈，叫做「单调递增栈」。满足从栈顶到栈底的元素是单调递减的栈，叫做「单调递减栈」。

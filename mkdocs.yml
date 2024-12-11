@@ -112,6 +112,9 @@ nav:
       - Go: 'computer/go.md'
   - 算法相关:
       - 数据结构与算法: 'computer/algorithm/alg.md'
+      - 编程、算法练习:
+        - 图论相关: 'computer/algorithm/practice_2/Graph.md'
+        - 并查集: 'computer/algorithm/practice_2/UnionFind.md'
       - 第一次练习 : 
         - 九月练习: 'computer/algorithm/sep_practice.md'
         - 十月练习: 'computer/algorithm/oct_practice.md'
