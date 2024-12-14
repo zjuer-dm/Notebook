@@ -51,7 +51,7 @@ the increasing number of people
 
 图表类：
 
-* As is explicitly illustrated by the figures in th table (line graph/picture/pie chart/bar chart)
+* As is explicitly illustrated by the figures in the table (line graph/picture/pie chart/bar chart)
 
 * From the sharp/marked decline/rise in the chart , it goes without saying that...
 
