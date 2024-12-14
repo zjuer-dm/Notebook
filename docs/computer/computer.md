@@ -98,7 +98,7 @@ denied”。如果#!指定的解释程序不是一个可执行文件，那么指
 5. 当然，如果你使用类似于”bash test.sh”这样的命令来执行脚本，那么#!这一行将会被忽略掉，解释器当然是用命令行中显式指定的bash。
 6. 脚本文件必须拥有可执行权限。
 
-```
+```shell
 #!/bin/sh：使用 sh，即 Bourne shell 或其它兼容 shell 执行脚本
 #!/bin/csh：使用 csh，即 C shell 执行
 #!/usr/bin/perl -w：使用带警告的 Perl 执行
