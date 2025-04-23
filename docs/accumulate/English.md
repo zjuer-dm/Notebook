@@ -61,3 +61,9 @@ the increasing number of people
 * There are a multitude-number of reasons accounting for ...
 * There are a multitude of reasons that should be responsible for this alarming trend
 
+
+latent ： 潜伏的    analogous： 类似的；相似的  transition： 过渡；转变     binomial： 二项式；二项的，二项式的
+
+identical： 完全相同的；相同的      equilibrium：平衡；均衡     
+
+quadratic :二次函数,二次的

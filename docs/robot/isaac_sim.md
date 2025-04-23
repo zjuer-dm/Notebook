@@ -1,0 +1,6 @@
+Isaac Sim comes with a collection of workflows for importing and tuning mechanical systems designed in the most common formats including Onshape, the Unified Robotics Description Format (URDF), and the MuJoCo XML Format (MJCF). This is made possible through the use of the Universal Scene Description (USD), an easily extensible, open source 3D scene description API that serves as the unifying data interchange format at the heart of Isaac Sim.
+
+## Tune and Train
+
+The core functionality of Isaac Sim is the simulation itself: a high fidelity GPU based PhysX engine, capable of supporting multi-sensor RTX rendering at an industrial scale. Isaac Sim’s direct access to the GPU enables the platform to support the simulation of various kinds of sensors including cameras, LiDAR, and contact sensors. This in turn facilitates the simulation of digital twins, allowing your end-to-end pipelines to run before ever needing to turn on a real robot. Isaac Sim provides a suite of tools for collecting synthetic data with Replicator, orchestrating simulated environments through Omnigraph, tuning PhysX simulation parameters to match reality, and finally training control agents through various methods like Reinforcement Learning (RL) with Isaac Lab.
+

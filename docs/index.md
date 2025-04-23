@@ -27,7 +27,11 @@ hide:
 <p>2024年11月，老师们教导我们，有一些令人印象深刻的话：</p>
 <p>真正的平庸不是你还没有做成什么，而是你放弃了追求卓越的心。</p>
 
+<p>什么都无法舍弃，就什么都无法改变。       --2025.4.2</p>
+
+
 <a href="javascript:toggle_statistics();" style="font-size: 18px;color:grey;  font-family: 'Arial', sans-serif; border-bottom: 1px solid #0066cc; text-decoration: none;">站点统计</a>
+
 
 <div id="statistics" markdown="1" class="card" style="width: 27em; border-color: transparent; opacity: 1; font-size: 75%">
 <div style="padding-left: 1em; font-size: 14px; " markdown="1">

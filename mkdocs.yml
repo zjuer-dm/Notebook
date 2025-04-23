@@ -100,8 +100,25 @@ markdown_extensions:
 
 nav:
   - Home: 'index.md'
+  - 相关知识记录: 
+      - 控制知识记录: 'accumulate/控制相关.md'
+      - 机器人交叉创新: 'robot/机器人交叉创新.md'
+  - 机器人相关:
+      - ros相关: 'robot/ros.md'
+      - Transformer : 'control/transformer.md'
+      - Yolov : 'robot/yolov.md'
+      - 机器人零散知识: 'robot/others_robot.md'
+      - isaac_sim: 'robot/isaac_sim.md'
+  - 控制学科:
+      - 机器视觉 : 'control/machine_vision.md'
+      - 最优化理论: 'control/Computational_Methods_For_Optimization.md'
+      - 智能控制 : 'control/Intelligent_control.md'
+      - 控制理论: 'control/control_system.md'
+      - 信号与系统: 'control/信号与系统.md'
+
   - 计算机: 
       - 目录: 'computer/computer.md'
+      - 算法学习: 'computer/algorithm.md'
       - 计算机组成: 'control/computer_system.md'
       - 计算机网络: 'computer/computer_web.md'
       - 操作系统: 'computer/os.md'
@@ -110,27 +127,17 @@ nav:
       - git : 'computer/git.md'
       - Python: 'computer/python.md'
       - Go: 'computer/go.md'
-  - 算法相关:
-      - 数据结构与算法: 'computer/algorithm/alg.md'
-      - 编程、算法练习:
-        - 图论相关: 'computer/algorithm/practice_2/Graph.md'
-        - 并查集: 'computer/algorithm/practice_2/UnionFind.md'
-      - 第一次练习 : 
-        - 九月练习: 'computer/algorithm/sep_practice.md'
-        - 十月练习: 'computer/algorithm/oct_practice.md'
-        - 十一月练习: 'computer/algorithm/Fri_practice.md'
-        - 十二月练习: 'computer/algorithm/Dec_practice.md'
-  - 机器人相关:
-      - ros相关: 'robot/ros.md'
-      - Transformer : 'control/transformer.md'
-      - Yolov : 'robot/yolov.md'
-      - 机器人零散知识: 'robot/others_robot.md'
-  - 控制学科:
-      - 机器视觉 : 'control/machine_vision.md'
-      - 最优化理论: 'control/Computational_Methods_For_Optimization.md'
-      - 智能控制 : 'control/Intelligent_control.md'
-      - 控制理论: 'control/control_system.md'
-      - 信号与系统: 'control/信号与系统.md'
+      - 算法相关:
+          - 数据结构与算法: 'computer/algorithm/alg.md'
+          - 编程、算法练习:
+            - 图论相关: 'computer/algorithm/practice_2/Graph.md'
+            - 并查集: 'computer/algorithm/practice_2/UnionFind.md'
+          - 第一次练习 : 
+            - 九月练习: 'computer/algorithm/sep_practice.md'
+            - 十月练习: 'computer/algorithm/oct_practice.md'
+            - 十一月练习: 'computer/algorithm/Fri_practice.md'
+            - 十二月练习: 'computer/algorithm/Dec_practice.md'
+
   - 数学知识:
       - 数学复习: 'math/math_review.md'
       - 复变函数的微积分: 'math/复变函数的微积分.md'
@@ -139,9 +146,9 @@ nav:
   - 其他知识:
       - 英语作文: 'accumulate/English.md'
   - 阅读:
+      - 合集: 'reading/合集.md'
       - 小米创业思考: 'reading/小米创业思考.md'
       - 心理 : 'reading/心理.md'
-      - 合集: 'reading/合集.md'
       - 银河帝国: 'reading/银河帝国.md'
       - movie : 'reading/movie.md'
       - 最懂输的人才能成为赢家: 'reading/最懂输的人才能成为赢家.md'
