@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../machine_vision/">
+        <link rel="prev" href="../../accumulate/%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3/">
       
       
-        <link rel="next" href="../Intelligent_control/">
+        <link rel="next" href="../ros/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>最优化理论 - 繁星若尘的Notebook</title>
+        <title>机器人交叉创新 - 繁星若尘的Notebook</title>
       
     
     
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              最优化理论
+              机器人交叉创新
             
           </span>
         </div>
@@ -280,10 +280,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../accumulate/%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3/" class="md-tabs__link">
           
   
@@ -306,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../robot/ros/" class="md-tabs__link">
+        <a href="../ros/" class="md-tabs__link">
           
   
   
@@ -324,13 +326,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../machine_vision/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../control/machine_vision/" class="md-tabs__link">
           
   
   
@@ -522,8 +522,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -535,21 +537,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -562,7 +565,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             相关知识记录
@@ -596,10 +599,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../robot/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BA%A4%E5%8F%89%E5%88%9B%E6%96%B0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    机器人交叉创新
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -610,6 +633,126 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩散模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="扩散模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-forward-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 正向扩散过程（Forward Process）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reverse-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 逆向生成过程（Reverse Process）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机森林
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      模仿学习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模仿学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      行为克隆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      逆强化学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成对抗模仿学习
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      对抗学习
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-with-diffusion-for-flexible-behavior-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planning with Diffusion for Flexible Behavior Synthesis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -686,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robot/ros/" class="md-nav__link">
+      <a href="../ros/" class="md-nav__link">
         
   
   
@@ -709,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transformer/" class="md-nav__link">
+      <a href="../../control/transformer/" class="md-nav__link">
         
   
   
@@ -732,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robot/yolov/" class="md-nav__link">
+      <a href="../yolov/" class="md-nav__link">
         
   
   
@@ -755,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robot/others_robot/" class="md-nav__link">
+      <a href="../others_robot/" class="md-nav__link">
         
   
   
@@ -778,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robot/isaac_sim/" class="md-nav__link">
+      <a href="../isaac_sim/" class="md-nav__link">
         
   
   
@@ -805,10 +948,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -826,22 +967,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -854,7 +994,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             控制学科
@@ -868,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine_vision/" class="md-nav__link">
+      <a href="../../control/machine_vision/" class="md-nav__link">
         
   
   
@@ -888,30 +1028,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    最优化理论
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../control/Computational_Methods_For_Optimization/" class="md-nav__link">
         
   
   
@@ -922,33 +1042,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      凸优化问题
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -961,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Intelligent_control/" class="md-nav__link">
+      <a href="../../control/Intelligent_control/" class="md-nav__link">
         
   
   
@@ -984,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control_system/" class="md-nav__link">
+      <a href="../../control/control_system/" class="md-nav__link">
         
   
   
@@ -1007,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../control/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
   
   
@@ -1152,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../computer_system/" class="md-nav__link">
+      <a href="../../control/computer_system/" class="md-nav__link">
         
   
   
@@ -2166,7 +2259,100 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      凸优化问题
+      扩散模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="扩散模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-forward-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 正向扩散过程（Forward Process）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reverse-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 逆向生成过程（Reverse Process）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机森林
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      模仿学习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模仿学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      行为克隆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      逆强化学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成对抗模仿学习
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      对抗学习
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-with-diffusion-for-flexible-behavior-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planning with Diffusion for Flexible Behavior Synthesis
     </span>
   </a>
   
@@ -2191,16 +2377,113 @@
   
 
 
-  <h1>最优化理论</h1>
+  <h1>机器人交叉创新</h1>
 
-<h2 id="_1">凸优化问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>在凸几何中，凸集(convex set)是在凸组合下闭合的仿射空间的子集。
-更具体地说，在欧氏空间中，凸集是对于集合内的每一对点，连接该对点的直线段上的每个点也在该集合内。</p>
-<p>超平面是n维欧氏空间中余维度等于一的线性子空间，也就是必须是(n-1)维度。</p>
-<p>如果f(x)是定义在凸的开集X上的一个二阶可微的函数，则f(x),f(x)是凸函数的充要条件为:
-f(x)对应的Hessian矩阵H(x)，对于任意一个x,H(x)都是半正定的。</p>
-<p><img alt="alt text" src="../src/Screenshot%202024-12-07%20at%2011.14.33.png" /></p>
-<p><img alt="alt text" src="../src/Screenshot%202024-12-07%20at%2011.16.42.png" /></p>
+<h2 id="_1">扩散模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>扩散模型：和其他生成模型一样，实现从噪声（采样自简单的分布）生成目标数据样本。</p>
+<p>扩散模型包括两个过程：前向过程（forward process）和反向过程（reverse process），其中前向过程又称为扩散过程（diffusion process）。无论是前向过程还是反向过程都是一个参数化的马尔可夫链（Markov chain），其中反向过程可用于生成数据样本（它的作用类似GAN中的生成器，只不过GAN生成器会有维度变化，而DDPM的反向过程没有维度变化）。</p>
+<p><img alt="alt text" src="%E6%88%AA%E5%B1%8F2025-04-21%2015.54.45.png" /></p>
+<h3 id="1-forward-process">1. 正向扩散过程（Forward Process）<a class="headerlink" href="#1-forward-process" title="Permanent link">&para;</a></h3>
+<p>将原始数据 <span class="arithmatex">\(x_0\)</span> 逐步添加高斯噪声，经过 <span class="arithmatex">\(T\)</span> 步后转化为纯噪声 <span class="arithmatex">\(x_T\)</span>。<br />
+<strong>数学描述</strong>（离散形式）：
+$$
+x_t = \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \mathbf{I})
+$$
+其中：
+- <span class="arithmatex">\(\alpha_t\)</span> 是噪声调度系数（<span class="arithmatex">\(\alpha_t \in (0,1)\)</span>）
+- <span class="arithmatex">\(t \in \{1,2,...,T\}\)</span> 为时间步</p>
+<p><strong>连续形式</strong>（随机微分方程）：
+$$
+dx = f(x,t)dt + g(t)dw
+$$
+<span class="arithmatex">\(w\)</span> 为维纳过程，<span class="arithmatex">\(f(\cdot)\)</span> 和 <span class="arithmatex">\(g(\cdot)\)</span> 是预定义函数。</p>
+<hr />
+<h3 id="2-reverse-process">2. 逆向生成过程（Reverse Process）<a class="headerlink" href="#2-reverse-process" title="Permanent link">&para;</a></h3>
+<p>通过神经网络学习去噪步骤，从 <span class="arithmatex">\(x_T\)</span> 逐步恢复数据 <span class="arithmatex">\(x_0\)</span>。</p>
+<p><strong>目标函数</strong>（噪声预测）：
+$$
+\mathcal{L} = \mathbb{E}<em>{t,x_0,\epsilon}\left[ |\epsilon - \epsilon</em>\theta(x_t,t)|^2 \right]
+$$
+其中 <span class="arithmatex">\(\epsilon_\theta\)</span> 是神经网络（如U-Net）预测的噪声。</p>
+<p><strong>采样步骤</strong>：
+$$
+x_{t-1} = \frac{1}{\sqrt{\alpha_t}}\left( x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}<em>t}} \epsilon</em>\theta(x_t,t) \right) + \sigma_t z
+$$
+其中：
+- <span class="arithmatex">\(\bar{\alpha}_t = \prod_{s=1}^t \alpha_s\)</span>
+- <span class="arithmatex">\(z \sim \mathcal{N}(0,\mathbf{I})\)</span>
+- <span class="arithmatex">\(\sigma_t\)</span> 为噪声系数</p>
+<hr />
+<p>变分下界（ELBO）
+$$
+\log p(x) \geq \mathbb{E}<em 0:T="0:T">q \left[ \log \frac{p(x</em> \right]
+$$})}{q(x_{1:T}|x_0)</p>
+<p>扩散核（Diffusion Kernel）
+$$
+q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1-\bar{\alpha}_t)\mathbf{I})
+$$</p>
+<hr />
+<h2 id="_2">随机森林<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>将多个决策树结合在一起，每次数据集是随机有放回的选出，同时随机选出部分特征作为输入，所以该算法被称为随机森林算法。可以看到随机森林算法是以决策树为估计器的Bagging算法。</p>
+<p><img alt="alt text" src="image.png" /></p>
+<p>随机森林算法的优点：</p>
+<div class="highlight"><pre><span></span><code>1 对于很多种资料，可以产生高准确度的分类器
+2 可以处理大量的输入变量
+3 可以在决定类别时，评估变量的重要性
+4 在建造森林时，可以在内部对于一般化后的误差产生不偏差的估计
+5 包含一个好方法可以估计丢失的资料，并且如果有很大一部分的资料丢失，仍可以维持准确度
+6 对于不平衡的分类资料集来说，可以平衡误差
+7 可被延伸应用在未标记的资料上，这类资料通常是使用非监督式聚类，也可侦测偏离者和观看资料
+8 学习过程很快速
+</code></pre></div>
+<p>随机森林算法的缺点：</p>
+<div class="highlight"><pre><span></span><code>1 牺牲了决策树的可解释性
+2 在某些噪音较大的分类或回归问题上会过拟合
+3 在多个分类变量的问题中，随机森林可能无法提高基学习器的准确性
+</code></pre></div>
+<h2 id="_3">模仿学习<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>模仿学习是一种在没有显式奖励信号的情况下，让智能体学习专家策略的方法。其核心思想是：通过观察专家的行为，学习一个策略，使其能够像专家一样完成任务。</p>
+<p>模仿学习与强化学习有着密切的联系，但也有着本质的区别。强化学习的目标是优化一个由奖励函数定义的策略，而模仿学习的目标是复制一个由专家演示定义的策略。换句话说，强化学习是「创造」策略，而模仿学习是「模仿」策略。</p>
+<h3 id="_4">行为克隆<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>行为克隆（Behavioral Cloning, BC） 是最简单、最直接的模仿学习方法。它的核心思想是将模仿学习视为一个监督学习问题，即：给定一系列专家演示数据，学习一个从状态到动作的映射。</p>
+<p>假设我们有一组专家演示数据 <span class="arithmatex">\( D = \{ (s_i, a_i) \}_{i=1}^N \)</span>，其中 <span class="arithmatex">\( s_i \)</span> 表示状态，<span class="arithmatex">\( a_i \)</span> 表示专家在状态 <span class="arithmatex">\( s_i \)</span> 下采取的动作。行为克隆的目标是学习一个策略 <span class="arithmatex">\( \pi(a|s) \)</span>，使得在给定状态 <span class="arithmatex">\( s \)</span> 的情况下，策略 <span class="arithmatex">\( \pi(a|s) \)</span> 能够预测出与专家动作 <span class="arithmatex">\( a \)</span> 相似的动作。</p>
+<p>形式化地说，行为克隆的目标是最小化以下损失函数：</p>
+<div class="arithmatex">\[
+\mathcal{L}(\pi) = \mathbb{E}_{(s,a) \sim D} \left[ l(\pi(a|s), a) \right]
+\]</div>
+<p>其中，<span class="arithmatex">\( l(\cdot, \cdot) \)</span> 表示一个合适的损失函数，例如交叉熵损失（Cross-Entropy Loss）或均方误差损失（Mean Squared Error Loss）。</p>
+<h3 id="_5">逆强化学习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>逆强化学习（Inverse Reinforcement Learning, IRL）是另一种重要的模仿学习方法。与行为克隆不同，逆强化学习不是直接学习策略，而是从专家演示中推断奖励函数，然后使用强化学习方法优化策略。</p>
+<p>逆强化学习的思想是：假设专家之所以能够做出好的行为，是因为他们优化了一个未知的奖励函数。因此，我们可以从专家演示中学习这个未知的奖励函数，然后使用强化学习方法优化策略。</p>
+<p>形式化地说，逆强化学习的目标是找到一个奖励函数 <span class="arithmatex">\(R(s, a)\)</span>，使得专家策略 <span class="arithmatex">\(\pi_E\)</span> 在该奖励函数下的期望累积回报最大：</p>
+<div class="arithmatex">\[
+R^* = \arg\max_R \mathbb{E}_{\pi_E} \left[ \sum_{t=0}^{\infty} \gamma^t R(s_t, a_t) \right]
+\]</div>
+<p>其中，<span class="arithmatex">\(\gamma\)</span> 是折扣因子，<span class="arithmatex">\(\pi_E\)</span> 表示专家策略。</p>
+<h3 id="_6">生成对抗模仿学习<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>生成对抗模仿学习（Generative Adversarial Imitation Learning, GAIL）是一种基于生成对抗网络（GAN）的模仿学习方法。它通过对抗训练，学习一个能够模仿专家行为的智能体。</p>
+<p>对抗模仿学习的核心思想是：将模仿学习问题转化为一个生成对抗问题。具体来说，我们训练一个智能体（生成器）和一个判别器，智能体试图模仿专家行为，判别器试图区分智能体和专家的轨迹。通过对抗训练，智能体逐渐学习到接近专家策略的行为。</p>
+<p>形式化地说，对抗模仿学习的目标是找到一个策略 <span class="arithmatex">\(\pi\)</span> 和一个判别器 <span class="arithmatex">\(D\)</span>，使得：</p>
+<div class="arithmatex">\[
+\min_{\pi} \max_{D} \mathbb{E}_{(s, a) \sim \pi_E} [\log D(s, a)] + \mathbb{E}_{(s, a) \sim \pi} [\log(1 - D(s, a))]
+\]</div>
+<p>其中，<span class="arithmatex">\(\pi_E\)</span> 表示专家策略，<span class="arithmatex">\(\pi\)</span> 表示智能体策略，<span class="arithmatex">\(D(s, a)\)</span> 表示判别器对状态-动作对 <span class="arithmatex">\((s, a)\)</span> 的判别结果，取值范围为 <span class="arithmatex">\([0, 1]\)</span>。</p>
+<p>GAIL 除了可以克服奖励函数多义性问题外，还可以学习专家策略中的复杂行为模式，例如多模态行为（Multi-modal Behavior）。但 GAN 也是出了名的难以训练，容易出现梯度消失、模式崩塌等问题。</p>
+<h2 id="_7">对抗学习<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>GAN的全称是Generative adversarial network：
+生成网络(Generator)负责生成模拟数据；判别网络(Discriminator)负责判断输入的数据是真实的还是生成的。生成网络要不断优化自己生成的数据让判别网络判断不出来，判别网络也要优化自己让自己判断得更准确。二者关系形成对抗，因此叫对抗网络。</p>
+<p><img alt="alt text" src="%E6%88%AA%E5%B1%8F2025-04-21%2015.39.16.png" /></p>
+<h2 id="planning-with-diffusion-for-flexible-behavior-synthesis">Planning with Diffusion for Flexible Behavior Synthesis<a class="headerlink" href="#planning-with-diffusion-for-flexible-behavior-synthesis" title="Permanent link">&para;</a></h2>
+<p>基于模型的强化学习算法通常仅利用学习来估计近似的动态模型，将其余的决策工作交给经典的轨迹优化器。尽管这种组合在概念上很简单，但经验上存在一些缺陷，表明学习到的模型可能不太适合标准的轨迹优化。在本文中，我们考虑将轨迹优化步骤融入到建模过程中，这样从模型中采样与从模型中规划轨迹几乎是相同的任务。我们的技术方法的核心是一种扩散概率模型，它通过迭代去噪轨迹来进行规划。我们将分类器引导采样和图像修补重新解释为连贯的规划策略，探索了基于扩散的规划算法独特且有用的性质，并展示了我们的框架在强调长期决策和测试目标适应性的控制环境中的有效性。</p>
+<p>传统的基于模型的规划算法都是自回归地向前预测，而 Diffuser 能够同时预测路径规划中所有的时间步。扩散模型的迭代采样过程具有灵活的添加条件的能力，允许辅助引导信息修改采样的过程，以还原出高收益或满足一系列约束条件的轨迹。这种基于数据驱动的轨迹优化算法具有几种迷人的特点：</p>
+<ul>
+<li>长程可扩展性 Diffuser 是以生成轨迹的准确性——而非单步转移的准确性——为目标进行训练的，因此它不会受到单步动力学模型在长时间的序列上，推演误差会逐步累积放大的影响，能够更好地应对长时间的规划需求。</li>
+<li>任务可组合性 奖励函数提供了采样规划时可用的辅助梯度。通过将多个奖励梯度相加，我们可以简单地将它们组合起来以进行规划。</li>
+<li>时序可组合性 Diffuser 通过迭代地提高局部一致性来生成全局一致的轨迹，这也就意味着它可以通过将训练轨迹分布中的转移子序列拼接在一起来推广得到分布以外的新的轨迹。</li>
+<li>高效的非贪心规划 通过模糊模型和规划器之间的边界，用于改进模型预测能力的训练过程也会提高其规划能力。这种设计产生了一个经过学习得来的规划器，可以解决许多传统规划算法难以解决的长时程、稀疏奖励的问题。</li>
+</ul>
+<p>本工作的核心贡献是为轨迹数据设计了一种去噪扩散模型，并提供了一个行为合成的概率框架。</p>
+<p>diffusion model 具有更强的建模复杂分布的能力，能够更好地建模表征数据的各种特性，但是决策类问题除了需要处理表征建模的挑战，更注重于学习智能体策略的有效性和多样性。一种可行的思路是选择模仿学习方法，使用扩散模型来更好地“模仿”，“拟合”专家策略的数据分布</p>
 
 
 
