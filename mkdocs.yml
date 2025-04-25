@@ -13,6 +13,7 @@ extra:
     - name: 中文
       link: /
       lang: zh
+  
   analytics:
     provider: google
     property: G-2M5EHKC0BH
@@ -104,6 +105,7 @@ nav:
       - 控制知识记录: 'accumulate/控制相关.md'
       - 机器人交叉创新: 'robot/机器人交叉创新.md'
   - 机器人相关:
+      - 机器人学: 'robot/Robotics.md'
       - ros相关: 'robot/ros.md'
       - Transformer : 'control/transformer.md'
       - Yolov : 'robot/yolov.md'
@@ -138,7 +140,7 @@ nav:
             - 十一月练习: 'computer/algorithm/Fri_practice.md'
             - 十二月练习: 'computer/algorithm/Dec_practice.md'
 
-  - 数学知识:
+  - 数学物理知识:
       - 数学复习: 'math/math_review.md'
       - 复变函数的微积分: 'math/复变函数的微积分.md'
       - 信息论: 'math/information_theory.md'
