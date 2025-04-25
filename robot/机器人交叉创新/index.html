@@ -12,7 +12,7 @@
         <link rel="prev" href="../../accumulate/%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3/">
       
       
-        <link rel="next" href="../ros/">
+        <link rel="next" href="../Robotics/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../ros/" class="md-tabs__link">
+        <a href="../Robotics/" class="md-tabs__link">
           
   
   
@@ -380,7 +380,7 @@
   
     
   
-  数学知识
+  数学物理知识
 
         </a>
       </li>
@@ -749,6 +749,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#motion-planning-diffusion-learning-and-planning-of-robot-motions-with-diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motion Planning Diffusion: Learning and Planning of Robot Motions with Diffusion Models
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -773,6 +782,8 @@
   
     
     
+      
+        
       
         
       
@@ -821,6 +832,29 @@
             机器人相关
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    机器人学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1813,7 +1847,7 @@
   
   
   <span class="md-ellipsis">
-    数学知识
+    数学物理知识
     
   </span>
   
@@ -1824,7 +1858,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            数学知识
+            数学物理知识
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2358,6 +2392,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#motion-planning-diffusion-learning-and-planning-of-robot-motions-with-diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motion Planning Diffusion: Learning and Planning of Robot Motions with Diffusion Models
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2484,6 +2527,9 @@ R^* = \arg\max_R \mathbb{E}_{\pi_E} \left[ \sum_{t=0}^{\infty} \gamma^t R(s_t, a
 </ul>
 <p>本工作的核心贡献是为轨迹数据设计了一种去噪扩散模型，并提供了一个行为合成的概率框架。</p>
 <p>diffusion model 具有更强的建模复杂分布的能力，能够更好地建模表征数据的各种特性，但是决策类问题除了需要处理表征建模的挑战，更注重于学习智能体策略的有效性和多样性。一种可行的思路是选择模仿学习方法，使用扩散模型来更好地“模仿”，“拟合”专家策略的数据分布</p>
+<h2 id="motion-planning-diffusion-learning-and-planning-of-robot-motions-with-diffusion-models">Motion Planning Diffusion:  Learning and Planning of Robot Motions with Diffusion Models<a class="headerlink" href="#motion-planning-diffusion-learning-and-planning-of-robot-motions-with-diffusion-models" title="Permanent link">&para;</a></h2>
+<p>Learning priors on trajectory distributions can help accelerate robot motion planning optimization. Given previously successful plans, learning trajectory generative models as priors for a new planning problem is highly desirable. Prior works propose several ways on utilizing this prior to bootstrapping the motion planning problem. Either sampling the prior for initializations or using the prior distribution in a maximum-a-posterior formulation for trajectory optimization. In this work, we propose learning diffusion models as priors. We then can sample directly from the posterior trajectory distribution conditioned on task goals, by leveraging the inverse denoising process of diffusion models. Furthermore, diffusion has been recently shown to effectively encode data multimodality in high-dimensional settings, which is particularly well-suited for large trajectory dataset. To demonstrate our method efficacy, we compare our proposed method - Motion Planning Diffusion - against several baselines in simulated planar robot and 7-dof robot arm manipulator environments. To assess the generalization capabilities of our method, we test it in environments with previously unseen obstacles. Our experiments show that diffusion models are strong priors to encode high-dimensional trajectory distributions of robot motions.</p>
+<p><img alt="alt text" src="%E6%88%AA%E5%B1%8F2025-04-24%2011.07.25.png" /></p>
 
 
 
