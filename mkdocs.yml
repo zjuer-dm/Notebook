@@ -142,6 +142,7 @@ nav:
 
   - 数学物理知识:
       - 数学复习: 'math/math_review.md'
+      - 物理知识: 'math/physics.md'
       - 复变函数的微积分: 'math/复变函数的微积分.md'
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'
