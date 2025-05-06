@@ -1,11 +1,11 @@
 site_name: 繁星若尘的Notebook
-repo_url: 'https://github.com/RCSdm/Notebook.git'
+repo_url: 'https://github.com/zjuer-dm/Notebook.git'
 repo_name: 'GitHub'
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: 'https://github.com/RCSdm'
+      link: 'https://github.com/zjuer-dm'
   alternate: # change the language, the link should point to different directories
     - name: English
       link: /
