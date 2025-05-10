@@ -111,6 +111,7 @@ nav:
       - Yolov : 'robot/yolov.md'
       - 机器人零散知识: 'robot/others_robot.md'
       - isaac_sim: 'robot/isaac_sim.md'
+      - LI-GS_and_RISED: 'robot/LI-GS_and_RISED.md'
   - 控制学科:
       - 机器视觉 : 'control/machine_vision.md'
       - 最优化理论: 'control/Computational_Methods_For_Optimization.md'
