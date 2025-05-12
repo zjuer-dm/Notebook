@@ -118,7 +118,12 @@ nav:
       - 智能控制 : 'control/Intelligent_control.md'
       - 控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
+  - 人工智能:
+      - Attention机制: 'mechine_learning/Attention.md'
+      - Finetune: 'mechine_learning/fine_tune.md'
+      - Tokenization: 'mechine_learning/Tokenization.md'
 
+      
   - 计算机: 
       - 目录: 'computer/computer.md'
       - 算法学习: 'computer/algorithm.md'
