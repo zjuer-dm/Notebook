@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../../control/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+      
+      
+        <link rel="next" href="../fine_tune/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Fine turn - 繁星若尘的Notebook</title>
+        <title>Attention机制 - 繁星若尘的Notebook</title>
       
     
     
@@ -88,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llm" class="md-skip">
+        <a href="#attention-is-all-you-need" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fine turn
+              Attention机制
             
           </span>
         </div>
@@ -331,6 +335,30 @@
     
   
   控制学科
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
 
         </a>
       </li>
@@ -1028,6 +1056,263 @@
       
   
   
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    人工智能
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Attention机制
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attention机制
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attention-is-all-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attention is All You Need 核心知识
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attention is All You Need 核心知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Transformer 架构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 自注意力机制 (Self-Attention)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-head-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 多头注意力 (Multi-Head Attention)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-positional-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 位置编码 (Positional Encoding)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-residual-connection-layer-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 残差连接与层归一化 (Residual Connection &amp; Layer Normalization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-position-wise-feed-forward-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 前馈神经网络 (Position-wise Feed Forward Network)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 关键优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fine_tune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finetune
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tokenization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tokenization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     
@@ -1070,10 +1355,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1086,8 +1371,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             计算机
           </label>
@@ -1353,10 +1638,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_11" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_11" >
         
           
-          <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_11" id="__nav_6_11_label" tabindex="0">
             
   
   
@@ -1369,8 +1654,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_11">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_11">
             <span class="md-nav__icon md-icon"></span>
             算法相关
           </label>
@@ -1427,10 +1712,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_11_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_11_2" >
         
           
-          <label class="md-nav__link" for="__nav_5_11_2" id="__nav_5_11_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_11_2" id="__nav_6_11_2_label" tabindex="0">
             
   
   
@@ -1443,8 +1728,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_11_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_11_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_11_2">
             <span class="md-nav__icon md-icon"></span>
             编程、算法练习
           </label>
@@ -1536,10 +1821,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_11_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_11_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_11_3" id="__nav_5_11_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_11_3" id="__nav_6_11_3_label" tabindex="0">
             
   
   
@@ -1552,8 +1837,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_11_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_11_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_11_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_11_3">
             <span class="md-nav__icon md-icon"></span>
             第一次练习
           </label>
@@ -1708,10 +1993,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -1724,8 +2009,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             数学物理知识
           </label>
@@ -1879,10 +2164,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -1895,8 +2180,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             其他知识
           </label>
@@ -1968,10 +2253,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1984,8 +2269,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             阅读
           </label>
@@ -2183,37 +2468,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
+  <a href="#attention-is-all-you-need" class="md-nav__link">
     <span class="md-ellipsis">
-      LLM 微调方法
+      Attention is All You Need 核心知识
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="LLM 微调方法">
+    <nav class="md-nav" aria-label="Attention is All You Need 核心知识">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fft" class="md-nav__link">
+  <a href="#1-transformer" class="md-nav__link">
     <span class="md-ellipsis">
-      全量微调（FFT）
+      1. Transformer 架构
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#peft" class="md-nav__link">
+  <a href="#2-self-attention" class="md-nav__link">
     <span class="md-ellipsis">
-      参数高效微调（PEFT）
+      2. 自注意力机制 (Self-Attention)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#3-multi-head-attention" class="md-nav__link">
     <span class="md-ellipsis">
-      结论
+      3. 多头注意力 (Multi-Head Attention)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-positional-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 位置编码 (Positional Encoding)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-residual-connection-layer-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 残差连接与层归一化 (Residual Connection &amp; Layer Normalization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-position-wise-feed-forward-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 前馈神经网络 (Position-wise Feed Forward Network)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 关键优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 总结
     </span>
   </a>
   
@@ -2243,28 +2573,57 @@
   
 
 
-  <h1>Fine turn</h1>
+  <h1>Attention机制</h1>
 
-<h2 id="llm">LLM 微调方法<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h2>
-<p>大模型微调是提升预训练大模型在特定任务或领域表现的重要手段。微调方法可以分为全量微调（Full Fine Tuning, FFT）和参数高效微调（Parameter-Efficient Fine Tuning, PEFT）。</p>
-<h3 id="fft">全量微调（FFT）<a class="headerlink" href="#fft" title="Permanent link">&para;</a></h3>
-<p>全量微调是对大模型的所有参数进行训练。这种方法虽然可以显著提升模型在特定任务上的表现，但也存在一些问题：</p>
+<h2 id="attention-is-all-you-need">Attention is All You Need 核心知识<a class="headerlink" href="#attention-is-all-you-need" title="Permanent link">&para;</a></h2>
+<h3 id="1-transformer">1. Transformer 架构<a class="headerlink" href="#1-transformer" title="Permanent link">&para;</a></h3>
 <ul>
-<li>训练成本高：微调的参数量与预训练时相同，导致训练成本非常高。</li>
-<li>灾难性遗忘：特定领域的数据微调可能会导致模型在其他领域的表现变差。</li>
+<li><strong>完全基于注意力机制</strong>：Transformer 摒弃传统的循环神经网络（RNN）和卷积神经网络（CNN），只使用注意力机制实现序列建模。</li>
+<li><strong>编码器-解码器结构</strong>：整个模型由堆叠的编码器和解码器组成，每个部分都由若干相同结构的层构成。</li>
 </ul>
-<h3 id="peft">参数高效微调（PEFT）<a class="headerlink" href="#peft" title="Permanent link">&para;</a></h3>
-<p>参数高效微调旨在解决全量微调的高成本和灾难性遗忘问题。PEFT 方法主要包括以下几种：</p>
+<h3 id="2-self-attention">2. 自注意力机制 (Self-Attention)<a class="headerlink" href="#2-self-attention" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Adapter Tuning</strong> ：通过在每个 Transformer 层中插入两个串行的 Adapter 模块来实现微调。Adapter 模块由两个前馈子层组成，分别负责将特征维度投影到更小的维度并再投影回原始维度。这种方法只需增加少量参数即可达到接近全量微调的效果。</li>
-<li><strong>Prefix Tuning</strong> ：在 Transformer 的 Encoder 和 Decoder 网络中添加特定的前缀，优化前缀参数而不改变基座模型。这种方法在表格到文本任务上表现优于全量微调。</li>
-<li><strong>P - Tuning</strong> ：在输入层加入可微的虚拟 Token，通过反向传播和梯度下降更新参数。这种方法在自然语言理解任务中表现优异。</li>
-<li><strong>Prompt Tuning</strong> ：在输入序列前增加特定长度的特殊 Token，训练少量参数的小模型。这种方法在大模型上效果接近全量微调。</li>
-<li><strong>LoRA</strong> ：通过在每个 self - attention 层中加入低秩矩阵来实现微调，显著减少了可训练参数数量。这种方法在多个数据集上表现与全量微调相近。</li>
-<li><strong>AdaLoRA</strong> ：基于权重矩阵的重要性自适应调整不同模块的秩，进一步提升了 LoRA 的性能。</li>
+<li><strong>核心思想</strong>：允许序列中每个位置直接关注其他所有位置，从而捕捉序列内部的全局依赖关系。</li>
+<li><strong>计算方式</strong>：对查询 (Query)、键 (Key)、值 (Value) 进行线性变换，并通过 scaled dot-product 计算注意力权重：</li>
 </ul>
-<h3 id="_1">结论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>微调的最终目的是在可控成本的前提下，尽可能提升大模型在特定领域的能力。不同的微调方法各有优缺点，选择合适的方法可以根据具体任务和资源情况进行调整。</p>
+<p>[
+  \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+  ]</p>
+<p>其中，<span class="arithmatex">\(d_k\)</span> 为键的维度，用于缩放防止梯度消失。</p>
+<h3 id="3-multi-head-attention">3. 多头注意力 (Multi-Head Attention)<a class="headerlink" href="#3-multi-head-attention" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>并行注意力</strong>：将输入分别投影到多个子空间 (heads) 中，每个 head 独立实现自注意力机制。</li>
+<li><strong>优势</strong>：使模型能从不同表示子空间中并行捕捉不同的特征信息，增强模型的表达能力。</li>
+<li><strong>合成输出</strong>：将各 head 的输出拼接，再通过线性变换得到最终结果。</li>
+</ul>
+<h3 id="4-positional-encoding">4. 位置编码 (Positional Encoding)<a class="headerlink" href="#4-positional-encoding" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>必要性</strong>：Transformer 没有递归结构，无法直接捕捉序列的顺序信息，因此引入位置编码以提供位置信息。</li>
+<li><strong>实现方法</strong>：常用正弦和余弦函数生成不同频率的周期性信号：</li>
+</ul>
+<p>[
+  PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}}\right), \quad
+  PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}}\right)
+  ]</p>
+<p>其中，<span class="arithmatex">\(pos\)</span> 表示位置，<span class="arithmatex">\(i\)</span> 表示维度索引。</p>
+<h3 id="5-residual-connection-layer-normalization">5. 残差连接与层归一化 (Residual Connection &amp; Layer Normalization)<a class="headerlink" href="#5-residual-connection-layer-normalization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>残差连接</strong>：在每个子层（如多头注意力和前馈网络）的输入上加上它的输出，有助于缓解梯度消失问题，支持深层网络训练。</li>
+<li><strong>层归一化</strong>：在残差连接之后对数据进行归一化，稳定训练过程并加速收敛。</li>
+</ul>
+<h3 id="6-position-wise-feed-forward-network">6. 前馈神经网络 (Position-wise Feed Forward Network)<a class="headerlink" href="#6-position-wise-feed-forward-network" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>结构</strong>：每一层中包含一个全连接的前馈神经网络，对每个位置的表示进行独立的非线性变换，一般由两个线性层和一个激活函数（通常为 ReLU）构成。</li>
+<li><strong>目 的</strong>：引入非线性变换进一步丰富表示能力。</li>
+</ul>
+<h3 id="7">7. 关键优势<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>并行计算</strong>：由于不依赖递归结构，Transformer 支持更高效的并行计算。</li>
+<li><strong>全局上下文建模</strong>：自注意力机制使每个位置能够直接捕捉全局信息，适用于长距离依赖任务。</li>
+<li><strong>扩展性强</strong>：简化的架构便于扩展和堆叠，实现大规模预训练语言模型及其它应用。</li>
+</ul>
+<h3 id="8">8. 总结<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p>Transformer 的设计理念和核心技术构成了现代自然语言处理和序列建模的基础，不仅在机器翻译任务中取得了显著进展，也为后续的模型（如 BERT、GPT 等）奠定了理论和实践基础。</p>
 
 
 

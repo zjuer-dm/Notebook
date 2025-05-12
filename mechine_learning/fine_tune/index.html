@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../%E5%90%88%E9%9B%86/">
+        <link rel="prev" href="../Attention/">
       
       
-        <link rel="next" href="../%E5%BF%83%E7%90%86/">
+        <link rel="next" href="../Tokenization/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>小米创业思考 - 繁星若尘的Notebook</title>
+        <title>Finetune - 繁星若尘的Notebook</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#llm" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              小米创业思考
+              Finetune
             
           </span>
         </div>
@@ -346,11 +346,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../mechine_learning/Attention/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Attention/" class="md-tabs__link">
           
   
   
@@ -434,13 +436,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../%E5%90%88%E9%9B%86/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reading/%E5%90%88%E9%9B%86/" class="md-tabs__link">
           
   
   
@@ -1056,8 +1056,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1071,21 +1073,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1098,7 +1101,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             人工智能
@@ -1112,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mechine_learning/Attention/" class="md-nav__link">
+      <a href="../Attention/" class="md-nav__link">
         
   
   
@@ -1132,10 +1135,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../mechine_learning/fine_tune/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Finetune
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1146,6 +1169,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLM 微调方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLM 微调方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      全量微调（FFT）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peft" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数高效微调（PEFT）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      结论
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1158,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mechine_learning/Tokenization/" class="md-nav__link">
+      <a href="../Tokenization/" class="md-nav__link">
         
   
   
@@ -2093,10 +2176,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -2116,22 +2197,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -2144,7 +2224,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             阅读
@@ -2158,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%90%88%E9%9B%86/" class="md-nav__link">
+      <a href="../../reading/%E5%90%88%E9%9B%86/" class="md-nav__link">
         
   
   
@@ -2178,32 +2258,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    小米创业思考
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reading/%E5%B0%8F%E7%B1%B3%E5%88%9B%E4%B8%9A%E6%80%9D%E8%80%83/" class="md-nav__link">
         
   
   
@@ -2214,35 +2272,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#2021" class="md-nav__link">
-    <span class="md-ellipsis">
-      为小米汽车而战（2021）
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2255,7 +2284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%BF%83%E7%90%86/" class="md-nav__link">
+      <a href="../../reading/%E5%BF%83%E7%90%86/" class="md-nav__link">
         
   
   
@@ -2278,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E9%93%B6%E6%B2%B3%E5%B8%9D%E5%9B%BD/" class="md-nav__link">
+      <a href="../../reading/%E9%93%B6%E6%B2%B3%E5%B8%9D%E5%9B%BD/" class="md-nav__link">
         
   
   
@@ -2301,7 +2330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../movie/" class="md-nav__link">
+      <a href="../../reading/movie/" class="md-nav__link">
         
   
   
@@ -2324,7 +2353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%9C%80%E6%87%82%E8%BE%93%E7%9A%84%E4%BA%BA%E6%89%8D%E8%83%BD%E6%88%90%E4%B8%BA%E8%B5%A2%E5%AE%B6/" class="md-nav__link">
+      <a href="../../reading/%E6%9C%80%E6%87%82%E8%BE%93%E7%9A%84%E4%BA%BA%E6%89%8D%E8%83%BD%E6%88%90%E4%B8%BA%E8%B5%A2%E5%AE%B6/" class="md-nav__link">
         
   
   
@@ -2386,8 +2415,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2396,11 +2423,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#2021" class="md-nav__link">
+  <a href="#llm" class="md-nav__link">
     <span class="md-ellipsis">
-      为小米汽车而战（2021）
+      LLM 微调方法
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="LLM 微调方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      全量微调（FFT）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peft" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数高效微调（PEFT）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      结论
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2423,34 +2483,28 @@
   
 
 
-<h1 id="_1">书中摘录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>在这场“过家家”式的创业尝试中，从第一天起，我们就没想明白我们要做什么。“看似什么都能做”，其实就是“做什么都不知道”。</p>
-<p>1997年，苹果几近破产，就把乔布斯请了回去。一回到苹果，乔布斯就传达了一个理念：决定不做什么跟决定做什么一样重要。</p>
-<p>现在总结一下，关于爆品，我认为有三个产生条件，分别是：• 高效的工业化大生产• 迎合大众消费能力的定价• 产品体验导向的创新。</p>
-<p>小米的发展瓶颈：真正的原因在于内外两方面的多项困难，其中最关键的是我们自身的能力不够，只是过去很多问题都被高速增长掩盖了，而一旦失速，这些问题就立即暴露出来。</p>
-<p>在我看来，这个世界上的公司分为两种：一种是采用溢价模型的，一种是采用性价比模型的。</p>
-<p>基于溢价模型的企业进行创新和改良的根本动力，都来自对超额利润的追求，并且高度依赖信息不透明带来的高溢价。首先，高水平创新的能力极为稀缺，无论对一个行业，还是对一家公司而言，都呈现出显著的周期性起伏，世界上很少有公司能够保障持续稳定的高水平创新。其次，信息不透明带来的溢价是非常短暂的。同时，习惯依赖高溢价的公司的运营成本一定会越来越高，浪费越来越严重，效率越来越低。我一直认为，绝大多数采用溢价模型的企业都难以持久。</p>
-<p>采用性价比模型的公司坚持下去非常难，非常痛苦，它要有克制贪婪的强大定力，要能忍受漫长的成长积累，还要有忍受低宽容度、高风险运作的耐性，然而一旦这些公司赢得领先，将极具韧性和统治力，并有穿越经济周期的能力。沃尔玛、开市客、优衣库、宜家都是这样的企业，都在坚持践行这套性价比模型。</p>
-<h2 id="2021">为小米汽车而战（2021）<a class="headerlink" href="#2021" title="Permanent link">&para;</a></h2>
-<p>我热爱写程序，觉得会写一辈子。1998年，求伯君求总推荐我出
-任金山的总经理。说起来你可能不信，刚开始我不愿意，我更喜欢写
-程序。但求总坚持，我打算先干着试试看，等有了合适的总经理，再
-回去写程序。</p>
-<p>这个时候，发生了一件改变了我一生的意外。有个同事在帮我整
-理电脑时，一不小心把我的硬盘连同备份盘全都格式化了，我那些年
-存下来的代码都没了……我到现在都记得这个同事的名字叫刘光明。</p>
-<p>这下没有退路了，我就只能专心去干总经理，这逼着我后面学管
-理、学市场和学销售，从此走上了完全不同的人生道路。</p>
-<p>从程序员到管理者，从创业者到投资人，从互联网到硬件，都是
-认知结构和人生阅历的巨大翻新。这几次重大的蜕变，有的是被动的
-应变，有的是主动的选择。但无论哪一种，都需要无畏的勇气、坚定
-的意志、超强的学习能力，以及对抗巨大痛苦的韧性。</p>
-<h1 id="_2">分析反思<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<p>这本书写于2022年，现在是2024年8月14号。</p>
-<p>整体篇幅依然类似于企业宣传，只说好的一面，而忽略历史的伤疤。</p>
-<p>小米手机从一开始就定位于旗舰手机，性能参数和用料瞄准全球顶级，虽然是基于BOM定价，但也是国产品牌中最高的。红米的命名，混淆了小米和红米的界限，虽然定义是不同的产品线，但客观上将小米早期的发烧、高端品牌形象拉向了单一的低价标签，造成了品牌认知上的混乱，加上红米系列诞生后3年1.1亿台的巨大销量，事实上混淆了小米品牌的大众认知。</p>
-<p>经典评论：雷军亲自带队，投入100亿美元，赌上其全部声誉也要完成这最后一搏（自称最后一个创业项目），肯定有非常重要的战略意义，关乎小米未来前景。为什么这么说，因为在手机领域处于存量竞争情况下，二季度手机下滑之惨烈大家也是能真实看到，一定要找到新的增长点，而在国内最近两年新能源汽车发展超乎想象，如果不抓住这一千载难逢的机遇，对小米而言将很可能错过一个时代，也会就此走下坡路。汽车行业是一个国家工业发展水平的集中体现，也是体量最大的消费品，而目前汽车发展智能化和消费电子化趋势相当明显，“软件定义汽车”已然成为现实。</p>
-<p>在智能化、网联化变革趋势下，汽车逐步由机械代步工具向新一代移动智能终端转变。功能需求推动汽车电子电气架构由分布式向集中式升级，软硬件在零部件层面，软件逐步获得全栈化、完整化的控制权限，实现汽车多元化的应用功能，成为定义汽车产品力的关键因素。</p>
+  <h1>Finetune</h1>
+
+<h2 id="llm">LLM 微调方法<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h2>
+<p>大模型微调是提升预训练大模型在特定任务或领域表现的重要手段。微调方法可以分为全量微调（Full Fine Tuning, FFT）和参数高效微调（Parameter-Efficient Fine Tuning, PEFT）。</p>
+<h3 id="fft">全量微调（FFT）<a class="headerlink" href="#fft" title="Permanent link">&para;</a></h3>
+<p>全量微调是对大模型的所有参数进行训练。这种方法虽然可以显著提升模型在特定任务上的表现，但也存在一些问题：</p>
+<ul>
+<li>训练成本高：微调的参数量与预训练时相同，导致训练成本非常高。</li>
+<li>灾难性遗忘：特定领域的数据微调可能会导致模型在其他领域的表现变差。</li>
+</ul>
+<h3 id="peft">参数高效微调（PEFT）<a class="headerlink" href="#peft" title="Permanent link">&para;</a></h3>
+<p>参数高效微调旨在解决全量微调的高成本和灾难性遗忘问题。PEFT 方法主要包括以下几种：</p>
+<ul>
+<li><strong>Adapter Tuning</strong> ：通过在每个 Transformer 层中插入两个串行的 Adapter 模块来实现微调。Adapter 模块由两个前馈子层组成，分别负责将特征维度投影到更小的维度并再投影回原始维度。这种方法只需增加少量参数即可达到接近全量微调的效果。</li>
+<li><strong>Prefix Tuning</strong> ：在 Transformer 的 Encoder 和 Decoder 网络中添加特定的前缀，优化前缀参数而不改变基座模型。这种方法在表格到文本任务上表现优于全量微调。</li>
+<li><strong>P - Tuning</strong> ：在输入层加入可微的虚拟 Token，通过反向传播和梯度下降更新参数。这种方法在自然语言理解任务中表现优异。</li>
+<li><strong>Prompt Tuning</strong> ：在输入序列前增加特定长度的特殊 Token，训练少量参数的小模型。这种方法在大模型上效果接近全量微调。</li>
+<li><strong>LoRA</strong> ：通过在每个 self - attention 层中加入低秩矩阵来实现微调，显著减少了可训练参数数量。这种方法在多个数据集上表现与全量微调相近。</li>
+<li><strong>AdaLoRA</strong> ：基于权重矩阵的重要性自适应调整不同模块的秩，进一步提升了 LoRA 的性能。</li>
+</ul>
+<h3 id="_1">结论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>微调的最终目的是在可控成本的前提下，尽可能提升大模型在特定领域的能力。不同的微调方法各有优缺点，选择合适的方法可以根据具体任务和资源情况进行调整。</p>
 
 
 
