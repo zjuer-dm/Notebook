@@ -13,3 +13,5 @@ f(x)对应的Hessian矩阵H(x)，对于任意一个x,H(x)都是半正定的。
 ![alt text](<src/Screenshot 2024-12-07 at 11.14.33.png>)
 
 ![alt text](<src/Screenshot 2024-12-07 at 11.16.42.png>)
+
+
