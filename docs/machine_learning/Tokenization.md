@@ -18,3 +18,9 @@
 * 词形变化：英文单词具有丰富的词形变化，如时态、语态、单复数等，需要进行词形还原（Lemmatization）和词干提取（Stemming）以统一处理。词性还原：does，done，doing，did 需要通过词性还原恢复成 do。词干提取：cities，children，teeth 这些词，需要转换为 city，child，tooth”这些基本形态。中文则不需要。
 * 粒度问题：中文分词时需要考虑粒度大小，即词汇的划分粗细。不同粒度可能对应不同的语义，需要根据具体场景选择。英文中由于单词本身即为基础单位，不存在这一问题。
 
+## prompt engineering
+
+
+![alt text](<pic/截屏2025-05-12 20.07.05.png>)
+
+![alt text](<pic/截屏2025-05-12 20.06.03.png>)

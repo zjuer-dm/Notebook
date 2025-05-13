@@ -8,9 +8,9 @@
 - **核心思想**：允许序列中每个位置直接关注其他所有位置，从而捕捉序列内部的全局依赖关系。
 - **计算方式**：对查询 (Query)、键 (Key)、值 (Value) 进行线性变换，并通过 scaled dot-product 计算注意力权重：
   
-  \[
+  $$
   \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-  \]
+  $$
 
   其中，\(d_k\) 为键的维度，用于缩放防止梯度消失。
 
@@ -23,10 +23,10 @@
 - **必要性**：Transformer 没有递归结构，无法直接捕捉序列的顺序信息，因此引入位置编码以提供位置信息。
 - **实现方法**：常用正弦和余弦函数生成不同频率的周期性信号：
  
-  \[
+  $$
   PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}}\right), \quad
   PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}}\right)
-  \]
+  $$
 
   其中，\(pos\) 表示位置，\(i\) 表示维度索引。
 

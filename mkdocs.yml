@@ -119,11 +119,11 @@ nav:
       - 控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
   - 人工智能:
-      - Attention机制: 'mechine_learning/Attention.md'
-      - Finetune: 'mechine_learning/fine_tune.md'
-      - Tokenization: 'mechine_learning/Tokenization.md'
-
-      
+      - Attention机制: 'machine_learning/Attention.md'
+      - Finetune: 'machine_learning/fine_tune.md'
+      - Tokenization: 'machine_learning/Tokenization.md'
+      - Encoder-Decoder: 'machine_learning/Encoder_Decoder.md'
+      - 优化器: 'machine_learning/optimizer.md'
   - 计算机: 
       - 目录: 'computer/computer.md'
       - 算法学习: 'computer/algorithm.md'
@@ -161,6 +161,7 @@ nav:
       - 银河帝国: 'reading/银河帝国.md'
       - movie : 'reading/movie.md'
       - 最懂输的人才能成为赢家: 'reading/最懂输的人才能成为赢家.md'
+      - Economy: 'reading/经济.md'
   - 关于: 'record/about.md'
 
 
