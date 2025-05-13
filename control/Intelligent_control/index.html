@@ -1044,6 +1044,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑模控制
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2479,6 +2488,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑模控制
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2591,6 +2609,49 @@
 <a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a>plotmf(fis, &#39;output&#39;, 1); % 绘制 &#39;tip&#39; 的隶属函数
 <a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a>title(&#39;Membership Functions for Tip&#39;);
 </code></pre></div></p>
+<h2 id="_3">滑模控制<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>滑模控制是一种控制方法，它通过设计一个滑模面来控制系统的运动。</p>
+<p>滑模控制理论（Sliding Mode Control, SMC）是一种建立在现代控制理论基础上的控制理论，主要数学核心为李雅普诺夫函数</p>
+<p>滑模控制的核心思想是建立一个滑模面，将被控系统拉取到滑模面上来，使系统沿着滑模面运动。滑模控制的一个优势是无视外部扰动和不确定参数</p>
+<p>考虑一个非线性系统：</p>
+<div class="arithmatex">\[\dot{x} = f(x) + g(x)u + d(t)\]</div>
+<p>其中：
+- <span class="arithmatex">\(x\)</span> 是系统状态向量
+- <span class="arithmatex">\(f(x)\)</span> 是系统动态
+- <span class="arithmatex">\(g(x)\)</span> 是控制输入矩阵
+- <span class="arithmatex">\(u\)</span> 是控制输入
+- <span class="arithmatex">\(d(t)\)</span> 是外部干扰</p>
+<p>滑模面通常设计为：</p>
+<div class="arithmatex">\[s(x) = c_1x_1 + c_2x_2 + ... + c_{n-1}x_{n-1} + x_n = 0\]</div>
+<p>其中 <span class="arithmatex">\(c_i\)</span> 是设计参数，需要满足 Hurwitz 条件。</p>
+<p>滑模控制律通常包含两部分：</p>
+<div class="arithmatex">\[u = u_{eq} + u_{sw}\]</div>
+<p>其中：
+- <span class="arithmatex">\(u_{eq}\)</span> 是等效控制，用于维持系统在滑模面上
+- <span class="arithmatex">\(u_{sw}\)</span> 是切换控制，用于驱动系统到达滑模面</p>
+<div class="arithmatex">\[V = \frac{1}{2}s^2\]</div>
+<p>对时间求导：</p>
+<div class="arithmatex">\[\dot{V} = s\dot{s}\]</div>
+<p>为了保证系统稳定性，需要满足：</p>
+<div class="arithmatex">\[\dot{V} = s\dot{s} &lt; 0\]</div>
+<p>以二阶系统为例：</p>
+<div class="arithmatex">\[\ddot{x} = f(x,\dot{x}) + g(x,\dot{x})u + d(t)\]</div>
+<p>定义滑模面：</p>
+<div class="arithmatex">\[s = c_1x + \dot{x} = 0\]</div>
+<p>对滑模面求导：</p>
+<div class="arithmatex">\[\dot{s} = c_1\dot{x} + \ddot{x} = c_1\dot{x} + f(x,\dot{x}) + g(x,\dot{x})u + d(t)\]</div>
+<p>设计控制律：</p>
+<div class="arithmatex">\[u = u_{eq} + u_{sw} = -[g(x,\dot{x})]^{-1}[f(x,\dot{x}) + c_1\dot{x}] - k\cdot\text{sign}(s)\]</div>
+<p>其中：
+- <span class="arithmatex">\(u_{eq} = -[g(x,\dot{x})]^{-1}[f(x,\dot{x}) + c_1\dot{x}]\)</span> 是等效控制
+- <span class="arithmatex">\(u_{sw} = -k\cdot\text{sign}(s)\)</span> 是切换控制
+- <span class="arithmatex">\(k\)</span> 是切换增益，需要满足 <span class="arithmatex">\(k &gt; |d(t)|\)</span></p>
+<p>将控制律代入滑模面导数：</p>
+<div class="arithmatex">\[\dot{s} = -k\cdot\text{sign}(s) + d(t)\]</div>
+<p>考虑李雅普诺夫函数：</p>
+<div class="arithmatex">\[V = \frac{1}{2}s^2\]</div>
+<div class="arithmatex">\[\dot{V} = s\dot{s} = s[-k\cdot\text{sign}(s) + d(t)] = -k|s| + s\cdot d(t) \leq -k|s| + |s|\cdot|d(t)| = -|s|(k - |d(t)|)\]</div>
+<p>当 <span class="arithmatex">\(k &gt; |d(t)|\)</span> 时，<span class="arithmatex">\(\dot{V} &lt; 0\)</span>，系统稳定。</p>
 
 
 
