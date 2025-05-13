@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Attention/">
+        <link rel="prev" href="../fine_tune/">
       
       
-        <link rel="next" href="../Tokenization/">
+        <link rel="next" href="../Encoder_Decoder/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Finetune - 繁星若尘的Notebook</title>
+        <title>Tokenization - 繁星若尘的Notebook</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llm" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Finetune
+              Tokenization
             
           </span>
         </div>
@@ -1069,6 +1069,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1135,6 +1139,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../fine_tune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finetune
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1144,13 +1171,15 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    Finetune
+    Tokenization
     
   </span>
   
@@ -1163,7 +1192,7 @@
   
   
   <span class="md-ellipsis">
-    Finetune
+    Tokenization
     
   </span>
   
@@ -1176,6 +1205,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1184,44 +1215,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
+  <a href="#prompt-engineering" class="md-nav__link">
     <span class="md-ellipsis">
-      LLM 微调方法
+      prompt engineering
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="LLM 微调方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fft" class="md-nav__link">
-    <span class="md-ellipsis">
-      全量微调（FFT）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#peft" class="md-nav__link">
-    <span class="md-ellipsis">
-      参数高效微调（PEFT）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      结论
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1241,12 +1239,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tokenization/" class="md-nav__link">
+      <a href="../Encoder_Decoder/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Tokenization
+    Encoder-Decoder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    优化器
     
   </span>
   
@@ -2193,6 +2214,8 @@
       
         
       
+        
+      
     
     
     
@@ -2369,6 +2392,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading/%E7%BB%8F%E6%B5%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Economy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2415,6 +2461,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2423,44 +2471,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
+  <a href="#prompt-engineering" class="md-nav__link">
     <span class="md-ellipsis">
-      LLM 微调方法
+      prompt engineering
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="LLM 微调方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fft" class="md-nav__link">
-    <span class="md-ellipsis">
-      全量微调（FFT）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#peft" class="md-nav__link">
-    <span class="md-ellipsis">
-      参数高效微调（PEFT）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      结论
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2483,28 +2498,25 @@
   
 
 
-  <h1>Finetune</h1>
-
-<h2 id="llm">LLM 微调方法<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h2>
-<p>大模型微调是提升预训练大模型在特定任务或领域表现的重要手段。微调方法可以分为全量微调（Full Fine Tuning, FFT）和参数高效微调（Parameter-Efficient Fine Tuning, PEFT）。</p>
-<h3 id="fft">全量微调（FFT）<a class="headerlink" href="#fft" title="Permanent link">&para;</a></h3>
-<p>全量微调是对大模型的所有参数进行训练。这种方法虽然可以显著提升模型在特定任务上的表现，但也存在一些问题：</p>
+<h1 id="_1">分词<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>核心逻辑：将句子、段落、文章这种长文本，分解为以字词为单位的数据结构。</p>
 <ul>
-<li>训练成本高：微调的参数量与预训练时相同，导致训练成本非常高。</li>
-<li>灾难性遗忘：特定领域的数据微调可能会导致模型在其他领域的表现变差。</li>
+<li>文本切分：分词是将连续的文本切分为独立的、有意义的词汇单元的过程。这些词汇单元可以是单词、词组或特定的符号，切分的目的是使文本更易于处理和解析。</li>
+<li>语义理解的基础：分词是语义理解的基础步骤。计算机通过分词能够识别出文本中的基本语义单元，进而进行词性标注、句法分析、语义推理等更高级的处理。</li>
+<li>数据结构化：分词将非结构化的文本数据转化为结构化的词汇序列，使得文本数据能够被计算机程序有效地处理和分析。</li>
 </ul>
-<h3 id="peft">参数高效微调（PEFT）<a class="headerlink" href="#peft" title="Permanent link">&para;</a></h3>
-<p>参数高效微调旨在解决全量微调的高成本和灾难性遗忘问题。PEFT 方法主要包括以下几种：</p>
+<p>为什么要分词： 分词是将自然语言简化为数学问题，提供合适语义粒度的关键步骤。</p>
+<p>问题转化：分词可以将非结构化的文本数据转化为结构化数据，这样复杂的自然语言处理就被转化为了更易于处理的数学问题。</p>
+<p>合适的语义粒度：词是语言中表达完整含义的基本单位。 与字相比，词能够提供更丰富的语义信息。单个字往往无法独立表达完整的意义，而词则可以。同时，与句子相比，词的粒度更小，更易于处理和复用。</p>
+<p><img alt="alt text" src="../pic/%E6%88%AA%E5%B1%8F2025-05-12%2019.33.34.png" /></p>
 <ul>
-<li><strong>Adapter Tuning</strong> ：通过在每个 Transformer 层中插入两个串行的 Adapter 模块来实现微调。Adapter 模块由两个前馈子层组成，分别负责将特征维度投影到更小的维度并再投影回原始维度。这种方法只需增加少量参数即可达到接近全量微调的效果。</li>
-<li><strong>Prefix Tuning</strong> ：在 Transformer 的 Encoder 和 Decoder 网络中添加特定的前缀，优化前缀参数而不改变基座模型。这种方法在表格到文本任务上表现优于全量微调。</li>
-<li><strong>P - Tuning</strong> ：在输入层加入可微的虚拟 Token，通过反向传播和梯度下降更新参数。这种方法在自然语言理解任务中表现优异。</li>
-<li><strong>Prompt Tuning</strong> ：在输入序列前增加特定长度的特殊 Token，训练少量参数的小模型。这种方法在大模型上效果接近全量微调。</li>
-<li><strong>LoRA</strong> ：通过在每个 self - attention 层中加入低秩矩阵来实现微调，显著减少了可训练参数数量。这种方法在多个数据集上表现与全量微调相近。</li>
-<li><strong>AdaLoRA</strong> ：基于权重矩阵的重要性自适应调整不同模块的秩，进一步提升了 LoRA 的性能。</li>
+<li>分词方式：英文文本天然地通过空格分隔单词，为自动分词提供了便利。中文则缺乏明确的分隔符，分词需要依据语义和上下文进行，更加复杂且容易产生歧义。</li>
+<li>词形变化：英文单词具有丰富的词形变化，如时态、语态、单复数等，需要进行词形还原（Lemmatization）和词干提取（Stemming）以统一处理。词性还原：does，done，doing，did 需要通过词性还原恢复成 do。词干提取：cities，children，teeth 这些词，需要转换为 city，child，tooth”这些基本形态。中文则不需要。</li>
+<li>粒度问题：中文分词时需要考虑粒度大小，即词汇的划分粗细。不同粒度可能对应不同的语义，需要根据具体场景选择。英文中由于单词本身即为基础单位，不存在这一问题。</li>
 </ul>
-<h3 id="_1">结论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>微调的最终目的是在可控成本的前提下，尽可能提升大模型在特定领域的能力。不同的微调方法各有优缺点，选择合适的方法可以根据具体任务和资源情况进行调整。</p>
+<h2 id="prompt-engineering">prompt engineering<a class="headerlink" href="#prompt-engineering" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../pic/%E6%88%AA%E5%B1%8F2025-05-12%2020.07.05.png" /></p>
+<p><img alt="alt text" src="../pic/%E6%88%AA%E5%B1%8F2025-05-12%2020.06.03.png" /></p>
 
 
 

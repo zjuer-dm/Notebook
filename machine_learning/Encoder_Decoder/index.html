@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../fine_tune/">
+        <link rel="prev" href="../Tokenization/">
       
       
-        <link rel="next" href="../../computer/computer/">
+        <link rel="next" href="../optimizer/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Tokenization - 繁星若尘的Notebook</title>
+        <title>Encoder-Decoder - 繁星若尘的Notebook</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#encoder-decoder" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tokenization
+              Encoder-Decoder
             
           </span>
         </div>
@@ -1069,6 +1069,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1158,19 +1162,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Tokenization/" class="md-nav__link">
         
   
   
@@ -1181,7 +1176,132 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Encoder-Decoder
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encoder-Decoder
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder-Decoder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoder-Decoder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、Encoder-Decoder 的本质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、Encoder-Decoder的原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、Encoder-Decoder的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    优化器
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2123,6 +2243,8 @@
       
         
       
+        
+      
     
     
     
@@ -2299,6 +2421,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading/%E7%BB%8F%E6%B5%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Economy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2345,8 +2490,56 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder-Decoder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoder-Decoder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、Encoder-Decoder 的本质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、Encoder-Decoder的原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、Encoder-Decoder的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2365,21 +2558,104 @@
   
 
 
-<h1 id="_1">分词<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>核心逻辑：将句子、段落、文章这种长文本，分解为以字词为单位的数据结构。</p>
+  <h1>Encoder-Decoder</h1>
+
+<h2 id="encoder-decoder">Encoder-Decoder<a class="headerlink" href="#encoder-decoder" title="Permanent link">&para;</a></h2>
+<p>本文将从Encoder-Decoder的本质、Encoder-Decoder的原理、Encoder-Decoder的应用三个方面，带您一文搞懂Encoder-Decoder（编码器-解码器）。</p>
+<h3 id="encoder-decoder_1"><strong>一、Encoder-Decoder 的本质</strong><a class="headerlink" href="#encoder-decoder_1" title="Permanent link">&para;</a></h3>
+<p><strong><em>核心逻辑</em>：将现实问题转化为数学问题，通过求解数学问题来得到现实世界的解决方案。</strong></p>
 <ul>
-<li>文本切分：分词是将连续的文本切分为独立的、有意义的词汇单元的过程。这些词汇单元可以是单词、词组或特定的符号，切分的目的是使文本更易于处理和解析。</li>
-<li>语义理解的基础：分词是语义理解的基础步骤。计算机通过分词能够识别出文本中的基本语义单元，进而进行词性标注、句法分析、语义推理等更高级的处理。</li>
-<li>数据结构化：分词将非结构化的文本数据转化为结构化的词汇序列，使得文本数据能够被计算机程序有效地处理和分析。</li>
+<li>Encoder （编码器）：“将现实问题转化为数学问题”</li>
 </ul>
-<p>为什么要分词： 分词是将自然语言简化为数学问题，提供合适语义粒度的关键步骤。</p>
-<p>问题转化：分词可以将非结构化的文本数据转化为结构化数据，这样复杂的自然语言处理就被转化为了更易于处理的数学问题。</p>
-<p>合适的语义粒度：词是语言中表达完整含义的基本单位。 与字相比，词能够提供更丰富的语义信息。单个字往往无法独立表达完整的意义，而词则可以。同时，与句子相比，词的粒度更小，更易于处理和复用。</p>
-<p><img alt="alt text" src="../pic/%E6%88%AA%E5%B1%8F2025-05-12%2019.33.34.png" /></p>
+<p>Encoder编码器</p>
 <ul>
-<li>分词方式：英文文本天然地通过空格分隔单词，为自动分词提供了便利。中文则缺乏明确的分隔符，分词需要依据语义和上下文进行，更加复杂且容易产生歧义。</li>
-<li>词形变化：英文单词具有丰富的词形变化，如时态、语态、单复数等，需要进行词形还原（Lemmatization）和词干提取（Stemming）以统一处理。词性还原：does，done，doing，did 需要通过词性还原恢复成 do。词干提取：cities，children，teeth 这些词，需要转换为 city，child，tooth”这些基本形态。中文则不需要。</li>
-<li>粒度问题：中文分词时需要考虑粒度大小，即词汇的划分粗细。不同粒度可能对应不同的语义，需要根据具体场景选择。英文中由于单词本身即为基础单位，不存在这一问题。</li>
+<li>Decoder （解码器）：“求解数学问题，并转化为现实世界的解决方案”</li>
+</ul>
+<p>Decoder解码器</p>
+<p><strong>Seq2Seq( <em>*Sequence-to-sequence)：</em>*输入一个序列，输出另一个序列</strong>**</p>
+<ul>
+<li>
+<p><strong>Seq2Seq（序列到序列）：</strong> 强调模型的 <strong>目的</strong>——将输入序列转换为输出序列。</p>
+</li>
+<li>
+<p><strong>Encoder-Decoder（编码器-解码器）：</strong> 强调模型的 <strong>实现方法</strong>——提供实现这一目的的具体方法或架构。</p>
+</li>
+</ul>
+<p>Seq2Seq</p>
+<h3 id="encoder-decoder_2">二、Encoder-Decoder的原理<a class="headerlink" href="#encoder-decoder_2" title="Permanent link">&para;</a></h3>
+<p><strong>Encoder（编码器）：</strong></p>
+<ul>
+<li>
+<p>编码器的作用是将输入序列转换成一个固定长度的上下文向量。</p>
+</li>
+<li>
+<p>它通常使用循环神经网络（RNN）或其变体（如LSTM、GRU）来实现。</p>
+</li>
+<li>
+<p>在每个时间步，编码器会读取输入序列的一个元素，并更新其隐藏状态。</p>
+</li>
+<li>
+<p>编码完成后，最终的隐藏状态或隐藏状态的某种变换被用作上下文向量。</p>
+</li>
+</ul>
+<p><strong>Decoder（解码器）：</strong></p>
+<ul>
+<li>
+<p>解码器的任务是从上下文向量中生成输出序列。</p>
+</li>
+<li>
+<p>它也通常使用循环神经网络（RNN）来实现。</p>
+</li>
+<li>
+<p>在每个时间步，解码器会基于上一个时间步的输出、当前的隐藏状态和上下文向量来生成当前时间步的输出。</p>
+</li>
+</ul>
+<h3 id="encoder-decoder_3">三、Encoder-Decoder的应用<a class="headerlink" href="#encoder-decoder_3" title="Permanent link">&para;</a></h3>
+<p><strong>机器翻译（</strong> 文本 – 文本 <strong>）：</strong></p>
+<p>这是Encoder-Decoder最经典的应用。编码器将源语言的句子编码成上下文向量，解码器则从该向量中生成目标语言的翻译。</p>
+<p><strong>机器翻译中Encoder-Decoder的6个步骤：</strong></p>
+<ul>
+<li>
+<p>源语言输入：将源语言的句子转换为词向量序列，作为编码器的输入。</p>
+</li>
+<li>
+<p>编码器：通过循环神经网络处理源语言词向量，输出包含句子全部信息的上下文向量。</p>
+</li>
+<li>
+<p>上下文向量：作为解码器的初始输入，它固定长度地编码了源语言句子的整体语义。</p>
+</li>
+<li>
+<p>解码器：基于上下文向量，逐步生成目标语言的词序列，形成翻译结果。</p>
+</li>
+<li>
+<p>目标语言输出：解码器生成的词序列构成最终翻译的目标语言句子。</p>
+</li>
+<li>
+<p>训练与优化：通过比较模型生成的翻译与真实目标句子，优化模型参数以提高翻译准确性。</p>
+</li>
+</ul>
+<p><strong>语音识别（音频 – 文本）：</strong></p>
+<p>在语音识别任务中，编码器将音频信号转换为特征表示，解码器则从这些特征中生成文本转录。</p>
+<p><strong><em>*语音识别任务中Encoder-Decoder的6个步骤</em>*：*</strong>*</p>
+<ul>
+<li>
+<p>音频信号输入：将原始音频信号进行预处理，准备送入编码器进行特征提取。</p>
+</li>
+<li>
+<p>编码器处理：编码器接收预处理后的音频，逐帧提取声学特征，转换为高维特征向量序列。</p>
+</li>
+<li>
+<p>特征表示：编码器输出的特征向量序列捕捉了音频中的关键信息，为解码器提供输入。</p>
+</li>
+<li>
+<p>解码器生成：解码器根据特征向量序列和语言模型，逐步预测并生成对应的文本转录。</p>
+</li>
+<li>
+<p>文本转录输出：解码器完成预测，输出最终的文本转录结果。</p>
+</li>
+<li>
+<p>训练与优化：通过比较生成的文本转录与真实标签，优化模型参数以提高识别准确率。</p>
+</li>
 </ul>
 
 
