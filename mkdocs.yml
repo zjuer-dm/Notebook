@@ -101,9 +101,7 @@ markdown_extensions:
 
 nav:
   - Home: 'index.md'
-  - 相关知识记录: 
-      - 控制知识记录: 'accumulate/控制相关.md'
-      - 机器人交叉创新: 'robot/机器人交叉创新.md'
+  
   - 机器人相关:
       - 机器人学: 'robot/Robotics.md'
       - ros相关: 'robot/ros.md'
@@ -152,7 +150,11 @@ nav:
       - 复变函数的微积分: 'math/复变函数的微积分.md'
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'
-  - 其他知识:
+  
+  - 相关知识记录: 
+      - 控制知识记录: 'accumulate/控制相关.md'
+      - 机器人交叉创新: 'robot/机器人交叉创新.md'
+      - 算法练习知识: 'accumulate/算法练习.md'
       - 英语作文: 'accumulate/English.md'
   - 阅读:
       - 合集: 'reading/合集.md'
@@ -160,8 +162,9 @@ nav:
       - 心理 : 'reading/心理.md'
       - 银河帝国: 'reading/银河帝国.md'
       - movie : 'reading/movie.md'
-      - 最懂输的人才能成为赢家: 'reading/最懂输的人才能成为赢家.md'
       - Economy: 'reading/经济.md'
+      - 最懂输的人才能成为赢家: 'reading/最懂输的人才能成为赢家.md'
+      
   - 关于: 'record/about.md'
 
 
