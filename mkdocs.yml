@@ -152,7 +152,10 @@ nav:
       - 复变函数的微积分: 'math/复变函数的微积分.md'
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'
-  
+  - 数学物理新知识:
+      
+      - 量子力学:
+        - 量子力学1: 'new_math_and_physics/量子力学/波动方程及其物理意义.md'
   - 相关知识记录: 
       - 控制知识记录: 'accumulate/控制相关.md'
       - 机器人交叉创新: 'robot/机器人交叉创新.md'
