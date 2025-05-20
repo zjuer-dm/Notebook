@@ -109,7 +109,7 @@ nav:
       - Yolov : 'robot/yolov.md'
       - 机器人零散知识: 'robot/others_robot.md'
       - isaac_sim: 'robot/isaac_sim.md'
-      - LI-GS_and_RISED: 'robot/LI-GS_and_RISED.md'
+      
   - 控制学科:
       - 机器视觉 : 'control/machine_vision.md'
       - 最优化理论: 'control/Computational_Methods_For_Optimization.md'
@@ -145,6 +145,8 @@ nav:
             - 十二月练习: 'computer/algorithm/Dec_practice.md'
 
   - 数学物理知识:
+      - 数学物理方法4:
+        - 数学物理方法1: 'math/数学物理方法4/数学物理方法1.md'
       - 数学物理方法5:
         - 数学物理方法1: 'math/数学物理方法5/数学物理方法1.md'
       - 数学复习: 'math/math_review.md'
@@ -153,7 +155,7 @@ nav:
       - 信息论: 'math/information_theory.md'
       - 概率论和数理统计 : 'math/概率论和数理统计.md'
   - 数学物理新知识:
-      
+      - 引言: 'new_math_and_physics/index.md'
       - 量子力学:
         - 量子力学1: 'new_math_and_physics/量子力学/波动方程及其物理意义.md'
   - 相关知识记录: 
@@ -161,6 +163,9 @@ nav:
       - 机器人交叉创新: 'robot/机器人交叉创新.md'
       - 算法练习知识: 'accumulate/算法练习.md'
       - 英语作文: 'accumulate/English.md'
+  - 论文阅读:
+      - LI-GS_and_RISED: 'robot/LI-GS_and_RISED.md'
+      
   - 阅读:
       - 合集: 'reading/合集.md'
       - 小米创业思考: 'reading/小米创业思考.md'

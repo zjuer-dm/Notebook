@@ -95,3 +95,16 @@ $$ d\left(P_{0}, l\right)=\frac{\left|s \times P_{1} P_{0}\right|}{|s|} $$
 (2) $ \lim _{n \rightarrow \infty} u_{n}=0 $
  
 则级数收敛, 且其和 $ s \leqslant u_{1} $ , 其余项 $ r_{n} $ 的绝对值 $ \left|r_{n}\right| \leqslant u_{n+1} $ .
+
+## 梯度，散度，旋度
+![alt text](<pic/截屏2025-05-20 19.17.29.png>)
+
+![alt text](<pic/截屏2025-05-20 19.18.16.png>)
+
+![alt text](<pic/截屏2025-05-20 19.18.41.png>)
+
+![alt text](<pic/截屏2025-05-20 19.19.03.png>)
+
+![alt text](<pic/截屏2025-05-20 19.19.30.png>)
+
+![alt text](<pic/截屏2025-05-20 19.19.53.png>)
