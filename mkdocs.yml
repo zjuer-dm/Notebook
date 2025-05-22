@@ -158,6 +158,8 @@ nav:
       - 引言: 'new_math_and_physics/index.md'
       - 量子力学:
         - 量子力学1: 'new_math_and_physics/量子力学/波动方程及其物理意义.md'
+      - 泛函分析:
+        - 度量空间: 'new_math_and_physics/泛函分析/第一章.md'
   - 相关知识记录: 
       - 控制知识记录: 'accumulate/控制相关.md'
       - 机器人交叉创新: 'robot/机器人交叉创新.md'
@@ -165,7 +167,7 @@ nav:
       - 英语作文: 'accumulate/English.md'
   - 论文阅读:
       - LI-GS_and_RISED: 'robot/LI-GS_and_RISED.md'
-      
+
   - 阅读:
       - 合集: 'reading/合集.md'
       - 小米创业思考: 'reading/小米创业思考.md'
