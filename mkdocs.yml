@@ -116,6 +116,7 @@ nav:
       - 智能控制 : 'control/Intelligent_control.md'
       - 控制理论: 'control/control_system.md'
       - 信号与系统: 'control/信号与系统.md'
+      - 最优控制: 'control/最优控制.md'
   - 人工智能:
       - Attention机制: 'machine_learning/Attention.md'
       - Finetune: 'machine_learning/fine_tune.md'
@@ -162,11 +163,12 @@ nav:
         - 度量空间: 'new_math_and_physics/泛函分析/第一章.md'
   - 相关知识记录: 
       - 控制知识记录: 'accumulate/控制相关.md'
-      - 机器人交叉创新: 'robot/机器人交叉创新.md'
       - 算法练习知识: 'accumulate/算法练习.md'
       - 英语作文: 'accumulate/English.md'
+      
   - 论文阅读:
       - LI-GS_and_RISED: 'robot/LI-GS_and_RISED.md'
+      - DDPM: 'robot/机器人交叉创新.md'
 
   - 阅读:
       - 合集: 'reading/合集.md'
