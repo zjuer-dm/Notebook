@@ -797,6 +797,8 @@
       
         
       
+        
+      
     
     
     
@@ -940,6 +942,29 @@
   
   <span class="md-ellipsis">
     信号与系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control/%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    最优控制
     
   </span>
   
@@ -2072,6 +2097,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-is-a-definite-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      何谓“定解问题”? (What is a "Definite Problem"?)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-posedness-of-definite-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      定解问题的适定性 (Well-posedness of Definite Problems)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-definite-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      定解条件的类型 (Types of Definite Conditions)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      稳定性说明 (Explanation of Stability)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2540,8 +2601,6 @@
       
         
       
-        
-      
     
     
     
@@ -2593,29 +2652,6 @@
   
   <span class="md-ellipsis">
     控制知识记录
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../robot/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BA%A4%E5%8F%89%E5%88%9B%E6%96%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    机器人交叉创新
     
   </span>
   
@@ -2690,6 +2726,8 @@
       
         
       
+        
+      
     
     
     
@@ -2741,6 +2779,29 @@
   
   <span class="md-ellipsis">
     LI-GS_and_RISED
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robot/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BA%A4%E5%8F%89%E5%88%9B%E6%96%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DDPM
     
   </span>
   
@@ -3149,6 +3210,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-is-a-definite-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      何谓“定解问题”? (What is a "Definite Problem"?)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-posedness-of-definite-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      定解问题的适定性 (Well-posedness of Definite Problems)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-definite-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      定解条件的类型 (Types of Definite Conditions)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      稳定性说明 (Explanation of Stability)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3270,6 +3367,44 @@
 <li><strong>固定端</strong>：<span class="arithmatex">\(u = 0\)</span></li>
 <li><strong>自由端</strong>：<span class="arithmatex">\(\frac{\partial u}{\partial x} = 0\)</span></li>
 <li><strong>张力变化</strong>：<span class="arithmatex">\(T \frac{\partial u}{\partial x} = f\)</span>（<span class="arithmatex">\(f\)</span> 为外力）</li>
+</ul>
+<h2 id="what-is-a-definite-problem">何谓“定解问题”? (What is a "Definite Problem"?)<a class="headerlink" href="#what-is-a-definite-problem" title="Permanent link">&para;</a></h2>
+<p>偏微分方程 (Partial Differential Equation) + 定解条件 (Definite Conditions) = 定解问题 (Definite Problem) </p>
+<h2 id="well-posedness-of-definite-problems">定解问题的适定性 (Well-posedness of Definite Problems)<a class="headerlink" href="#well-posedness-of-definite-problems" title="Permanent link">&para;</a></h2>
+<p>在什么条件下,定解问题的解是存在的,唯一的,并且是稳定的? (Under what conditions does the solution to a definite problem exist, is unique, and is stable?) </p>
+<ul>
+<li><strong>解的存在性 (Existence of Solution):</strong> 定解问题有解 (The definite problem has a solution). </li>
+<li><strong>解的唯一性 (Uniqueness of Solution):</strong> 定解问题只有唯一解 (The definite problem has only one solution). </li>
+<li><strong>解的稳定性 (Stability of Solution):</strong> 解连续依赖于定解条件 (The solution depends continuously on the definite conditions). <ul>
+<li>当定解条件 (初始条件或边界条件) 有微小变动时, 解的变动也应是微小的. (When the definite conditions (initial or boundary conditions) have small perturbations, the change in the solution should also be small). </li>
+</ul>
+</li>
+</ul>
+<h2 id="types-of-definite-conditions">定解条件的类型 (Types of Definite Conditions)<a class="headerlink" href="#types-of-definite-conditions" title="Permanent link">&para;</a></h2>
+<p>定解问题通常包含初始条件和边界条件。</p>
+<ul>
+<li><strong>初始条件 (Initial Conditions):</strong> 描述物理量在起始时刻 (例如 <span class="arithmatex">\(t=0\)</span>) 的状态。 <ul>
+<li>例如: <span class="arithmatex">\(u(x, y, z, t)|_{t=0} = \phi(x, y, z)\)</span> [cite: 23, 24, 25]</li>
+</ul>
+</li>
+<li>
+<p><strong>边界条件 (Boundary Conditions):</strong> 描述物理量在问题所研究区域边界 <span class="arithmatex">\(\Sigma\)</span> 上的行为。 </p>
+<ul>
+<li>例如 (狄利克雷边界条件 - Dirichlet boundary condition): <span class="arithmatex">\(u(x, y, z, t)|_{\Sigma} = f(\Sigma, t)\)</span> [cite: 23, 24, 25]</li>
+</ul>
+</li>
+<li>
+<p><strong>相容性条件 (Compatibility Condition):</strong> 初始条件和边界条件在边界与初始时刻的交界处应满足一定的协调关系。 [cite: 23, 24, 25]</p>
+<ul>
+<li>例如: <span class="arithmatex">\(f(\Sigma, t)|_{t=0} = \phi(x, y, z)|_{\Sigma}\)</span> [cite: 23, 24, 25]</li>
+</ul>
+</li>
+</ul>
+<h2 id="explanation-of-stability">稳定性说明 (Explanation of Stability)<a class="headerlink" href="#explanation-of-stability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>如果初始条件 <span class="arithmatex">\(\phi(x, y, z)\)</span> 发生微小改变, 那么解 <span class="arithmatex">\(u(x,y,z,t)\)</span> 也应该只发生微小改变。 </li>
+<li>如果边界条件 (例如 <span class="arithmatex">\(u|_{\Sigma} = u_0\)</span>) 发生微小改变 (即 <span class="arithmatex">\(u_0\)</span> 有小扰动), 那么解也应该只发生微小改变。 </li>
+<li>这种解对初始条件和边界条件的连续依赖性是物理问题适定性的重要体现。 </li>
 </ul>
 
 
