@@ -1315,6 +1315,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#trie" class="md-nav__link">
+    <span class="md-ellipsis">
+      字典树 (Trie)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1934,6 +1943,8 @@
       
         
       
+        
+      
     
     
     
@@ -1985,6 +1996,29 @@
   
   <span class="md-ellipsis">
     数学物理方法1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%954/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%952/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数学物理方法2
     
   </span>
   
@@ -2953,6 +2987,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#trie" class="md-nav__link">
+    <span class="md-ellipsis">
+      字典树 (Trie)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3046,6 +3089,26 @@
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="k">return</span> <span class="n">order</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 <p>时间复杂度：<span class="arithmatex">\(O(E+V)\)</span> 空间复杂度：<span class="arithmatex">\(O(V)\)</span></p>
+<h2 id="trie">字典树 (Trie)<a class="headerlink" href="#trie" title="Permanent link">&para;</a></h2>
+<p>字典树（Trie，也称为前缀树或查找树）是一种树形数据结构，通常用于存储动态集合或关联数组，其中的键通常是字符串。它能够实现字符串的快速检索、插入和删除，并且可以高效地查找具有相同前缀的字符串。</p>
+<p>字典树由节点组成，每个节点包含以下信息：</p>
+<ul>
+<li><strong>子节点指针数组</strong>：通常是一个大小为字符集大小（如26个字母或ASCII码）的数组，用于指向下一个字符对应的子节点。</li>
+<li><strong>结束标记</strong>：一个布尔值，表示从根节点到当前节点路径所形成的字符串是否是一个完整的单词。</li>
+</ul>
+<p>插入一个字符串时，从根节点开始，遍历字符串的每个字符。如果当前字符对应的子节点不存在，则创建新节点。遍历结束后，将最后一个字符对应节点的结束标记设置为真。</p>
+<p><strong>示例</strong>：插入 "apple" 和 "app"</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>graph TD
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    root[&quot;根&quot;]
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    root --&gt; a[a]
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    a --&gt; p1[p]
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    p1 --&gt; p2[p]
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    p2 --&gt; l[l]
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    l --&gt; e[e(结束)]
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    p1 --&gt; p3[p(结束)]
+</code></pre></div>
+<p>查找一个字符串时，从根节点开始，遍历字符串的每个字符。如果某个字符对应的子节点不存在，则表示该字符串不在字典树中。如果遍历完所有字符，并且最后一个字符对应节点的结束标记为真，则表示找到该字符串。</p>
+<p>前缀查找与字符串查找类似，只是不需要检查最后一个字符对应节点的结束标记。只要能遍历完所有前缀字符，就表示该前缀存在。</p>
 
 
 

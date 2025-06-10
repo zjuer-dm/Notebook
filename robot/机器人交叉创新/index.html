@@ -1881,6 +1881,8 @@
       
         
       
+        
+      
     
     
     
@@ -1932,6 +1934,29 @@
   
   <span class="md-ellipsis">
     数学物理方法1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%954/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%952/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数学物理方法2
     
   </span>
   
@@ -2752,6 +2777,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ddpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDPM 的主要优势总结 🌟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      详细概念解读 🧐
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="详细概念解读 🧐">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#long-horizon-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      长程可扩展性 (Long-horizon scalability)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-compositionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务可组合性 (Task compositionality)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-compositionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      时序可组合性 (Temporal compositionality)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-non-greedy-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      高效非贪心规划 (Effective non-greedy planning)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3154,6 +3239,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ddpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDPM 的主要优势总结 🌟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      详细概念解读 🧐
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="详细概念解读 🧐">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#long-horizon-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      长程可扩展性 (Long-horizon scalability)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-compositionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务可组合性 (Task compositionality)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-compositionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      时序可组合性 (Temporal compositionality)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-non-greedy-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      高效非贪心规划 (Effective non-greedy planning)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3283,6 +3428,45 @@ R^* = \arg\max_R \mathbb{E}_{\pi_E} \left[ \sum_{t=0}^{\infty} \gamma^t R(s_t, a
 <h2 id="motion-planning-diffusion-learning-and-planning-of-robot-motions-with-diffusion-models">Motion Planning Diffusion:  Learning and Planning of Robot Motions with Diffusion Models<a class="headerlink" href="#motion-planning-diffusion-learning-and-planning-of-robot-motions-with-diffusion-models" title="Permanent link">&para;</a></h2>
 <p>Learning priors on trajectory distributions can help accelerate robot motion planning optimization. Given previously successful plans, learning trajectory generative models as priors for a new planning problem is highly desirable. Prior works propose several ways on utilizing this prior to bootstrapping the motion planning problem. Either sampling the prior for initializations or using the prior distribution in a maximum-a-posterior formulation for trajectory optimization. In this work, we propose learning diffusion models as priors. We then can sample directly from the posterior trajectory distribution conditioned on task goals, by leveraging the inverse denoising process of diffusion models. Furthermore, diffusion has been recently shown to effectively encode data multimodality in high-dimensional settings, which is particularly well-suited for large trajectory dataset. To demonstrate our method efficacy, we compare our proposed method - Motion Planning Diffusion - against several baselines in simulated planar robot and 7-dof robot arm manipulator environments. To assess the generalization capabilities of our method, we test it in environments with previously unseen obstacles. Our experiments show that diffusion models are strong priors to encode high-dimensional trajectory distributions of robot motions.</p>
 <p><img alt="alt text" src="%E6%88%AA%E5%B1%8F2025-04-24%2011.07.25.png" /></p>
+<p>根据提供的两篇论文，扩散模型（DDPMs），特别是应用于运动规划的Motion Planning Diffusion (MPD) 和 Diffuser，展现出以下主要优势：</p>
+<h2 id="ddpm">DDPM 的主要优势总结 🌟<a class="headerlink" href="#ddpm" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>强大的分布建模能力：</strong> 扩散模型能够有效地编码复杂、高维数据分布 [cite: 1, 7]，尤其擅长捕捉数据中的多模态特性 [cite: 7, 30]。这对于机器人运动规划中可能存在多种有效路径的情况尤为重要 [cite: 7, 24]。</li>
+<li><strong>高质量的样本生成：</strong> 相比于一些其他生成模型（如CVAE），扩散模型在生成样本时具有更优的性能 [cite: 30]，能够生成更平滑、更多样化且更可能无碰撞的轨迹 [cite: 32, 184, 185]。</li>
+<li><strong>灵活的条件引导：</strong> 扩散模型的去噪过程允许引入外部信息（如任务目标、约束）来引导采样过程 [cite: 6, 255, 280]，从而生成满足特定需求的轨迹。MPD通过结合代价梯度的引导实现这一点 [cite: 6, 98]，而Diffuser则通过分类器引导或图像修复（inpainting）的方式实现 [cite: 255, 309]。</li>
+<li><strong>端到端的轨迹优化：</strong> 扩散模型可以直接生成整个轨迹，并在生成过程中进行优化 [cite: 29, 253]，而不是分步预测或依赖后续优化器。这使得模型训练和规划过程更紧密地结合 [cite: 253, 266]。</li>
+<li><strong>作为优秀的先验：</strong> 学习到的扩散模型可以作为强大的先验知识 [cite: 5, 10]，用于加速或改进传统的运动规划算法 [cite: 2]，例如为基于优化的规划器（如GPMP）提供高质量的初始化 [cite: 148, 195]。</li>
+</ol>
+<hr />
+<h2 id="_8">详细概念解读 🧐<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>以下是对您提出的几个关键特性的详细解读，主要基于 "Planning with Diffusion for Flexible Behavior Synthesis" (Diffuser) 论文，并结合 "Motion Planning Diffusion" (MPD) 的相关概念：</p>
+<h3 id="long-horizon-scalability">长程可扩展性 (Long-horizon scalability)<a class="headerlink" href="#long-horizon-scalability" title="Permanent link">&para;</a></h3>
+<p><strong>长程可扩展性</strong> 指的是模型在处理和规划需要长时间跨度、包含许多步骤的序列（如复杂任务的轨迹）时，其性能不会显著下降，并且能够有效避免错误累积的能力。</p>
+<ul>
+<li><strong>Diffuser 的阐述：</strong> Diffuser 模型训练的目标是其生成轨迹的准确性，而非单步预测的误差 [cite: 281]。这使得它不像传统的单步动态模型那样会遭受随时间累积的 rollout 误差，因此在长规划时域上能更优雅地扩展 [cite: 281]。其有效的长程预测能力直接转化为有效的长程规划能力 [cite: 361]。</li>
+<li><strong>MPD 的体现：</strong> 虽然 MPD 论文没有直接使用“长程可扩展性”这一术语，但它通过学习整个轨迹的分布 [cite: 207]，并在去噪的每一步都考虑全局成本 [cite: 98]，避免了传统优化方法容易陷入局部最优或短视的问题，从而有能力处理较长的轨迹规划。</li>
+</ul>
+<hr />
+<h3 id="task-compositionality">任务可组合性 (Task compositionality)<a class="headerlink" href="#task-compositionality" title="Permanent link">&para;</a></h3>
+<p><strong>任务可组合性</strong> 指的是模型能够灵活地组合或适应不同任务需求的能力，通常无需为每个新任务或任务组合重新训练整个模型。</p>
+<ul>
+<li><strong>Diffuser 的阐述：</strong> Diffuser 的核心模型（扩散模型本身）是独立于奖励函数的 [cite: 271, 369]。规划可以通过相对轻量级的扰动函数 <span class="arithmatex">\(h(\tau)\)</span> (perturbation functions) 来引导 [cite: 370]，这些函数可以对应不同的奖励或成本，甚至可以组合多个扰动函数以同时满足多个目标 [cite: 370]。例如，可以通过叠加不同奖励函数的梯度来组合多个奖励 [cite: 282]。</li>
+<li><strong>MPD 的体现：</strong> MPD 的规划过程允许结合多个运动规划成本项（如碰撞、平滑度、目标到达）[cite: 73]，通过加权梯度 <span class="arithmatex">\(g = -\sum_{i}\lambda_{i}\nabla_{\tau_{t-1}}c_{i}(\tau_{t-1}=\mu_{t})\)</span> 来引导轨迹生成 [cite: 94, 96]。这种方式可以看作是一种任务组合，其中不同的成本项代表了任务的不同方面或子目标。</li>
+</ul>
+<hr />
+<h3 id="temporal-compositionality">时序可组合性 (Temporal compositionality)<a class="headerlink" href="#temporal-compositionality" title="Permanent link">&para;</a></h3>
+<p><strong>时序可组合性</strong> 描述了模型通过组合或“拼接”已学习到的行为片段（子序列）来生成新的、可能未在训练数据中直接见过的连贯长序列的能力。</p>
+<ul>
+<li><strong>Diffuser 的阐述：</strong> Diffuser 通过迭代地改进轨迹的局部一致性来生成全局连贯的轨迹 [cite: 283, 318]，允许它通过将熟悉的子序列以新的方式拼接在一起来泛化到新的轨迹 [cite: 283, 365]。尽管它不是一个马尔可夫模型，但它的每个去噪步骤都基于局部信息进行预测，多步组合后能确保全局的连贯性 [cite: 276, 318]。</li>
+<li><strong>MPD 的体现：</strong> MPD 中的扩散模型通过在整个轨迹上操作的U-Net架构进行学习 [cite: 89, 38]。虽然没有明确论述“拼接”片段，但U-Net结构本身具有捕捉不同尺度特征的能力，其去噪过程也是逐步从噪声中恢复结构，这暗示了其可以学习和组合轨迹中的时序模式。</li>
+</ul>
+<hr />
+<h3 id="effective-non-greedy-planning">高效非贪心规划 (Effective non-greedy planning)<a class="headerlink" href="#effective-non-greedy-planning" title="Permanent link">&para;</a></h3>
+<p><strong>高效非贪心规划</strong> 指的是规划方法不局限于每一步的局部最优选择（贪心策略），而是能够进行更长远的考虑，以找到全局更优的解决方案，尤其是在面对稀疏奖励或需要复杂序列决策的问题时。</p>
+<ul>
+<li><strong>Diffuser 的阐述：</strong> 通过模糊模型和规划器之间的界限，Diffuser 的训练过程在改进模型预测的同时也提升了其规划能力 [cite: 272]。这产生了一个学习到的规划器，能够解决传统规划方法难以处理的长程、稀疏奖励问题 [cite: 273, 362]。Diffuser 的学习规划过程不会遭受常见于 shooting 算法的短视失败模式 [cite: 348, 362]。</li>
+<li><strong>MPD 的体现：</strong> MPD 将运动规划表述为“规划即推理”(planning-as-inference) [cite: 34, 78]，目标是采样整个轨迹的后验分布 <span class="arithmatex">\(p(\tau|\mathcal{O})\)</span> [cite: 78]。在每个去噪步骤中，它都会考虑整个轨迹的成本梯度来引导样本向低成本区域移动 [cite: 94, 98]，这本质上是一种非贪心的全局优化视角。与首先从先验采样然后进行优化的方法相比，MPD将先验采样和运动优化合并到一个算法中 [cite: 29]。</li>
+</ul>
 
 
 
